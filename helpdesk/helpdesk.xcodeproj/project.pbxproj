@@ -1,0 +1,73 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		52E61BE71521C30F00C14653 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		5210CDB01521C150003ED15C = {
+			isa = PBXGroup;
+			children = (
+				52E61BE71521C30F00C14653 /* .gitignore */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		5210CDB21521C150003ED15C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Università degli studi di Torino";
+			};
+			buildConfigurationList = 5210CDB51521C150003ED15C /* Build configuration list for PBXProject "helpdesk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5210CDB01521C150003ED15C;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		5210CDB71521C150003ED15C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		5210CDB81521C150003ED15C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5210CDB51521C150003ED15C /* Build configuration list for PBXProject "helpdesk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5210CDB71521C150003ED15C /* Debug */,
+				5210CDB81521C150003ED15C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5210CDB21521C150003ED15C /* Project object */;
+}
