@@ -8,12 +8,60 @@
 
 /* Begin PBXFileReference section */
 		52E61BE71521C30F00C14653 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
+		52E61C331521DE0D00C14653 /* coda.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = coda.c; path = ../coda.c; sourceTree = "<group>"; };
+		52E61C341521DE0D00C14653 /* coda.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = coda.h; path = ../coda.h; sourceTree = "<group>"; };
+		52E61C351521DE0D00C14653 /* log.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = log.c; path = ../log.c; sourceTree = "<group>"; };
+		52E61C361521DE0D00C14653 /* log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = log.h; path = ../log.h; sourceTree = "<group>"; };
+		52E61C371521DE0D00C14653 /* miacodac.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = miacodac.c; path = ../miacodac.c; sourceTree = "<group>"; };
+		52E61C381521DE0D00C14653 /* miacodac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = miacodac.h; path = ../miacodac.h; sourceTree = "<group>"; };
+		52E61C391521DE0D00C14653 /* miacodas.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = miacodas.c; path = ../miacodas.c; sourceTree = "<group>"; };
+		52E61C3A1521DE0D00C14653 /* miacodas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = miacodas.h; path = ../miacodas.h; sourceTree = "<group>"; };
+		52E61C3B1521DE0D00C14653 /* miainterfaccia.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = miainterfaccia.c; path = ../miainterfaccia.c; sourceTree = "<group>"; };
+		52E61C3C1521DE0D00C14653 /* miainterfaccia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = miainterfaccia.h; path = ../miainterfaccia.h; sourceTree = "<group>"; };
+		52E61C3D1521DE0D00C14653 /* mialista.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = mialista.c; path = ../mialista.c; sourceTree = "<group>"; };
+		52E61C3E1521DE0D00C14653 /* mialista.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mialista.h; path = ../mialista.h; sourceTree = "<group>"; };
+		52E61C3F1521DE0D00C14653 /* mialistad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = mialistad.c; path = ../mialistad.c; sourceTree = "<group>"; };
+		52E61C401521DE0D00C14653 /* mialistad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mialistad.h; path = ../mialistad.h; sourceTree = "<group>"; };
+		52E61C411521DE0D00C14653 /* mialistas.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = mialistas.c; path = ../mialistas.c; sourceTree = "<group>"; };
+		52E61C421521DE0D00C14653 /* mialistas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mialistas.h; path = ../mialistas.h; sourceTree = "<group>"; };
+		52E61C431521DE0D00C14653 /* mieifile.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = mieifile.c; path = ../mieifile.c; sourceTree = "<group>"; };
+		52E61C441521DE0D00C14653 /* mieifile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mieifile.h; path = ../mieifile.h; sourceTree = "<group>"; };
+		52E61C451521DE0D00C14653 /* mieisemafori.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = mieisemafori.c; path = ../mieisemafori.c; sourceTree = "<group>"; };
+		52E61C461521DE0D00C14653 /* mieisemafori.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mieisemafori.h; path = ../mieisemafori.h; sourceTree = "<group>"; };
+		52E61C471521DE0D00C14653 /* miologs.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = miologs.c; path = ../miologs.c; sourceTree = "<group>"; };
+		52E61C481521DE0D00C14653 /* miologs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = miologs.h; path = ../miologs.h; sourceTree = "<group>"; };
+		52E61C491521DE0D00C14653 /* utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = utils.c; path = ../utils.c; sourceTree = "<group>"; };
+		52E61C4A1521DE0D00C14653 /* utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = utils.h; path = ../utils.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		5210CDB01521C150003ED15C = {
 			isa = PBXGroup;
 			children = (
+				52E61C331521DE0D00C14653 /* coda.c */,
+				52E61C341521DE0D00C14653 /* coda.h */,
+				52E61C351521DE0D00C14653 /* log.c */,
+				52E61C361521DE0D00C14653 /* log.h */,
+				52E61C371521DE0D00C14653 /* miacodac.c */,
+				52E61C381521DE0D00C14653 /* miacodac.h */,
+				52E61C391521DE0D00C14653 /* miacodas.c */,
+				52E61C3A1521DE0D00C14653 /* miacodas.h */,
+				52E61C3B1521DE0D00C14653 /* miainterfaccia.c */,
+				52E61C3C1521DE0D00C14653 /* miainterfaccia.h */,
+				52E61C3D1521DE0D00C14653 /* mialista.c */,
+				52E61C3E1521DE0D00C14653 /* mialista.h */,
+				52E61C3F1521DE0D00C14653 /* mialistad.c */,
+				52E61C401521DE0D00C14653 /* mialistad.h */,
+				52E61C411521DE0D00C14653 /* mialistas.c */,
+				52E61C421521DE0D00C14653 /* mialistas.h */,
+				52E61C431521DE0D00C14653 /* mieifile.c */,
+				52E61C441521DE0D00C14653 /* mieifile.h */,
+				52E61C451521DE0D00C14653 /* mieisemafori.c */,
+				52E61C461521DE0D00C14653 /* mieisemafori.h */,
+				52E61C471521DE0D00C14653 /* miologs.c */,
+				52E61C481521DE0D00C14653 /* miologs.h */,
+				52E61C491521DE0D00C14653 /* utils.c */,
+				52E61C4A1521DE0D00C14653 /* utils.h */,
 				52E61BE71521C30F00C14653 /* .gitignore */,
 			);
 			sourceTree = "<group>";
