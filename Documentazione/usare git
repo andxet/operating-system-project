@@ -1,0 +1,16 @@
+Tutorial per usare git :
+git add ./* ( oppure indicare il nome del file da aggiungere. Questi saranno i file che verranno uploddati )
+git commit -m "Messaggio commit"
+git push
+e ora ci chiede la password del nostro account
+
+Se il push va male xke lo sta facendo vitto
+bisogna fare git pull e poi dinuovo riparto dal gito commit -m "Messaggio" ecc
+
+Per scaricare l'ultima relase
+la prima volta : git clone https://kikkuzZz@bitbucket.org/kikkuzZz/progettoso_11_12.git
+
+per le volte successive
+git pull dalla cartella in cui hai salvato il progetto
+
+Ogni volta che faccio qualche cosa devo aggiungere i file nuovi con git add nomefile 
