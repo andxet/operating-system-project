@@ -13,10 +13,11 @@
 #include <sys/msg.h>
 #include <string.h>
 #include <stdlib.h>
-#include "repo.h"
+//#include "repo.h"
 
-//Viene definita la chiave della coda
-#define ID_CODA 811
+//Viene definita la chiave della coda:
+//999 per il server di spmistamento
+#define ID_CODA 999
 #define MAX_ATTESA 10
 
 //Definizione dei destinatari (tipo del messaggio, da assegnare al campo long del messaggio)
@@ -24,44 +25,46 @@
 //Per i processi client si userà il loro pid.
 
 //Tipi di richieste
-#define RICH_UPLOAD 20 //Il client invia prima il suo ID di client di upload, quando il server gli risponde, può inviare il pacchetto o nel caso che non venga autenticato richiedere l'accreditamento per l'upload.
-#define RICH_ACCREDITA 21 //Il client invia una richiesta di accreditamento per l'upload, il server risponde con una conferma in caso affermativo.
-#define RICH_DOWNLOAD 22 //Il client invia una stringa in cui è presente il nome di un programma.
-#define RICH_AGGIORNA 23 //Il client riceverà prima il numero di programmi presenti del repository, poi ogni programma ad uno ad uno.
-#define RICH_AGGIORNAMENTI 24
-#define RICH_PUSH 25
-#define SEGN_AGG 30
-//#define RICH_NOOP 100 //Utilizzata nel caso in cui viene ricevuto un segnale durante l'attesa di un messaggio, che interrompe l'attesa.
+//Richiesta di aiuto all'helpdesk
+#define RICH_OP 1
 
-//Tipi di risposte
-#define RISP_DOWNLOAD 32
-#define RISP_AGGIORNA 33
-#define RISP_AGGIORNAMENTI 34
-#define RISP_PUSH 35
-#define RISP_ACCREDITA 36
-#define RISP_UP 37
+//Risposta dell'helpdesk all'aiuto
+#define OP_CIAO 21
+
+//Tipo di aiuto richiesto all'helpdesk
+#define RICH_1	11
+#define RICH_2	12
+#define RICH_3	13
+#define RICH_4	14
+
+//Risposta alla richiesta da parte dell'helpdesk
+#define OP_SOLUZIONE 22
+
+//Risposta da parte del dispatcher in caso l'helpdesk sia chiuso
+#define HD_CLOSED 31
 
 
+/*
 #ifndef CODA_PACCO
 typedef struct pacco coda_dato;
 struct pacco{
 	int tipo; //Contiene la richiesta o la risposta.
 	union{//La union contiene il dato associato alla richiesta.
-	repo_pacchetto programma;
 	int dato;
-	char nome[LUNGH_NOME_PACC];
-	//float versione;
+		//char nome[LUNGH_NOME_PACC];
 	};
 };
 #define CODA_PACCO
 #endif
+*/
+
 
 #ifndef CODA_MESSAGGIO
 typedef struct coda_messaggio coda_messaggio;
 struct coda_messaggio {
-	long dest; //Verrà usata la dichiarazione dei destinatari qui sopra, oppure il PID del processo ricevente.
+	long dest;	//Verrà usata la dichiarazione dei destinatari qui sopra, oppure il PID del processo ricevente.
 	int sender; //PID del processo chiamante
-	coda_dato dato; //Tipo di messaggio (il messaggio vero e proprio) //Decidere se utilizare una union
+	int dato;	//Dato da comunicare
 };
 #define CODA_MESSAGGIO
 #endif
@@ -75,4 +78,4 @@ int coda_aggancia();
 int coda_spedisci(int coda, coda_messaggio mess);
 int coda_ricevi(int coda, int tipo, coda_messaggio *ricevuto);
 int coda_rimuovi(int coda);
-coda_messaggio coda_messaggio_componi(long destinatario, int pids, coda_dato datot);
+coda_messaggio coda_messaggio_componi(long destinatario, int pids, int datot);

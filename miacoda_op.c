@@ -7,32 +7,36 @@
  *
  */
 
-#include "miacodac.h"
+#include "miacoda_op.h"
 #include "coda.h"
 #include <unistd.h>
 
-//Funzioni ottimizzate per il client
+//Funzioni ottimizzate per l'operatore
+extern int coda;
+extern int client;
 
-int c_coda_ini(int * coda){
+int op_coda_ini(){
 	if(coda_esiste() == -1)
 		return -2; //La coda non esiste!
-	*coda = coda_aggancia();
-	if(*coda == -1)
+	coda = coda_aggancia();
+	if(coda == -1)
 		return -1; //Errore nel collegarsi alla coda
 	return 0;
 }
 
-int c_coda_invia(int coda, coda_dato da_spedire){
-	coda_messaggio mess = coda_messaggio_componi(M_SERVER, getpid(), da_spedire);
+int op_coda_presentati(){
+	if(client == 0)
+		return -1;
+	coda_messaggio mess = coda_messaggio_componi(client, getpid(), OP_CIAO);
 	return coda_spedisci(coda, mess);
 }
 
-int c_coda_invia_serv(int coda, coda_dato da_spedire, int serv_pid){
-	coda_messaggio mess = coda_messaggio_componi(serv_pid, getpid(), da_spedire);
+int op_coda_invia_soluzione(){
+	coda_messaggio mess = coda_messaggio_componi(client, getpid(), OP_SOLUZIONE);
 	return coda_spedisci(coda, mess);
 }
 
-int c_coda_ricevi(int coda, coda_dato * ricevuto){
+int op_coda_ricevi(int * ricevuto){
 	coda_messaggio mess;
 	int err = coda_ricevi(coda, getpid(), &mess);
 	*ricevuto = mess.dato;

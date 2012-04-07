@@ -9,10 +9,11 @@
 
 #include <unistd.h>
 
-#include "miacodas.h"
+#include "miacoda_serv.h"
 #include "coda.h"
 
 //Funzioni ottimizzate per il server
+extern int coda;
 
 int s_coda_ini(int * coda){
 	if(coda_esiste() != -1)
@@ -23,27 +24,17 @@ int s_coda_ini(int * coda){
 	return 0;
 }
 
-int s_coda_invia(int coda, coda_dato da_inviare, long dest){
-	coda_messaggio mess = coda_messaggio_componi(dest, M_SERVER, da_inviare);
-	return coda_spedisci(coda, mess);
-}
-
-int s_coda_ricevi(int coda, coda_dato * ricevuto, int * sender){
+int s_coda_rispondi(int * sender){
 	coda_messaggio mess;
 	int err = coda_ricevi(coda, M_SERVER, &mess);
-	*sender = (int) mess.sender;
-	*ricevuto = mess.dato;
+	*sender = mess.sender;
 	return err;
 }
 
-int s_coda_ricevi_mio(int coda, coda_dato * ricevuto, long * sender){
-	coda_messaggio mess;
-	int err = coda_ricevi(coda, getpid(), &mess);
-	*sender = (int) mess.sender;
-	*ricevuto = mess.dato;
-	return err;
+int s_invia_rifiuto(int dest){
+	coda_messaggio mess = coda_messaggio_componi(dest, M_SERVER, HD_CLOSED);
+	return coda_spedisci(coda, mess);
 }
-
 
 int s_coda_elimina(int coda){
 	return coda_rimuovi(coda);

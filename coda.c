@@ -37,7 +37,7 @@ int coda_rimuovi(int coda){
 	return msgctl(coda, IPC_RMID, 0);
 }
 
-coda_messaggio coda_messaggio_componi(long destinatario, int pids, coda_dato datot){
+coda_messaggio coda_messaggio_componi(long destinatario, int pids, int datot){
 	coda_messaggio nuovo_mess;
 	nuovo_mess.dest = destinatario;
 	nuovo_mess.sender = pids;

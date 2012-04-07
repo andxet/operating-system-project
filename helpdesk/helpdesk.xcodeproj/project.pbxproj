@@ -6,116 +6,206 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		52802A381521E1C70077DD15 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 52802A371521E1C70077DD15 /* main.c */; };
+		52802A3A1521E1C80077DD15 /* helpdesk.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 52802A391521E1C70077DD15 /* helpdesk.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		52802A311521E1C70077DD15 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				52802A3A1521E1C80077DD15 /* helpdesk.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		52E61BE71521C30F00C14653 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
-		52E61C331521DE0D00C14653 /* coda.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = coda.c; path = ../coda.c; sourceTree = "<group>"; };
-		52E61C341521DE0D00C14653 /* coda.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = coda.h; path = ../coda.h; sourceTree = "<group>"; };
-		52E61C351521DE0D00C14653 /* log.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = log.c; path = ../log.c; sourceTree = "<group>"; };
-		52E61C361521DE0D00C14653 /* log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = log.h; path = ../log.h; sourceTree = "<group>"; };
-		52E61C371521DE0D00C14653 /* miacodac.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = miacodac.c; path = ../miacodac.c; sourceTree = "<group>"; };
-		52E61C381521DE0D00C14653 /* miacodac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = miacodac.h; path = ../miacodac.h; sourceTree = "<group>"; };
-		52E61C391521DE0D00C14653 /* miacodas.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = miacodas.c; path = ../miacodas.c; sourceTree = "<group>"; };
-		52E61C3A1521DE0D00C14653 /* miacodas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = miacodas.h; path = ../miacodas.h; sourceTree = "<group>"; };
-		52E61C3B1521DE0D00C14653 /* miainterfaccia.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = miainterfaccia.c; path = ../miainterfaccia.c; sourceTree = "<group>"; };
-		52E61C3C1521DE0D00C14653 /* miainterfaccia.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = miainterfaccia.h; path = ../miainterfaccia.h; sourceTree = "<group>"; };
-		52E61C3D1521DE0D00C14653 /* mialista.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = mialista.c; path = ../mialista.c; sourceTree = "<group>"; };
-		52E61C3E1521DE0D00C14653 /* mialista.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mialista.h; path = ../mialista.h; sourceTree = "<group>"; };
-		52E61C3F1521DE0D00C14653 /* mialistad.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = mialistad.c; path = ../mialistad.c; sourceTree = "<group>"; };
-		52E61C401521DE0D00C14653 /* mialistad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mialistad.h; path = ../mialistad.h; sourceTree = "<group>"; };
-		52E61C411521DE0D00C14653 /* mialistas.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = mialistas.c; path = ../mialistas.c; sourceTree = "<group>"; };
-		52E61C421521DE0D00C14653 /* mialistas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mialistas.h; path = ../mialistas.h; sourceTree = "<group>"; };
-		52E61C431521DE0D00C14653 /* mieifile.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = mieifile.c; path = ../mieifile.c; sourceTree = "<group>"; };
-		52E61C441521DE0D00C14653 /* mieifile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mieifile.h; path = ../mieifile.h; sourceTree = "<group>"; };
-		52E61C451521DE0D00C14653 /* mieisemafori.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = mieisemafori.c; path = ../mieisemafori.c; sourceTree = "<group>"; };
-		52E61C461521DE0D00C14653 /* mieisemafori.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = mieisemafori.h; path = ../mieisemafori.h; sourceTree = "<group>"; };
-		52E61C471521DE0D00C14653 /* miologs.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = miologs.c; path = ../miologs.c; sourceTree = "<group>"; };
-		52E61C481521DE0D00C14653 /* miologs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = miologs.h; path = ../miologs.h; sourceTree = "<group>"; };
-		52E61C491521DE0D00C14653 /* utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = utils.c; path = ../utils.c; sourceTree = "<group>"; };
-		52E61C4A1521DE0D00C14653 /* utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = utils.h; path = ../utils.h; sourceTree = "<group>"; };
+		52802A331521E1C70077DD15 /* helpdesk */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = helpdesk; sourceTree = BUILT_PRODUCTS_DIR; };
+		52802A371521E1C70077DD15 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		52802A391521E1C70077DD15 /* helpdesk.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = helpdesk.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		52802A301521E1C70077DD15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
-		5210CDB01521C150003ED15C = {
+		52802A281521E1C70077DD15 = {
 			isa = PBXGroup;
 			children = (
-				52E61C331521DE0D00C14653 /* coda.c */,
-				52E61C341521DE0D00C14653 /* coda.h */,
-				52E61C351521DE0D00C14653 /* log.c */,
-				52E61C361521DE0D00C14653 /* log.h */,
-				52E61C371521DE0D00C14653 /* miacodac.c */,
-				52E61C381521DE0D00C14653 /* miacodac.h */,
-				52E61C391521DE0D00C14653 /* miacodas.c */,
-				52E61C3A1521DE0D00C14653 /* miacodas.h */,
-				52E61C3B1521DE0D00C14653 /* miainterfaccia.c */,
-				52E61C3C1521DE0D00C14653 /* miainterfaccia.h */,
-				52E61C3D1521DE0D00C14653 /* mialista.c */,
-				52E61C3E1521DE0D00C14653 /* mialista.h */,
-				52E61C3F1521DE0D00C14653 /* mialistad.c */,
-				52E61C401521DE0D00C14653 /* mialistad.h */,
-				52E61C411521DE0D00C14653 /* mialistas.c */,
-				52E61C421521DE0D00C14653 /* mialistas.h */,
-				52E61C431521DE0D00C14653 /* mieifile.c */,
-				52E61C441521DE0D00C14653 /* mieifile.h */,
-				52E61C451521DE0D00C14653 /* mieisemafori.c */,
-				52E61C461521DE0D00C14653 /* mieisemafori.h */,
-				52E61C471521DE0D00C14653 /* miologs.c */,
-				52E61C481521DE0D00C14653 /* miologs.h */,
-				52E61C491521DE0D00C14653 /* utils.c */,
-				52E61C4A1521DE0D00C14653 /* utils.h */,
-				52E61BE71521C30F00C14653 /* .gitignore */,
+				52802A361521E1C70077DD15 /* helpdesk */,
+				52802A341521E1C70077DD15 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		52802A341521E1C70077DD15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52802A331521E1C70077DD15 /* helpdesk */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52802A361521E1C70077DD15 /* helpdesk */ = {
+			isa = PBXGroup;
+			children = (
+				52802A371521E1C70077DD15 /* main.c */,
+				52802A391521E1C70077DD15 /* helpdesk.1 */,
+			);
+			path = helpdesk;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXNativeTarget section */
+		52802A321521E1C70077DD15 /* helpdesk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52802A3D1521E1C80077DD15 /* Build configuration list for PBXNativeTarget "helpdesk" */;
+			buildPhases = (
+				52802A2F1521E1C70077DD15 /* Sources */,
+				52802A301521E1C70077DD15 /* Frameworks */,
+				52802A311521E1C70077DD15 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = helpdesk;
+			productName = helpdesk;
+			productReference = 52802A331521E1C70077DD15 /* helpdesk */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
 /* Begin PBXProject section */
-		5210CDB21521C150003ED15C /* Project object */ = {
+		52802A2A1521E1C70077DD15 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "Università degli studi di Torino";
 			};
-			buildConfigurationList = 5210CDB51521C150003ED15C /* Build configuration list for PBXProject "helpdesk" */;
+			buildConfigurationList = 52802A2D1521E1C70077DD15 /* Build configuration list for PBXProject "helpdesk" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 5210CDB01521C150003ED15C;
+			mainGroup = 52802A281521E1C70077DD15;
+			productRefGroup = 52802A341521E1C70077DD15 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				52802A321521E1C70077DD15 /* helpdesk */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXSourcesBuildPhase section */
+		52802A2F1521E1C70077DD15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52802A381521E1C70077DD15 /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
 /* Begin XCBuildConfiguration section */
-		5210CDB71521C150003ED15C /* Debug */ = {
+		52802A3B1521E1C80077DD15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
-		5210CDB81521C150003ED15C /* Release */ = {
+		52802A3C1521E1C80077DD15 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		52802A3E1521E1C80077DD15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		52802A3F1521E1C80077DD15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5210CDB51521C150003ED15C /* Build configuration list for PBXProject "helpdesk" */ = {
+		52802A2D1521E1C70077DD15 /* Build configuration list for PBXProject "helpdesk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5210CDB71521C150003ED15C /* Debug */,
-				5210CDB81521C150003ED15C /* Release */,
+				52802A3B1521E1C80077DD15 /* Debug */,
+				52802A3C1521E1C80077DD15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		52802A3D1521E1C80077DD15 /* Build configuration list for PBXNativeTarget "helpdesk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52802A3E1521E1C80077DD15 /* Debug */,
+				52802A3F1521E1C80077DD15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5210CDB21521C150003ED15C /* Project object */;
+	rootObject = 52802A2A1521E1C70077DD15 /* Project object */;
 }
