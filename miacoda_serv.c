@@ -14,7 +14,7 @@
 
 //Funzioni ottimizzate per il server
 
-int s_coda_ini(coda){
+int s_coda_ini(){
 	if(coda_esiste(ID_CODA) != -1)
 		return -2; //La coda esiste già!
 	coda = coda_crea(ID_CODA);

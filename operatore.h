@@ -11,4 +11,9 @@
 
 
 
+void avvia(int idOp);
+
+int tempistiche[4] = {0.100, 0.050, 0.500, 0.150};
+
+
 #endif

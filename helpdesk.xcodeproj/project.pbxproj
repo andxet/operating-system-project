@@ -17,6 +17,7 @@
 		5214F0C61521E26B008E2C6C /* semafori.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B51521E26B008E2C6C /* semafori.c */; };
 		5214F0C81521E26B008E2C6C /* operatore.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B91521E26B008E2C6C /* operatore.c */; };
 		52A3604E15304F1100050748 /* miacoda_cli.c in Sources */ = {isa = PBXBuildFile; fileRef = 52A3604D15304F1100050748 /* miacoda_cli.c */; };
+		52CF2EEA1537307F002040D2 /* miorandom.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EE91537307F002040D2 /* miorandom.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,9 +45,9 @@
 		5214F0AD1521E26B008E2C6C /* lista.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lista.c; sourceTree = "<group>"; };
 		5214F0AE1521E26B008E2C6C /* lista.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lista.h; sourceTree = "<group>"; };
 		5214F0AF1521E26B008E2C6C /* lista_dinamica.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lista_dinamica.c; sourceTree = "<group>"; };
-		5214F0B01521E26B008E2C6C /* lista_dinamica.h */ = {isa = PBXFileReference; fileEncoding = 4; path = lista_dinamica.h; sourceTree = "<group>"; };
+		5214F0B01521E26B008E2C6C /* lista_dinamica.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lista_dinamica.h; sourceTree = "<group>"; };
 		5214F0B11521E26B008E2C6C /* lista_condivisa.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lista_condivisa.c; sourceTree = "<group>"; };
-		5214F0B21521E26B008E2C6C /* lista_condivisa.h */ = {isa = PBXFileReference; fileEncoding = 4; path = lista_condivisa.h; sourceTree = "<group>"; };
+		5214F0B21521E26B008E2C6C /* lista_condivisa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lista_condivisa.h; sourceTree = "<group>"; };
 		5214F0B51521E26B008E2C6C /* semafori.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = semafori.c; sourceTree = "<group>"; };
 		5214F0B61521E26B008E2C6C /* semafori.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = semafori.h; sourceTree = "<group>"; };
 		5214F0B91521E26B008E2C6C /* operatore.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = operatore.c; sourceTree = "<group>"; };
@@ -54,6 +55,10 @@
 		52802A331521E1C70077DD15 /* helpdesk */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = helpdesk; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A3604D15304F1100050748 /* miacoda_cli.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miacoda_cli.c; sourceTree = "<group>"; };
 		52A3604F15304F2100050748 /* miacoda_cli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_cli.h; sourceTree = "<group>"; };
+		52CF2EE515371A13002040D2 /* costanti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = costanti.h; sourceTree = "<group>"; };
+		52CF2EE715371BA4002040D2 /* operatore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = operatore.h; sourceTree = "<group>"; };
+		52CF2EE91537307F002040D2 /* miorandom.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miorandom.c; sourceTree = "<group>"; };
+		52CF2EEB1537308F002040D2 /* miorandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miorandom.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,14 +97,16 @@
 		52802A281521E1C70077DD15 = {
 			isa = PBXGroup;
 			children = (
+				52CF2EEC15373099002040D2 /* Random */,
 				52802A341521E1C70077DD15 /* Products */,
 				5214F0A61521E26B008E2C6C /* MAKEFILE */,
 				5214F0AB1521E26B008E2C6C /* miainterfaccia.c */,
+				52CF2EE515371A13002040D2 /* costanti.h */,
+				52CF2EE815371BFA002040D2 /* Operatore */,
 				5214F0AC1521E26B008E2C6C /* miainterfaccia.h */,
 				52A360501530666600050748 /* Coda */,
 				522D6D9C15306AD000C77699 /* Lista */,
 				522D6D9D15306ADC00C77699 /* Semafori */,
-				5214F0B91521E26B008E2C6C /* operatore.c */,
 				5214F0BA1521E26B008E2C6C /* README.md */,
 			);
 			sourceTree = "<group>";
@@ -125,6 +132,24 @@
 				5214F0AA1521E26B008E2C6C /* miacoda_serv.h */,
 			);
 			name = Coda;
+			sourceTree = "<group>";
+		};
+		52CF2EE815371BFA002040D2 /* Operatore */ = {
+			isa = PBXGroup;
+			children = (
+				52CF2EE715371BA4002040D2 /* operatore.h */,
+				5214F0B91521E26B008E2C6C /* operatore.c */,
+			);
+			name = Operatore;
+			sourceTree = "<group>";
+		};
+		52CF2EEC15373099002040D2 /* Random */ = {
+			isa = PBXGroup;
+			children = (
+				52CF2EE91537307F002040D2 /* miorandom.c */,
+				52CF2EEB1537308F002040D2 /* miorandom.h */,
+			);
+			name = Random;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +213,7 @@
 				5214F0C61521E26B008E2C6C /* semafori.c in Sources */,
 				5214F0C81521E26B008E2C6C /* operatore.c in Sources */,
 				52A3604E15304F1100050748 /* miacoda_cli.c in Sources */,
+				52CF2EEA1537307F002040D2 /* miorandom.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 #ifndef helpdesk_miorandom_h
 #define helpdesk_miorandom_h
 
-
+randomize();
+int gen_rand(int n);
 
 #endif
