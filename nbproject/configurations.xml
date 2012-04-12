@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="80">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df name="progettoso_11_12" root=".">
+      <df name="Documentazione">
+      </df>
+      <df name="helpdesk.xcodeproj">
+        <df name="project.xcworkspace">
+          <df name="xcuserdata">
+            <df name="andreaperetti.xcuserdatad">
+            </df>
+          </df>
+        </df>
+        <df name="xcuserdata">
+          <df name="andreaperetti.xcuserdatad">
+            <df name="xcschemes">
+            </df>
+          </df>
+        </df>
+      </df>
+      <in>coda.c</in>
+      <in>coda.h</in>
+      <in>log.c</in>
+      <in>log.h</in>
+      <in>miacodac.c</in>
+      <in>miacodac.h</in>
+      <in>miacodas.c</in>
+      <in>miacodas.h</in>
+      <in>miainterfaccia.c</in>
+      <in>miainterfaccia.h</in>
+      <in>mialista.c</in>
+      <in>mialista.h</in>
+      <in>mialistad.c</in>
+      <in>mialistad.h</in>
+      <in>mialistas.c</in>
+      <in>mialistas.h</in>
+      <in>mieifile.c</in>
+      <in>mieifile.h</in>
+      <in>mieisemafori.c</in>
+      <in>mieisemafori.h</in>
+      <in>miologs.c</in>
+      <in>miologs.h</in>
+      <in>operatore.c</in>
+      <in>utils.c</in>
+      <in>utils.h</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>MAKEFILE</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>MAKEFILE</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+      </makefileType>
+    </conf>
+  </confs>
+</configurationDescriptor>

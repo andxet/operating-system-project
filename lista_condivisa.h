@@ -6,7 +6,7 @@
 //  Copyright 2011 Università degli studi di Torino. All rights reserved.
 //
 
-#include "mialista.h"
+#include "lista.h"
 
 /*#ifndef LISTA_SHARED
 
@@ -21,5 +21,13 @@ struct lista_condivisa{
 #define LISTA_SHARED
 #endif*/
 
-listas s_listas_ini();
-int s_listas_rimuovi(int *id);
+extern listas listast;
+extern int key;
+
+int s_lista_ini(int *id);
+int s_lista_rimuovi(int *id);
+int s_lista_aggancia();
+int s_lista_scollega();
+
+int s_lista_next();
+int s_lista_aggiungi();

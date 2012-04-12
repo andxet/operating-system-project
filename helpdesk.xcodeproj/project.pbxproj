@@ -1,0 +1,282 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5214F0BD1521E26B008E2C6C /* coda.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F09F1521E26B008E2C6C /* coda.c */; };
+		5214F0BF1521E26B008E2C6C /* miacoda_op.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0A71521E26B008E2C6C /* miacoda_op.c */; };
+		5214F0C01521E26B008E2C6C /* miacoda_serv.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0A91521E26B008E2C6C /* miacoda_serv.c */; };
+		5214F0C11521E26B008E2C6C /* miainterfaccia.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0AB1521E26B008E2C6C /* miainterfaccia.c */; };
+		5214F0C21521E26B008E2C6C /* lista.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0AD1521E26B008E2C6C /* lista.c */; };
+		5214F0C31521E26B008E2C6C /* lista_dinamica.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0AF1521E26B008E2C6C /* lista_dinamica.c */; };
+		5214F0C41521E26B008E2C6C /* lista_condivisa.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B11521E26B008E2C6C /* lista_condivisa.c */; };
+		5214F0C61521E26B008E2C6C /* semafori.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B51521E26B008E2C6C /* semafori.c */; };
+		5214F0C81521E26B008E2C6C /* operatore.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B91521E26B008E2C6C /* operatore.c */; };
+		52A3604E15304F1100050748 /* miacoda_cli.c in Sources */ = {isa = PBXBuildFile; fileRef = 52A3604D15304F1100050748 /* miacoda_cli.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		52802A311521E1C70077DD15 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5214F09F1521E26B008E2C6C /* coda.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = coda.c; sourceTree = "<group>"; };
+		5214F0A01521E26B008E2C6C /* coda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coda.h; sourceTree = "<group>"; };
+		5214F0A61521E26B008E2C6C /* MAKEFILE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MAKEFILE; sourceTree = "<group>"; };
+		5214F0A71521E26B008E2C6C /* miacoda_op.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miacoda_op.c; sourceTree = "<group>"; };
+		5214F0A81521E26B008E2C6C /* miacoda_op.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_op.h; sourceTree = "<group>"; };
+		5214F0A91521E26B008E2C6C /* miacoda_serv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miacoda_serv.c; sourceTree = "<group>"; };
+		5214F0AA1521E26B008E2C6C /* miacoda_serv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_serv.h; sourceTree = "<group>"; };
+		5214F0AB1521E26B008E2C6C /* miainterfaccia.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miainterfaccia.c; sourceTree = "<group>"; };
+		5214F0AC1521E26B008E2C6C /* miainterfaccia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miainterfaccia.h; sourceTree = "<group>"; };
+		5214F0AD1521E26B008E2C6C /* lista.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lista.c; sourceTree = "<group>"; };
+		5214F0AE1521E26B008E2C6C /* lista.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lista.h; sourceTree = "<group>"; };
+		5214F0AF1521E26B008E2C6C /* lista_dinamica.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lista_dinamica.c; sourceTree = "<group>"; };
+		5214F0B01521E26B008E2C6C /* lista_dinamica.h */ = {isa = PBXFileReference; fileEncoding = 4; path = lista_dinamica.h; sourceTree = "<group>"; };
+		5214F0B11521E26B008E2C6C /* lista_condivisa.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lista_condivisa.c; sourceTree = "<group>"; };
+		5214F0B21521E26B008E2C6C /* lista_condivisa.h */ = {isa = PBXFileReference; fileEncoding = 4; path = lista_condivisa.h; sourceTree = "<group>"; };
+		5214F0B51521E26B008E2C6C /* semafori.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = semafori.c; sourceTree = "<group>"; };
+		5214F0B61521E26B008E2C6C /* semafori.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = semafori.h; sourceTree = "<group>"; };
+		5214F0B91521E26B008E2C6C /* operatore.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = operatore.c; sourceTree = "<group>"; };
+		5214F0BA1521E26B008E2C6C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		52802A331521E1C70077DD15 /* helpdesk */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = helpdesk; sourceTree = BUILT_PRODUCTS_DIR; };
+		52A3604D15304F1100050748 /* miacoda_cli.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miacoda_cli.c; sourceTree = "<group>"; };
+		52A3604F15304F2100050748 /* miacoda_cli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_cli.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52802A301521E1C70077DD15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		522D6D9C15306AD000C77699 /* Lista */ = {
+			isa = PBXGroup;
+			children = (
+				5214F0AD1521E26B008E2C6C /* lista.c */,
+				5214F0AE1521E26B008E2C6C /* lista.h */,
+				5214F0AF1521E26B008E2C6C /* lista_dinamica.c */,
+				5214F0B01521E26B008E2C6C /* lista_dinamica.h */,
+				5214F0B11521E26B008E2C6C /* lista_condivisa.c */,
+				5214F0B21521E26B008E2C6C /* lista_condivisa.h */,
+			);
+			name = Lista;
+			sourceTree = "<group>";
+		};
+		522D6D9D15306ADC00C77699 /* Semafori */ = {
+			isa = PBXGroup;
+			children = (
+				5214F0B51521E26B008E2C6C /* semafori.c */,
+				5214F0B61521E26B008E2C6C /* semafori.h */,
+			);
+			name = Semafori;
+			sourceTree = "<group>";
+		};
+		52802A281521E1C70077DD15 = {
+			isa = PBXGroup;
+			children = (
+				52802A341521E1C70077DD15 /* Products */,
+				5214F0A61521E26B008E2C6C /* MAKEFILE */,
+				5214F0AB1521E26B008E2C6C /* miainterfaccia.c */,
+				5214F0AC1521E26B008E2C6C /* miainterfaccia.h */,
+				52A360501530666600050748 /* Coda */,
+				522D6D9C15306AD000C77699 /* Lista */,
+				522D6D9D15306ADC00C77699 /* Semafori */,
+				5214F0B91521E26B008E2C6C /* operatore.c */,
+				5214F0BA1521E26B008E2C6C /* README.md */,
+			);
+			sourceTree = "<group>";
+		};
+		52802A341521E1C70077DD15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52802A331521E1C70077DD15 /* helpdesk */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52A360501530666600050748 /* Coda */ = {
+			isa = PBXGroup;
+			children = (
+				5214F09F1521E26B008E2C6C /* coda.c */,
+				5214F0A01521E26B008E2C6C /* coda.h */,
+				5214F0A71521E26B008E2C6C /* miacoda_op.c */,
+				5214F0A81521E26B008E2C6C /* miacoda_op.h */,
+				52A3604D15304F1100050748 /* miacoda_cli.c */,
+				52A3604F15304F2100050748 /* miacoda_cli.h */,
+				5214F0A91521E26B008E2C6C /* miacoda_serv.c */,
+				5214F0AA1521E26B008E2C6C /* miacoda_serv.h */,
+			);
+			name = Coda;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52802A321521E1C70077DD15 /* helpdesk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52802A3D1521E1C80077DD15 /* Build configuration list for PBXNativeTarget "helpdesk" */;
+			buildPhases = (
+				52802A2F1521E1C70077DD15 /* Sources */,
+				52802A301521E1C70077DD15 /* Frameworks */,
+				52802A311521E1C70077DD15 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = helpdesk;
+			productName = helpdesk;
+			productReference = 52802A331521E1C70077DD15 /* helpdesk */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52802A2A1521E1C70077DD15 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Università degli studi di Torino";
+			};
+			buildConfigurationList = 52802A2D1521E1C70077DD15 /* Build configuration list for PBXProject "helpdesk" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 52802A281521E1C70077DD15;
+			productRefGroup = 52802A341521E1C70077DD15 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52802A321521E1C70077DD15 /* helpdesk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52802A2F1521E1C70077DD15 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5214F0BD1521E26B008E2C6C /* coda.c in Sources */,
+				5214F0BF1521E26B008E2C6C /* miacoda_op.c in Sources */,
+				5214F0C01521E26B008E2C6C /* miacoda_serv.c in Sources */,
+				5214F0C11521E26B008E2C6C /* miainterfaccia.c in Sources */,
+				5214F0C21521E26B008E2C6C /* lista.c in Sources */,
+				5214F0C31521E26B008E2C6C /* lista_dinamica.c in Sources */,
+				5214F0C41521E26B008E2C6C /* lista_condivisa.c in Sources */,
+				5214F0C61521E26B008E2C6C /* semafori.c in Sources */,
+				5214F0C81521E26B008E2C6C /* operatore.c in Sources */,
+				52A3604E15304F1100050748 /* miacoda_cli.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		52802A3B1521E1C80077DD15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		52802A3C1521E1C80077DD15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		52802A3E1521E1C80077DD15 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		52802A3F1521E1C80077DD15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52802A2D1521E1C70077DD15 /* Build configuration list for PBXProject "helpdesk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52802A3B1521E1C80077DD15 /* Debug */,
+				52802A3C1521E1C80077DD15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52802A3D1521E1C80077DD15 /* Build configuration list for PBXNativeTarget "helpdesk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52802A3E1521E1C80077DD15 /* Debug */,
+				52802A3F1521E1C80077DD15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52802A2A1521E1C70077DD15 /* Project object */;
+}

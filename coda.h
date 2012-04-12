@@ -42,6 +42,7 @@
 
 //Risposta da parte del dispatcher in caso l'helpdesk sia chiuso
 #define HD_CLOSED 31
+#define HD_OCCUPATO 32
 
 
 /*
@@ -70,10 +71,10 @@ struct coda_messaggio {
 #endif
 
 //Funzione che restituisce l'indice della coda, creandola.
-int coda_crea();
-int coda_esiste();
+int coda_crea(int id);
+int coda_esiste(int id);
 //Funzione che restituisce l'indice della coda, agganciandosi ad essa
-int coda_aggancia();
+int coda_aggancia(int id);
 //Funzione che spedisce il messaggio nella coda
 int coda_spedisci(int coda, coda_messaggio mess);
 int coda_ricevi(int coda, int tipo, coda_messaggio *ricevuto);

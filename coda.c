@@ -10,17 +10,17 @@
 //Funzione che restituisce l'indice della coda, creandola.
 #include "coda.h"
 
-int coda_crea(){
-	return msgget(ID_CODA, 0666 | IPC_CREAT);
+int coda_crea(int id){
+	return msgget(id, 0666 | IPC_CREAT);
 }
 
-int coda_esiste(){
-	return msgget(ID_CODA, 0666 | IPC_EXCL);
+int coda_esiste(int id){
+	return msgget(id, 0666 | IPC_EXCL);
 }
 
 //Funzione che restituisce l'indice della coda, agganciandosi ad essa
-int coda_aggancia(){
-	return msgget(ID_CODA, 0);
+int coda_aggancia(int id){
+	return msgget(id, 0);
 }
 
 //Funzione che spedisce il messaggio nella coda

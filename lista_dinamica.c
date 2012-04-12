@@ -7,7 +7,7 @@
  *
  */
 
-#include "mialistad.h"
+#include "lista_dinamica.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

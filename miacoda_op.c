@@ -12,24 +12,22 @@
 #include <unistd.h>
 
 //Funzioni ottimizzate per l'operatore
-extern int coda;
-extern int client;
 
 int op_coda_ini(){
-	if(coda_esiste() == -1)
-		return -2; //La coda non esiste!
-	coda = coda_aggancia();
+	if(coda_esiste(getpid()) != -1)
+		return -2; //La coda esiste già!
+	coda = coda_crea(getpid());
 	if(coda == -1)
 		return -1; //Errore nel collegarsi alla coda
 	return 0;
 }
 
-int op_coda_presentati(){
+/*int op_coda_presentati(){
 	if(client == 0)
 		return -1;
 	coda_messaggio mess = coda_messaggio_componi(client, getpid(), OP_CIAO);
 	return coda_spedisci(coda, mess);
-}
+ }*/ //Non necessaria perchè ci pensa lo scheduler
 
 int op_coda_invia_soluzione(){
 	coda_messaggio mess = coda_messaggio_componi(client, getpid(), OP_SOLUZIONE);

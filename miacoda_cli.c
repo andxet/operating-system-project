@@ -14,15 +14,25 @@
 
 //Funzioni ottimizzate per il client
 int c_coda_ini(){
-	if(coda_esiste() == -1)
+	if(coda_esiste(M_SERVER) == -1)
 		return -2; //La coda non esiste!
-	coda = coda_aggancia();
+	coda = coda_aggancia(M_SERVER);
+	if(coda == -1)
+		return -1; //Errore nel collegarsi alla coda
+	return 0;
+}
+
+int c_coda_aggancia(int id_coda){
+	if(coda_esiste(id_coda) == -1)
+		return -2; //La coda non esiste!
+	coda = coda_aggancia(id_coda);
 	if(coda == -1)
 		return -1; //Errore nel collegarsi alla coda
 	return 0;
 }
 
 int c_coda_telefona(){//Invia al server 
+	coda = c_coda_ini();
 	coda_messaggio mess = coda_messaggio_componi(M_SERVER, getpid(), RICH_OP);
 	return coda_spedisci(coda, mess);
 }
@@ -40,8 +50,8 @@ int c_coda_attendi_op(){
 	if(mess.dato == HD_CLOSED)
 		return -2;//L'helpdesk è chiuso
 	if(mess.dato != OP_CIAO)
-		return -1;//Messaggio inatteso
-	op = mess.sender;
+		return -3;//Messaggio inatteso
+	op = mess.dato;
 	return err;
 }
 

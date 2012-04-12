@@ -6,18 +6,18 @@
 //  Copyright 2011 Università degli studi di Torino. All rights reserved.
 //
 
-#include "mialista.h"
+#include "lista.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-listas lista_ini(listas lista){
+void lista_ini(listas lista){
     lista = (listas) malloc(sizeof(lista_statica));
     lista->n_elem = 0;
     //lista->vett = (int *) malloc(sizeof(int) * MAX_LISTA);
 	int i;
 	for(i = 0; i < MAX_LISTA; i++)
         lista->vett[i] = 0;
-	return lista;
+	//return lista;
 }
 
 int lista_e_in(listas lista, int dato){

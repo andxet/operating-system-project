@@ -6,15 +6,21 @@
 //  Copyright 2011 Università degli studi di Torino. All rights reserved.
 //
 
-#include "mialistas.h"
-#include "mialista.h"
+#include "lista_condivisa.h"
+#include "lista.h"
+#include "semafori.h"
 
-#include "miorepos.h"
 #include <stdio.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
 
-listas s_listas_ini(int *id){
-	listas listast;
-	*id = shmget(S_KEY, sizeof(lista_statica), IPC_CREAT | 0600);
+int semid, id_mem;
+
+int s_lista_ini(int *id){
+	semid = crea_semaforo_lista();
+	set_semaforo(S_READ, 1);
+	set_semaforo(S_WRITE, 1);
+	*id = shmget(key, sizeof(lista_statica), IPC_CREAT | 0600);
 	if(*id == -1)
 		return (listas) -1;
 	listast = (listas) shmat(*id, NULL, 0);
@@ -22,8 +28,12 @@ listas s_listas_ini(int *id){
 	return listast;
 }
 
-int s_listas_rimuovi(int *id){
+int s_lista_rimuovi(int *id){
 	int err = shmctl(*id, IPC_RMID, 0);
 	*id = 0;
 	return err;
+}
+
+int s_lista_next(){
+	
 }
