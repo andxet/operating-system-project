@@ -15,5 +15,9 @@ git pull dalla cartella in cui hai salvato il progetto
 
 Ogni volta che faccio qualche cosa devo aggiungere i file nuovi con git add nomefile
 
+Per eliminare dei file :
+git rm file1.txt
+git commit -m "remove file1.txt"
+git push
 
 Tutorial completo : http://www.vogella.de/articles/Git/article.html
