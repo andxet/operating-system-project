@@ -9,23 +9,27 @@
 ###############################################################################*/
 
 #include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+
 #include "operatore.h"
 #include "miacoda_op.h"
 #include "costanti.h"
 #include "miorandom.h"
+#include "lista_operatori.h"
 
-int op, servi, collega_gia_servito, coda;
+
 
 coda_messaggio next_client();
 void risolvi_problema(int problema);
 int pausa();
 
-void avvia(int idOp){ //ATTENZIONE-> c'è un return -1 in un VOID
+int avvia(int idOp){
+	srand((unsigned) time(NULL));
 	if(coda_esiste(getpid()))
 		return -1;//Coda già esistente
 	coda = op_coda_ini();
-	//int collega alla memoria condivisa
-	lista_operatori operatori = aggancia_lista();
+	lista_operatori_aggancia();
 	//TODO: collega al semaforo della memoria condivisa
 	op = idOp;
 	servi = 1;
@@ -35,7 +39,7 @@ void avvia(int idOp){ //ATTENZIONE-> c'è un return -1 in un VOID
 		int client = ricevuto.sender;
 		int problema = ricevuto.dato;
 		risolvi_problema(problema);
-		op_coda_invia_soluzione();
+		op_coda_invia_soluzione(client);
 		if(gen_rand(OP_PROB_PAUSA) == 1)
 			pausa();
 	}
@@ -70,7 +74,7 @@ void risolvi_problema(int problema){
 
 int pausa(){
 	//TODO: implementare utilizzo dei semafori
-	if(operatori->inPausa != -1)
+	if(lista_operatori_inPausa() != -1)
 		return 0;//Qualcuno è già in pausa
 	operatori->inPausa = getpid();
 	//Rilascio semaforo

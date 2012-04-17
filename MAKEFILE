@@ -1,0 +1,10 @@
+#Regole generali
+
+all: server client
+	make server; make client
+	
+clear:
+	rm *.o
+	
+#Server
+
