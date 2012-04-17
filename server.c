@@ -39,5 +39,14 @@ main()
 	
 	//Creo la coda dell'HelpDesk
 	
-	coda = s_coda_ini();
+	
+	printf("\nL'id della coda è: %d\n", coda); fflush(stdout);
+	s_coda_ini();
+	printf("\nL'id della coda è: %d\n", coda); fflush(stdout);
+	s_coda_elimina();
+	printf("\nL'id della coda è: %d\n", coda); fflush(stdout);
+	
+	for(i=0; i<MAX_N_OP; i++)
+		wait(0);
+	getchar();
 }

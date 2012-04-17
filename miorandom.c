@@ -9,6 +9,7 @@
 ###############################################################################*/
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "miorandom.h"
 
 int gen_rand(int n)

@@ -6,7 +6,7 @@
 *.exe
 *.o
 *.so
-.app
+*.app
 
 # Log files #
 ######################
@@ -46,4 +46,3 @@ Thumbs.db
 
 # Coso per vitto #
 *.*~
-
