@@ -1,0 +1,5 @@
+gcc -c server.c
+gcc -c coda.c
+gcc -c miacoda_serv.c
+gcc -g coda.o server.o miacoda_serv.o -o server.app
+./server.app
