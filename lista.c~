@@ -1,12 +1,10 @@
-/*###############################################################################
-##						-= Progetto di Sistemi Operativi =-			           ##
-## --------------------------------------------------------------------------- ##
-##  File:	       lista.c	                                                   ##
-##  Created by:	   Fiori, Peretti, Polto                                       ##
-## --------------------------------------------------------------------------- ##
-##  Descrizione:    Descrizione del file                                       ##
-##                                                                             ##
-###############################################################################*/
+//
+//  mialista.c
+//  repository
+//
+//  Created by Andrea Peretti on 10/04/11.
+//  Copyright 2011 Università degli studi di Torino. All rights reserved.
+//
 
 #include "lista.h"
 #include <stdio.h>

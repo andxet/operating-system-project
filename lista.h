@@ -1,10 +1,12 @@
-//
-//  mialista.h
-//  repository
-//
-//  Created by Andrea Peretti on 10/04/11.
-//  Copyright 2011 Università degli studi di Torino. All rights reserved.
-//
+/*###############################################################################
+##						-= Progetto di Sistemi Operativi =-			           ##
+## --------------------------------------------------------------------------- ##
+##  File:	       lista.h                                                     ##
+##  Created by:	   Fiori, Peretti, Polto                                       ##
+## --------------------------------------------------------------------------- ##
+##  Descrizione:   Header della classe lista                                   ##
+##                                                                             ##
+###############################################################################*/
 
 //TODO: decidere se definire la dimensione della coda qui oppure in operatore.h
 #define MAX_LISTA 30

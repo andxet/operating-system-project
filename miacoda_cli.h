@@ -1,10 +1,12 @@
-//
-//  miacoda_cli.h
-//  helpdesk
-//
-//  Created by Andrea Peretti on 07/04/12.
-//  Copyright (c) 2012 Università degli studi di Torino. All rights reserved.
-//
+/*###############################################################################
+##						-= Progetto di Sistemi Operativi =-			           ##
+## --------------------------------------------------------------------------- ##
+##  File:	       miacoda_cli.h                                               ##
+##  Created by:	   Fiori, Peretti, Polto                                       ##
+## --------------------------------------------------------------------------- ##
+##  Descrizione:   Header delle classi della coda cliente                      ##
+##                                                                             ##
+###############################################################################*/
 
 #include "coda.h"
 

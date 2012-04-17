@@ -1,16 +1,17 @@
 /*###############################################################################
 ##						-= Progetto di Sistemi Operativi =-			           ##
 ## --------------------------------------------------------------------------- ##
-##  File:	       lista_operatori.h                                           ##
+##  File:	       miorandom.h                                                 ##
 ##  Created by:	   Fiori, Peretti, Polto                                       ##
 ## --------------------------------------------------------------------------- ##
 ##  Descrizione:    Descrizione del file                                       ##
 ##                                                                             ##
 ###############################################################################*/
 
-#ifndef helpdesk_lista_operatori_h
-#define helpdesk_lista_operatori_h
+#ifndef helpdesk_miorandom_h
+#define helpdesk_miorandom_h
 
-
+randomize();
+int gen_rand(int n);
 
 #endif

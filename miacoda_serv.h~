@@ -7,7 +7,6 @@
 ##  Descrizione:   Header delle classi della coda del server                   ##
 ##                                                                             ##
 ###############################################################################*/
-
 //Funzioni da utilizzare nel server, ossia il disppatcher.
 #include "coda.h"
 

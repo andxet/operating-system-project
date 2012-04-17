@@ -1,10 +1,12 @@
-//
-//  miorandom.h
-//  helpdesk
-//
-//  Created by Andrea Peretti on 12/04/12.
-//  Copyright (c) 2012 Università degli studi di Torino. All rights reserved.
-//
+/*###############################################################################
+##						-= Progetto di Sistemi Operativi =-			           ##
+## --------------------------------------------------------------------------- ##
+##  File:	       miorandom.h                                                 ##
+##  Created by:	   Fiori, Peretti, Polto                                       ##
+## --------------------------------------------------------------------------- ##  DA ELIMINARE PER ME (VITTO)
+##  Descrizione:    Descrizione del file                                       ##
+##                                                                             ##
+###############################################################################*/
 
 #ifndef helpdesk_miorandom_h
 #define helpdesk_miorandom_h
