@@ -1,8 +1,12 @@
-/*
- *  costanti.h
- *  Definisce e inizializza le variabili comuni
- *
- */
+/*###############################################################################
+##						-= Progetto di Sistemi Operativi =-			           ##
+## --------------------------------------------------------------------------- ##
+##  File:	       costanti.h	                                               ##
+##  Created by:	   Fiori, Peretti, Polto                                       ##
+## --------------------------------------------------------------------------- ##
+##  Descrizione:   Costanti utilizzate all'interno del progetto                ##
+##                                                                             ##
+###############################################################################*/
 
 
 #define MAX_N_OP  10 // Numero massimo di operatori che vengono creati dall'helpdesk

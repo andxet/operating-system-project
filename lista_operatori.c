@@ -1,10 +1,12 @@
-//
-//  lista_operatori.c
-//  helpdesk
-//
-//  Created by Andrea Peretti on 13/04/12.
-//  Copyright (c) 2012 Università degli studi di Torino. All rights reserved.
-//
+/*###############################################################################
+##						-= Progetto di Sistemi Operativi =-			           ##
+## --------------------------------------------------------------------------- ##
+##  File:	       lista_operatori.c	                                       ##
+##  Created by:	   Fiori, Peretti, Polto                                       ##
+## --------------------------------------------------------------------------- ##
+##  Descrizione:    Descrizione del file                                       ##
+##                                                                             ##
+###############################################################################*/
 
 #include <stdio.h>
 #include "lista_operatori.h"

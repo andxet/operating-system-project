@@ -1,10 +1,12 @@
-//
-//  mialista_s.c
-//  repository
-//
-//  Created by Andrea Peretti on 11/04/11.
-//  Copyright 2011 Università degli studi di Torino. All rights reserved.
-//
+/*###############################################################################
+##						-= Progetto di Sistemi Operativi =-			           ##
+## --------------------------------------------------------------------------- ##
+##  File:	       lista_condivisa.c	                                       ##
+##  Created by:	   Fiori, Peretti, Polto                                       ##
+## --------------------------------------------------------------------------- ##
+##  Descrizione:    Descrizione del file                                       ##
+##                                                                             ##
+###############################################################################*/
 
 #include "lista_condivisa.h"
 #include "lista.h"

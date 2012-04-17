@@ -1,11 +1,12 @@
-/*
- *  miacodac.h
- *  repository
- *
- *  Created by Andrea Peretti on 19/01/11.
- *  Copyright 2011 Università degli studi di Torino. All rights reserved.
- *
- */
+/*###############################################################################
+##						-= Progetto di Sistemi Operativi =-			           ##
+## --------------------------------------------------------------------------- ##
+##  File:	       miacoda_serv.h                                              ##
+##  Created by:	   Fiori, Peretti, Polto                                       ##
+## --------------------------------------------------------------------------- ##
+##  Descrizione:   Header delle classi della coda del server                   ##
+##                                                                             ##
+###############################################################################*/
 
 //Funzioni da utilizzare nel server, ossia il disppatcher.
 #include "coda.h"

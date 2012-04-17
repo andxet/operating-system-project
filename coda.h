@@ -1,11 +1,12 @@
-/*
- *  coda.h
- *  repository
- *
- *  Created by Andrea Peretti on 19/01/11.
- *  Copyright 2011 Università degli studi di Torino. All rights reserved.
- *
- */
+/*###############################################################################
+##						-= Progetto di Sistemi Operativi =-			           ##
+## --------------------------------------------------------------------------- ##
+##  File:	       coda.h	                                                   ##
+##  Created by:	   Fiori, Peretti, Polto                                       ##
+## --------------------------------------------------------------------------- ##
+##  Descrizione:    Header del file coda                                       ##
+##                                                                             ##
+###############################################################################*/
 
 #include <stdio.h>
 #include <sys/ipc.h>

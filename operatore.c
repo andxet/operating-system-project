@@ -1,10 +1,12 @@
-//
-//  operatore.c
-//  
-//
-//  Created by Andrea Peretti on 27/03/12.
-//  Copyright (c) 2012 Università degli studi di Torino. All rights reserved.
-//
+/*###############################################################################
+##						-= Progetto di Sistemi Operativi =-			           ##
+## --------------------------------------------------------------------------- ##
+##  File:	       operatore.c                                                 ##
+##  Created by:	   Fiori, Peretti, Polto                                       ##
+## --------------------------------------------------------------------------- ##
+##  Descrizione:    Descrizione del file                                       ##
+##                                                                             ##
+###############################################################################*/
 
 #include <stdio.h>
 #include <sys/types.h>

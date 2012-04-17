@@ -1,11 +1,12 @@
-/*
- *  coda.c
- *  repository
- *
- *  Created by Andrea Peretti on 19/01/11.
- *  Copyright 2011 Università degli studi di Torino. All rights reserved.
- *
- */
+/*###############################################################################
+##						-= Progetto di Sistemi Operativi =-			           ##
+## --------------------------------------------------------------------------- ##
+##  File:	       coda.c	                                                   ##
+##  Created by:	   Fiori, Peretti, Polto                                       ##
+## --------------------------------------------------------------------------- ##
+##  Descrizione:    Descrizione del file                                       ##
+##                                                                             ##
+###############################################################################*/
 
 //Funzione che restituisce l'indice della coda, creandola.
 #include "coda.h"

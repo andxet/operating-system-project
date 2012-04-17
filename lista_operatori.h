@@ -1,10 +1,12 @@
-//
-//  lista_operatori.h
-//  helpdesk
-//
-//  Created by Andrea Peretti on 13/04/12.
-//  Copyright (c) 2012 Università degli studi di Torino. All rights reserved.
-//
+/*###############################################################################
+##						-= Progetto di Sistemi Operativi =-			           ##
+## --------------------------------------------------------------------------- ##
+##  File:	       lista_operatori.h                                           ##
+##  Created by:	   Fiori, Peretti, Polto                                       ##
+## --------------------------------------------------------------------------- ##
+##  Descrizione:    Descrizione del file                                       ##
+##                                                                             ##
+###############################################################################*/
 
 #ifndef helpdesk_lista_operatori_h
 #define helpdesk_lista_operatori_h

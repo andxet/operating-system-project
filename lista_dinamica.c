@@ -1,11 +1,12 @@
-/*
- *  mialista.c
- *  repository
- *
- *  Created by Andrea Peretti on 19/01/11.
- *  Copyright 2011 Università degli studi di Torino. All rights reserved.
- *
- */
+/*###############################################################################
+##						-= Progetto di Sistemi Operativi =-			           ##
+## --------------------------------------------------------------------------- ##
+##  File:	       lista_dinamica.c                                            ##
+##  Created by:	   Fiori, Peretti, Polto                                       ##
+## --------------------------------------------------------------------------- ##
+##  Descrizione:    Descrizione del file                                       ##
+##                                                                             ##
+###############################################################################*/
 
 #include "lista_dinamica.h"
 #include <stdio.h>

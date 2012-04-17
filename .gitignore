@@ -42,3 +42,8 @@ Thumbs.db
 ##############
 *~
 /nbproject/private/
+
+# Ignorare le cartelle che crea xCode #
+##############
+#helpdesk.xcodeproj/*
+#nbproject/*

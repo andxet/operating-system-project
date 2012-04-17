@@ -1,11 +1,12 @@
-/*
- *  miacodac.c
- *  repository
- *
- *  Created by Andrea Peretti on 19/01/11.
- *  Copyright 2011 Università degli studi di Torino. All rights reserved.
- *
- */
+/*###############################################################################
+##						-= Progetto di Sistemi Operativi =-			           ##
+## --------------------------------------------------------------------------- ##
+##  File:	       miacoda_serv.c	                                           ##
+##  Created by:	   Fiori, Peretti, Polto                                       ##
+## --------------------------------------------------------------------------- ##
+##  Descrizione:   Classi della coda del server                                ##
+##                                                                             ##
+###############################################################################*/
 
 #include <unistd.h>
 
