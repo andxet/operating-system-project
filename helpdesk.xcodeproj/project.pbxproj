@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520B52BC153D7A7A00121281 /* semafori.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B51521E26B008E2C6C /* semafori.c */; };
 		5214F0BD1521E26B008E2C6C /* coda.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F09F1521E26B008E2C6C /* coda.c */; };
 		5214F0BF1521E26B008E2C6C /* miacoda_op.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0A71521E26B008E2C6C /* miacoda_op.c */; };
 		5214F0C01521E26B008E2C6C /* miacoda_serv.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0A91521E26B008E2C6C /* miacoda_serv.c */; };
-		5214F0C11521E26B008E2C6C /* miainterfaccia.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0AB1521E26B008E2C6C /* miainterfaccia.c */; };
-		5214F0C21521E26B008E2C6C /* lista.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0AD1521E26B008E2C6C /* lista.c */; };
-		5214F0C31521E26B008E2C6C /* lista_dinamica.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0AF1521E26B008E2C6C /* lista_dinamica.c */; };
-		5214F0C41521E26B008E2C6C /* lista_condivisa.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B11521E26B008E2C6C /* lista_condivisa.c */; };
-		5214F0C61521E26B008E2C6C /* semafori.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B51521E26B008E2C6C /* semafori.c */; };
 		5214F0C81521E26B008E2C6C /* operatore.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B91521E26B008E2C6C /* operatore.c */; };
-		52A3604E15304F1100050748 /* miacoda_cli.c in Sources */ = {isa = PBXBuildFile; fileRef = 52A3604D15304F1100050748 /* miacoda_cli.c */; };
+		52534F531538647000BCE69F /* lista_operatori.c in Sources */ = {isa = PBXBuildFile; fileRef = 52534F521538647000BCE69F /* lista_operatori.c */; };
 		52CF2EEA1537307F002040D2 /* miorandom.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EE91537307F002040D2 /* miorandom.c */; };
+		52CF2EEE15373822002040D2 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EED15373822002040D2 /* server.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		52802A311521E1C70077DD15 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		52CF2EF115373932002040D2 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -52,6 +58,8 @@
 		5214F0B61521E26B008E2C6C /* semafori.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = semafori.h; sourceTree = "<group>"; };
 		5214F0B91521E26B008E2C6C /* operatore.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = operatore.c; sourceTree = "<group>"; };
 		5214F0BA1521E26B008E2C6C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		52534F521538647000BCE69F /* lista_operatori.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lista_operatori.c; sourceTree = "<group>"; };
+		52534F551538648A00BCE69F /* lista_operatori.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lista_operatori.h; sourceTree = "<group>"; };
 		52802A331521E1C70077DD15 /* helpdesk */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = helpdesk; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A3604D15304F1100050748 /* miacoda_cli.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miacoda_cli.c; sourceTree = "<group>"; };
 		52A3604F15304F2100050748 /* miacoda_cli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_cli.h; sourceTree = "<group>"; };
@@ -59,10 +67,19 @@
 		52CF2EE715371BA4002040D2 /* operatore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = operatore.h; sourceTree = "<group>"; };
 		52CF2EE91537307F002040D2 /* miorandom.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miorandom.c; sourceTree = "<group>"; };
 		52CF2EEB1537308F002040D2 /* miorandom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miorandom.h; sourceTree = "<group>"; };
+		52CF2EED15373822002040D2 /* server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = server.c; sourceTree = "<group>"; };
+		52CF2EF315373932002040D2 /* client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = client; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		52802A301521E1C70077DD15 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52CF2EF015373932002040D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -81,6 +98,8 @@
 				5214F0B01521E26B008E2C6C /* lista_dinamica.h */,
 				5214F0B11521E26B008E2C6C /* lista_condivisa.c */,
 				5214F0B21521E26B008E2C6C /* lista_condivisa.h */,
+				52534F521538647000BCE69F /* lista_operatori.c */,
+				52534F551538648A00BCE69F /* lista_operatori.h */,
 			);
 			name = Lista;
 			sourceTree = "<group>";
@@ -98,8 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				52CF2EEC15373099002040D2 /* Random */,
-				52802A341521E1C70077DD15 /* Products */,
 				5214F0A61521E26B008E2C6C /* MAKEFILE */,
+				52CF2EED15373822002040D2 /* server.c */,
 				5214F0AB1521E26B008E2C6C /* miainterfaccia.c */,
 				52CF2EE515371A13002040D2 /* costanti.h */,
 				52CF2EE815371BFA002040D2 /* Operatore */,
@@ -108,6 +127,8 @@
 				522D6D9C15306AD000C77699 /* Lista */,
 				522D6D9D15306ADC00C77699 /* Semafori */,
 				5214F0BA1521E26B008E2C6C /* README.md */,
+				52CF2EF515373932002040D2 /* client */,
+				52802A341521E1C70077DD15 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				52802A331521E1C70077DD15 /* helpdesk */,
+				52CF2EF315373932002040D2 /* client */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -152,6 +174,13 @@
 			name = Random;
 			sourceTree = "<group>";
 		};
+		52CF2EF515373932002040D2 /* client */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = client;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -170,6 +199,23 @@
 			name = helpdesk;
 			productName = helpdesk;
 			productReference = 52802A331521E1C70077DD15 /* helpdesk */;
+			productType = "com.apple.product-type.tool";
+		};
+		52CF2EF215373932002040D2 /* client */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52CF2EFA15373932002040D2 /* Build configuration list for PBXNativeTarget "client" */;
+			buildPhases = (
+				52CF2EEF15373932002040D2 /* Sources */,
+				52CF2EF015373932002040D2 /* Frameworks */,
+				52CF2EF115373932002040D2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = client;
+			productName = client;
+			productReference = 52CF2EF315373932002040D2 /* client */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -194,6 +240,7 @@
 			projectRoot = "";
 			targets = (
 				52802A321521E1C70077DD15 /* helpdesk */,
+				52CF2EF215373932002040D2 /* client */,
 			);
 		};
 /* End PBXProject section */
@@ -203,17 +250,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				520B52BC153D7A7A00121281 /* semafori.c in Sources */,
 				5214F0BD1521E26B008E2C6C /* coda.c in Sources */,
 				5214F0BF1521E26B008E2C6C /* miacoda_op.c in Sources */,
 				5214F0C01521E26B008E2C6C /* miacoda_serv.c in Sources */,
-				5214F0C11521E26B008E2C6C /* miainterfaccia.c in Sources */,
-				5214F0C21521E26B008E2C6C /* lista.c in Sources */,
-				5214F0C31521E26B008E2C6C /* lista_dinamica.c in Sources */,
-				5214F0C41521E26B008E2C6C /* lista_condivisa.c in Sources */,
-				5214F0C61521E26B008E2C6C /* semafori.c in Sources */,
 				5214F0C81521E26B008E2C6C /* operatore.c in Sources */,
-				52A3604E15304F1100050748 /* miacoda_cli.c in Sources */,
 				52CF2EEA1537307F002040D2 /* miorandom.c in Sources */,
+				52CF2EEE15373822002040D2 /* server.c in Sources */,
+				52534F531538647000BCE69F /* lista_operatori.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52CF2EEF15373932002040D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +332,20 @@
 			};
 			name = Release;
 		};
+		52CF2EFB15373932002040D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		52CF2EFC15373932002040D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -298,6 +363,15 @@
 			buildConfigurations = (
 				52802A3E1521E1C80077DD15 /* Debug */,
 				52802A3F1521E1C80077DD15 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52CF2EFA15373932002040D2 /* Build configuration list for PBXNativeTarget "client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52CF2EFB15373932002040D2 /* Debug */,
+				52CF2EFC15373932002040D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

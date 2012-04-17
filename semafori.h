@@ -18,6 +18,8 @@
 extern int key;
 extern int semid;
 
+typedef int semaforo;
+
 #define NUM_SEMAFORI 2
 #define S_READ	0
 #define S_WRITE 1

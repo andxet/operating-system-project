@@ -39,8 +39,6 @@ int op_coda_ricevi(coda_messaggio * ricevuto){
 }
 
 int op_coda_ricevi_collega(coda_messaggio * ricevuto, int coda_c){
-	coda_messaggio mess;
-	int err = coda_ricevi(coda_c, getpid(), &mess);
-	*ricevuto = mess.dato;
+	int err = coda_ricevi(coda_c, getpid(), ricevuto);
 	return err;
 }
