@@ -20,7 +20,7 @@ coda_messaggio next_client();
 void risolvi_problema(int problema);
 int pausa();
 
-void avvia(int idOp){
+void avvia(int idOp){ //ATTENZIONE-> c'è un return -1 in un VOID
 	if(coda_esiste(getpid()))
 		return -1;//Coda già esistente
 	coda = op_coda_ini();

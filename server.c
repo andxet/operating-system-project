@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include "costanti.h"
 #include "miacoda_serv.h"
-//#include "operatore.h" lo sta facendo il buon peret
+#include "operatore.h"
 
 int coda;	//Indica l'id della coda dell'helpdesk
 
@@ -27,11 +27,12 @@ main()
 		
 		if (!padre) {
 			//	codice proc. figlio
-			servi(i);
+			avvia(getpid());
 		}
 		else
 		{
 			printf("Istanziato %d ° operatore, pid: %d\n",i, padre);
+			
 			i++;
 			fflush(stdout);
 		}
