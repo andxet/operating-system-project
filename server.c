@@ -27,7 +27,8 @@ main()
 		
 		if (!padre) {
 			//	codice proc. figlio
-			avvia(getpid());
+			avvia(i);
+			//TODO: SALVARE IN MEM CONDIVISA L'ID(PID) DELL'OPERATORE
 		}
 		else
 		{
