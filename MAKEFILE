@@ -1,10 +1,192 @@
-#Regole generali
+# Progetto di Sistemi Operativi aa. 2011 2012
+# repository
+# Fiori Peretti Polto
 
 all: server client
-	make server; make client
 	
-clear:
-	rm *.o
-	
-#Server
+#### Helpdesk
 
+helpdesk: operatore.o miacoda_serv.o coda.o miacoda_op.o lista_operatori.o semafori.o
+	gcc -o helpdesk operatore.o miacoda_serv.o coda.o miacoda_op.o lista_operatori.o
+
+operatore.o: operatore.c operatore.h+èììw2
+	gcc -c operatore.c -g
+
+miacoda_serv.o: miacoda_serv.c miacoda_serv.h
+
+#### Clientu
+
+clientu: clientu.o clienti_up.o ini_clientu.o istruzioni.o coda.o log.o mieifile.o repo.o miacodac.o
+	gcc -o clientu clientu.o clienti_up.o ini_clientu.o istruzioni.o coda.o log.o mieifile.o repo.o miacodac.o
+
+clientu.o: clientu.c
+	gcc -c clientu.c -g
+
+clienti_up.o: clienti_up.c clienti_up.h miacodac.o
+	gcc -c clienti_up.c miacodac.o -g 
+
+ini_clientu.o: ini_clientu.c ini_clientu.h
+	gcc -c ini_clientu.c -g
+
+#### Clientd
+
+clientd: clienti.o istruzioni.o ini_clientd.o clientd.o coda.o repo.o log.o miacodac.o mieifile.o
+	gcc -o clientd clienti.o istruzioni.o ini_clientd.o clientd.o coda.o repo.o log.o miacodac.o mieifile.o
+	
+clienti.o: clienti.c
+	gcc -c clienti.c -g
+	
+istruzioni.o: istruzioni.c istruzioni.h instr_list.h
+	gcc -c istruzioni.c -g
+	
+ini_clientd.o: ini_clientd.c
+	gcc -c ini_clientd.c -g
+	
+clientd.o: clientd.c
+	gcc -c clientd.c -g
+
+#### Server
+
+server: server.o ini_server.o miacodas.o coda.o miologs.o log.o mialista.o mieisemafori.o miorepos.o repo.o servizi.o mialistas.o
+	gcc -o server server.o ini_server.o miacodas.o coda.o miologs.o log.o mialista.o mieisemafori.o miorepos.o repo.o servizi.o mialistas.o
+
+ini_server.o: ini_server.c
+	gcc -c ini_server.c -g
+	
+servizi.o: servizi.c
+	gcc -c servizi.c -g
+	
+server.o: server.c
+	gcc -c server.c -g
+	
+#### Segnali
+
+provasegnali.o: provasegnali.c
+	gcc -c provasegnali.c -g
+	
+provasegnali: provasegnali.o
+	gcc -o provasegnali provasegnali.o
+
+#### Coda di messaggi
+coda.o: coda.c
+	gcc -c coda.c -g
+	
+miacodas.o: miacodas.c
+	gcc -c miacodas.c -g
+	
+miacodac.o: miacodac.c
+	gcc -c miacodac.c -g
+	
+provacodac.o: provacodac.c
+	gcc -c provacodac.c -g
+	
+provacodac: miacodac.o coda.o provacodac.o
+	gcc -o provacodac miacodac.o coda.o provacodac.o
+	
+provacodas.o: provacodas.c
+	gcc -c provacodas.c -g
+	
+provacodas: provacodas.o miacodas.o coda.o
+	gcc -o provacodas provacodas.o miacodas.o coda.o
+
+#### Files di log
+log.o: log.c
+	gcc -c log.c -g
+	
+miologs.o: miologs.c
+	gcc -c miologs.c -g
+	
+provalogs.o: provalogs.c
+	gcc -c provalogs.c -g
+	
+provalog.o: provalog.c
+	gcc -c provalog.c -g
+	
+provalogs: provalogs.o miologs.o log.o
+	gcc -o provalogs provalogs.o miologs.o log.o
+	
+provalog: provalog.o log.o
+	gcc -o provalog provalog.o log.o
+	
+#### Repository
+
+repo.o: repo.c
+	gcc -c repo.c -g
+	
+miorepos.o: miorepos.c
+	gcc -c miorepos.c -g
+	
+provarepos.o: provarepos.c
+	gcc -c provarepos.c -g
+	
+provarepos: provarepos.o miorepos.o repo.o
+	gcc -o provarepos provarepos.o miorepos.o repo.o
+	
+provarepo.o: provarepo.c
+	gcc -c provarepo.c -g
+	
+provarepo: provarepo.o repo.o
+	gcc -o provarepo provarepo.o repo.o
+
+#### Semafori
+
+mieisemafori.o: mieisemafori.c mieisemafori.h
+	gcc -c mieisemafori.c -g
+	
+#### Lista statica
+
+mialista.o: mialista.c
+	gcc -c mialista.c -g
+
+mialistas.o: mialistas.c mialistas.h
+	gcc -c mialistas.c -g
+	
+provalista.o: provalista.c
+	gcc -c provalista.c -g
+	
+provalista: mialista.o provalista.o
+	gcc -o provalista mialista.o provalista.o
+
+provalistas.o: provalistas.c
+	gcc -c provalistas.c
+
+provalistas: mialista.o mialistas.o provalistas.o
+	gcc -o provalistas mialista.o mialistas.o provalistas.o
+
+#### Files
+
+mieifile.o: mieifile.c mieifile.h
+	gcc -c mieifile.c -g
+
+#### Programma che crea i file di istruzioni
+
+func_instr_maker.o: func_instr_maker.c func_instr_maker.h
+	gcc -c func_instr_maker.c -g
+
+instr_maker.o: instr_maker.c
+	gcc -c instr_maker.c -g
+
+instr_maker: instr_maker.o func_instr_maker.o miainterfaccia.o istruzioni.o mieifile.o utils.o repo.o
+	gcc -o instr_maker instr_maker.o func_instr_maker.o miainterfaccia.o istruzioni.o mieifile.o utils.o repo.o
+
+#### Interfaccia utente
+
+miainterfaccia.o: miainterfaccia.c miainterfaccia.h
+	gcc -c miainterfaccia.c -g
+
+provainterfaccia.o: provainterfaccia.c
+	gcc -c provainterfaccia.c -g
+
+provainterfaccia: miainterfaccia.o provainterfaccia.o
+	gcc -o provainterfaccia miainterfaccia.o provainterfaccia.o
+
+#### Altre funzioni
+
+clean:
+	rm ./*.o ./*.log; rm -r istruzioni
+
+all: server clientd clientu
+	
+
+release: server clientd clientu
+	rm ./*.o ./*.log

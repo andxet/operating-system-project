@@ -13,6 +13,7 @@
 #include <sys/types.h>
 #include <sys/ipc.h>
 #include <sys/shm.h>
+#include "costanti.h"
 
 int lista_operatori_ini(){
 	lista_sem = crea_semaforo(2);

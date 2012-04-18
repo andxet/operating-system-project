@@ -46,14 +46,8 @@
 		5214F0A81521E26B008E2C6C /* miacoda_op.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_op.h; sourceTree = "<group>"; };
 		5214F0A91521E26B008E2C6C /* miacoda_serv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miacoda_serv.c; sourceTree = "<group>"; };
 		5214F0AA1521E26B008E2C6C /* miacoda_serv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_serv.h; sourceTree = "<group>"; };
-		5214F0AB1521E26B008E2C6C /* miainterfaccia.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miainterfaccia.c; sourceTree = "<group>"; };
-		5214F0AC1521E26B008E2C6C /* miainterfaccia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miainterfaccia.h; sourceTree = "<group>"; };
 		5214F0AD1521E26B008E2C6C /* lista.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lista.c; sourceTree = "<group>"; };
 		5214F0AE1521E26B008E2C6C /* lista.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lista.h; sourceTree = "<group>"; };
-		5214F0AF1521E26B008E2C6C /* lista_dinamica.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lista_dinamica.c; sourceTree = "<group>"; };
-		5214F0B01521E26B008E2C6C /* lista_dinamica.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lista_dinamica.h; sourceTree = "<group>"; };
-		5214F0B11521E26B008E2C6C /* lista_condivisa.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lista_condivisa.c; sourceTree = "<group>"; };
-		5214F0B21521E26B008E2C6C /* lista_condivisa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lista_condivisa.h; sourceTree = "<group>"; };
 		5214F0B51521E26B008E2C6C /* semafori.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = semafori.c; sourceTree = "<group>"; };
 		5214F0B61521E26B008E2C6C /* semafori.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = semafori.h; sourceTree = "<group>"; };
 		5214F0B91521E26B008E2C6C /* operatore.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = operatore.c; sourceTree = "<group>"; };
@@ -94,10 +88,6 @@
 			children = (
 				5214F0AD1521E26B008E2C6C /* lista.c */,
 				5214F0AE1521E26B008E2C6C /* lista.h */,
-				5214F0AF1521E26B008E2C6C /* lista_dinamica.c */,
-				5214F0B01521E26B008E2C6C /* lista_dinamica.h */,
-				5214F0B11521E26B008E2C6C /* lista_condivisa.c */,
-				5214F0B21521E26B008E2C6C /* lista_condivisa.h */,
 				52534F521538647000BCE69F /* lista_operatori.c */,
 				52534F551538648A00BCE69F /* lista_operatori.h */,
 			);
@@ -119,10 +109,8 @@
 				52CF2EEC15373099002040D2 /* Random */,
 				5214F0A61521E26B008E2C6C /* MAKEFILE */,
 				52CF2EED15373822002040D2 /* server.c */,
-				5214F0AB1521E26B008E2C6C /* miainterfaccia.c */,
 				52CF2EE515371A13002040D2 /* costanti.h */,
 				52CF2EE815371BFA002040D2 /* Operatore */,
-				5214F0AC1521E26B008E2C6C /* miainterfaccia.h */,
 				52A360501530666600050748 /* Coda */,
 				522D6D9C15306AD000C77699 /* Lista */,
 				522D6D9D15306ADC00C77699 /* Semafori */,

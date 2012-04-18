@@ -15,10 +15,6 @@
 
 int successivo, key, semid;
 
-
-
-#define KEY_LISTA 998
-
 typedef struct lista_op * lista_operatori;
 struct lista_op {
 	int lista[MAX_N_OP]; //lista dei PID degli operatori
