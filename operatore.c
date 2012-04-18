@@ -24,24 +24,24 @@ coda_messaggio next_client();
 void risolvi_problema(int problema);
 int pausa();
 
-int avvia(int idOp){
+int avvia(int idOp){  //avvia l'operatore
 	srand((unsigned) time(NULL));
 	if(coda_esiste(getpid()))
 		return -1;//Coda già esistente
-	coda = op_coda_ini();
-	lista_operatori_aggancia();
+	coda = op_coda_ini(); //Crea la coda
+	lista_operatori_aggancia();  //Salva in memoria condivisa l'id dell'operatore, TODO:Controllo su quello che ritorna
 	//TODO: collega al semaforo della memoria condivisa
 	op = idOp;
 	servi = 1;
 	collega_gia_servito = 0;
 	while(servi){
-		coda_messaggio ricevuto = next_client();
+		coda_messaggio ricevuto = next_client();   //Serve per prelevare il messaggio del cliente
 		int client = ricevuto.sender;
-		int problema = ricevuto.dato;
-		risolvi_problema(problema);
-		op_coda_invia_soluzione(client);
-		if(gen_rand(OP_PROB_PAUSA) == 1)
-			pausa();
+		int problema = ricevuto.dato - RICH_1;
+		risolvi_problema(problema);				//Risolve il problema e dorme
+		op_coda_invia_soluzione(client);		//Risponde ho risolto il problema
+		if(gen_rand(OP_PROB_PAUSA) == 1)		//Vede se mett in pausa
+			//pausa(); TODO DA SCOMMENTARE UNA VOLTA IMPLEMENTATI I SEMAFORI
 	}
 	coda_rimuovi(coda);
 	exit(0);
@@ -50,7 +50,7 @@ int avvia(int idOp){
 coda_messaggio next_client(){
 	int codat;
 	//TODO: ottenere accesso lettura alla lista
-	if(operatori->inPausa == operatori->lista[(op-1+MAX_N_OP)%MAX_N_OP] && !collega_gia_servito){//Se l'operatore precedente è in pausa e non ho già servito un suo cliente, estraggo un cliente dalla sua lista
+	if(operatori->inPausa != -1 && operatori->inPausa == operatori->lista[(op-1+MAX_N_OP)%MAX_N_OP] && !collega_gia_servito){//Se l'operatore precedente è in pausa e non ho già servito un suo cliente, estraggo un cliente dalla sua lista
 		codat = coda_aggancia(operatori->lista[(op-1+MAX_N_OP)%MAX_N_OP]);
 		collega_gia_servito = 1;
 	}
@@ -59,16 +59,17 @@ coda_messaggio next_client(){
 		 collega_gia_servito = 0;
 	}
 		 
-	coda_messaggio cliente;
-	int err = op_coda_ricevi_collega(&cliente, codat);
+	coda_messaggio messCliente;
+	int err = op_coda_ricevi_collega(&messCliente, codat);  //Serve per prendere il mess da codat e lo salva in &cliente
 	if (err < 0){
 		fprintf(stderr, "Errore nel prelevare dalla coda (Operatore %d PID %d", op, getpid());
 		exit(-1);
 	}
-	return cliente;		
+	return messCliente;		
 }
 
 void risolvi_problema(int problema){
+	//TODO: Controllare che problema sia compreso nel range di tempistiche
 	sleep(tempistiche[problema]);
 }
 
