@@ -24,6 +24,9 @@ int lista_operatori_ini(){
 		return -1; //Errore nella creazione della coda
 	operatori = (lista_operatori) shmat(memid, NULL, 0);
 	operatori->inPausa = -1;
+	int i;
+	for(i = 0; i < MAX_N_OP; i++)
+		operatori->lista[i] = -1;
 	successivo = 0;
 	return 0;
 }

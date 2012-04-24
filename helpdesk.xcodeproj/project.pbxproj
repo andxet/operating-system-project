@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		520B52BC153D7A7A00121281 /* semafori.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B51521E26B008E2C6C /* semafori.c */; };
-		5214F0BD1521E26B008E2C6C /* coda.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F09F1521E26B008E2C6C /* coda.c */; };
-		5214F0BF1521E26B008E2C6C /* miacoda_op.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0A71521E26B008E2C6C /* miacoda_op.c */; };
-		5214F0C01521E26B008E2C6C /* miacoda_serv.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0A91521E26B008E2C6C /* miacoda_serv.c */; };
-		5214F0C81521E26B008E2C6C /* operatore.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B91521E26B008E2C6C /* operatore.c */; };
 		5243857C153EBA5A00B240B4 /* semafori.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B51521E26B008E2C6C /* semafori.c */; };
 		5243857D153EBA5A00B240B4 /* coda.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F09F1521E26B008E2C6C /* coda.c */; };
 		5243857E153EBA5A00B240B4 /* miacoda_op.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0A71521E26B008E2C6C /* miacoda_op.c */; };
@@ -20,23 +15,10 @@
 		52438581153EBA5A00B240B4 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EE91537307F002040D2 /* util.c */; };
 		52438582153EBA5A00B240B4 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EED15373822002040D2 /* server.c */; };
 		52438583153EBA5A00B240B4 /* lista_operatori.c in Sources */ = {isa = PBXBuildFile; fileRef = 52534F521538647000BCE69F /* lista_operatori.c */; };
-		52534F531538647000BCE69F /* lista_operatori.c in Sources */ = {isa = PBXBuildFile; fileRef = 52534F521538647000BCE69F /* lista_operatori.c */; };
-		52C592371546B375004958D8 /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = 52C592361546B375004958D8 /* makefile */; };
-		52CF2EEA1537307F002040D2 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EE91537307F002040D2 /* util.c */; };
-		52CF2EEE15373822002040D2 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EED15373822002040D2 /* server.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		52438585153EBA5A00B240B4 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		52802A311521E1C70077DD15 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -54,8 +36,6 @@
 		5214F0A81521E26B008E2C6C /* miacoda_op.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_op.h; sourceTree = "<group>"; };
 		5214F0A91521E26B008E2C6C /* miacoda_serv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miacoda_serv.c; sourceTree = "<group>"; };
 		5214F0AA1521E26B008E2C6C /* miacoda_serv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_serv.h; sourceTree = "<group>"; };
-		5214F0AD1521E26B008E2C6C /* lista.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lista.c; sourceTree = "<group>"; };
-		5214F0AE1521E26B008E2C6C /* lista.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lista.h; sourceTree = "<group>"; };
 		5214F0B51521E26B008E2C6C /* semafori.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = semafori.c; sourceTree = "<group>"; };
 		5214F0B61521E26B008E2C6C /* semafori.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = semafori.h; sourceTree = "<group>"; };
 		5214F0B91521E26B008E2C6C /* operatore.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = operatore.c; sourceTree = "<group>"; };
@@ -63,7 +43,6 @@
 		52438589153EBA5A00B240B4 /* helpdesk copy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "helpdesk copy"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52534F521538647000BCE69F /* lista_operatori.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lista_operatori.c; sourceTree = "<group>"; };
 		52534F551538648A00BCE69F /* lista_operatori.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lista_operatori.h; sourceTree = "<group>"; };
-		52802A331521E1C70077DD15 /* helpdesk */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = helpdesk; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A3604D15304F1100050748 /* miacoda_cli.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miacoda_cli.c; sourceTree = "<group>"; };
 		52A3604F15304F2100050748 /* miacoda_cli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_cli.h; sourceTree = "<group>"; };
 		52C592361546B375004958D8 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
@@ -82,21 +61,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		52802A301521E1C70077DD15 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		522D6D9C15306AD000C77699 /* Lista */ = {
 			isa = PBXGroup;
 			children = (
-				5214F0AD1521E26B008E2C6C /* lista.c */,
-				5214F0AE1521E26B008E2C6C /* lista.h */,
 				52534F521538647000BCE69F /* lista_operatori.c */,
 				52534F551538648A00BCE69F /* lista_operatori.h */,
 			);
@@ -132,7 +102,6 @@
 		52802A341521E1C70077DD15 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				52802A331521E1C70077DD15 /* helpdesk */,
 				52438589153EBA5A00B240B4 /* helpdesk copy */,
 			);
 			name = Products;
@@ -181,9 +150,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5243857A153EBA5A00B240B4 /* helpdesk copy */ = {
+		5243857A153EBA5A00B240B4 /* helpdesk */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 52438586153EBA5A00B240B4 /* Build configuration list for PBXNativeTarget "helpdesk copy" */;
+			buildConfigurationList = 52438586153EBA5A00B240B4 /* Build configuration list for PBXNativeTarget "helpdesk" */;
 			buildPhases = (
 				5243857B153EBA5A00B240B4 /* Sources */,
 				52438584153EBA5A00B240B4 /* Frameworks */,
@@ -193,26 +162,9 @@
 			);
 			dependencies = (
 			);
-			name = "helpdesk copy";
-			productName = helpdesk;
-			productReference = 52438589153EBA5A00B240B4 /* helpdesk copy */;
-			productType = "com.apple.product-type.tool";
-		};
-		52802A321521E1C70077DD15 /* helpdesk */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 52802A3D1521E1C80077DD15 /* Build configuration list for PBXNativeTarget "helpdesk" */;
-			buildPhases = (
-				52802A2F1521E1C70077DD15 /* Sources */,
-				52802A301521E1C70077DD15 /* Frameworks */,
-				52802A311521E1C70077DD15 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
 			name = helpdesk;
 			productName = helpdesk;
-			productReference = 52802A331521E1C70077DD15 /* helpdesk */;
+			productReference = 52438589153EBA5A00B240B4 /* helpdesk copy */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -236,8 +188,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				52802A321521E1C70077DD15 /* helpdesk */,
-				5243857A153EBA5A00B240B4 /* helpdesk copy */,
+				5243857A153EBA5A00B240B4 /* helpdesk */,
 			);
 		};
 /* End PBXProject section */
@@ -255,22 +206,6 @@
 				52438581153EBA5A00B240B4 /* util.c in Sources */,
 				52438582153EBA5A00B240B4 /* server.c in Sources */,
 				52438583153EBA5A00B240B4 /* lista_operatori.c in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		52802A2F1521E1C70077DD15 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				520B52BC153D7A7A00121281 /* semafori.c in Sources */,
-				5214F0BD1521E26B008E2C6C /* coda.c in Sources */,
-				5214F0BF1521E26B008E2C6C /* miacoda_op.c in Sources */,
-				5214F0C01521E26B008E2C6C /* miacoda_serv.c in Sources */,
-				5214F0C81521E26B008E2C6C /* operatore.c in Sources */,
-				52CF2EEA1537307F002040D2 /* util.c in Sources */,
-				52CF2EEE15373822002040D2 /* server.c in Sources */,
-				52534F531538647000BCE69F /* lista_operatori.c in Sources */,
-				52C592371546B375004958D8 /* makefile in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,24 +273,10 @@
 			};
 			name = Release;
 		};
-		52802A3E1521E1C80077DD15 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		52802A3F1521E1C80077DD15 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		52438586153EBA5A00B240B4 /* Build configuration list for PBXNativeTarget "helpdesk copy" */ = {
+		52438586153EBA5A00B240B4 /* Build configuration list for PBXNativeTarget "helpdesk" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				52438587153EBA5A00B240B4 /* Debug */,
@@ -369,15 +290,6 @@
 			buildConfigurations = (
 				52802A3B1521E1C80077DD15 /* Debug */,
 				52802A3C1521E1C80077DD15 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		52802A3D1521E1C80077DD15 /* Build configuration list for PBXNativeTarget "helpdesk" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				52802A3E1521E1C80077DD15 /* Debug */,
-				52802A3F1521E1C80077DD15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "util.h"
+#include <sys/signal.h>
 
 int gen_rand(int n)
 /* returns random number in range of 0 to 99 */

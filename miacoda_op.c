@@ -12,15 +12,21 @@
 #include "coda.h"
 #include <unistd.h>
 #include "costanti.h"
+#include "util.h"
 
 //Funzioni ottimizzate per l'operatore
 
 int op_coda_ini(){
-	if(coda_esiste(getpid()) == -1)
+	/*if(coda_esiste(getpid())){
+		log("La coda esiste gia'");
 		return -2; //La coda esiste già!
+	}*/
+		
 	coda = coda_crea(getpid());
-	if(coda == -1)
+	if(coda == -1){
+		log("Errore nel collegarsi alla coda");
 		return -1; //Errore nel collegarsi alla coda
+	}
 	return 0;
 }
 

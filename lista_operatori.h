@@ -24,16 +24,16 @@ struct lista_op {
 extern lista_operatori operatori;
 extern semaforo lista_sem;
 
-int lista_operatori_ini();
-int lista_operatori_aggancia();
-int lista_operatori_rimuovi();
+int lista_operatori_ini();//Da utilizzare nel server, inizializza la memoria condivisa
+int lista_operatori_aggancia();//Da utilizzare negli operatori, si aggancia alla coda del server
+int lista_operatori_rimuovi();//Distrugge una memoria condivisa
 
-int lista_operatori_inPausa();
-int lista_operatori_precedente();
+int lista_operatori_inPausa();//Ottengo il PID dell'operatore in pausa
+int lista_operatori_precedente();//Ottengo il PID dell'operatore precedente
 
-int lista_operatori_next(int * next);
+int lista_operatori_next(int * next);//Ottengo il pid del prossimo operatore a cui assegnare una richiesta
 
-int sgancia();
+int sgancia(); //Per scollegarsi da una memoria
 
 
 #endif

@@ -8,6 +8,7 @@
 ##                                                                             ##
 ###############################################################################*/
 
+
 #define MAX_N_OP  10 // Numero massimo di operatori che vengono creati dall'helpdesk
 #define DIM_CODA_OP 10 // Dimensione della coda di ogni operatore
 #define STATO_HELPDESK 0 //Indica se l'helpdesk è aperto (true) o chiuso (false)
