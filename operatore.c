@@ -15,8 +15,10 @@
 #include "operatore.h"
 #include "miacoda_op.h"
 #include "costanti.h"
-#include "miorandom.h"
+#include "util.h"
 #include "lista_operatori.h"
+
+int tempistiche[4] = {0.100, 0.050, 0.500, 0.150}; //Secondi di attesa
 
 
 
@@ -41,7 +43,7 @@ int avvia(int idOp){  //avvia l'operatore
 		risolvi_problema(problema);				//Risolve il problema e dorme
 		op_coda_invia_soluzione(client);		//Risponde ho risolto il problema
 		if(gen_rand(OP_PROB_PAUSA) == 1)		//Vede se mett in pausa
-			//pausa(); TODO DA SCOMMENTARE UNA VOLTA IMPLEMENTATI I SEMAFORI
+		{}//pausa(); TODO: DA SCOMMENTARE UNA VOLTA IMPLEMENTATI I SEMAFORI
 	}
 	coda_rimuovi(coda);
 	exit(0);

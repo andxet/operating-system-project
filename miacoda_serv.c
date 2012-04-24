@@ -12,6 +12,7 @@
 
 #include "miacoda_serv.h"
 #include "coda.h"
+#include "costanti.h"
 
 //Funzioni ottimizzate per il server
 

@@ -10,10 +10,14 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "miorandom.h"
+#include "util.h"
 
 int gen_rand(int n)
 /* returns random number in range of 0 to 99 */
 {
 	return random(n);
+}
+
+void log(char * messaggio){
+	printf("\n%d: %s", getpid(), messaggio);
 }

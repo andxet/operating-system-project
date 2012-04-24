@@ -7,6 +7,11 @@
 		<key>client.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>helpdesk copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
 		<key>helpdesk.xcscheme</key>
@@ -17,6 +22,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>5243857A153EBA5A00B240B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>52802A321521E1C70077DD15</key>
 		<dict>
 			<key>primary</key>

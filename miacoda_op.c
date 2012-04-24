@@ -11,6 +11,7 @@
 #include "miacoda_op.h"
 #include "coda.h"
 #include <unistd.h>
+#include "costanti.h"
 
 //Funzioni ottimizzate per l'operatore
 
