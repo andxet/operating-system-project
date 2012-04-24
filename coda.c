@@ -16,7 +16,10 @@ int coda_crea(int id){
 }
 
 int coda_esiste(int id){
-	return msgget(id, 0666 | IPC_EXCL);
+	if(msgget(id, 0666 | IPC_EXCL) == -1)
+		return 1;
+	else
+		return 0;
 }
 
 //Funzione che restituisce l'indice della coda, agganciandosi ad essa

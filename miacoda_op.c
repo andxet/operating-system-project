@@ -16,7 +16,7 @@
 //Funzioni ottimizzate per l'operatore
 
 int op_coda_ini(){
-	if(coda_esiste(getpid()) != -1)
+	if(coda_esiste(getpid()) == -1)
 		return -2; //La coda esiste già!
 	coda = coda_crea(getpid());
 	if(coda == -1)

@@ -42,4 +42,4 @@ semafori.o: semafori.c semafori.h
 #### Altre funzioni
 
 clean:
-	rm ./*.o ./*.log;
+	rm ./*.o helpdesk
