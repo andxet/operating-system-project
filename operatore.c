@@ -28,8 +28,12 @@ int pausa();
 
 int avvia(int idOp){  //avvia l'operatore
 	srand((unsigned) time(NULL));
-	if(coda_esiste(getpid()))
+	int err;
+	if(coda_esiste(getpid())){
+		log(sprintf("Errore nella creazione della coda: errore %d", err));
 		return -1;//Coda già esistente
+	}
+	log("Tutto ok");
 	coda = op_coda_ini(); //Crea la coda
 	lista_operatori_aggancia();  //Salva in memoria condivisa l'id dell'operatore, TODO:Controllo su quello che ritorna
 	//TODO: collega al semaforo della memoria condivisa
