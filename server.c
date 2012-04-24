@@ -7,7 +7,8 @@
 #include "util.h"
 
 int coda;	//Indica l'id della coda dell'helpdesk
-int continua = 1; //Indica se l'helpdesk deve smettere di lavorare
+int eseguiProgramma = 1; //Se 1 gira, altrimenti chiude tutto
+int aperto = 1; //Indica il giorno o la notte
 int key, semid; //Variabili pr la coda
 lista_operatori operatori;
 semaforo lista_sem;
@@ -27,6 +28,12 @@ int main()
 {
 	int i;
 	pid_t padre;
+	//Creo la lista degli operatori
+	if(lista_operatori_ini() < 0)
+		log("Impossibile creare la memoria per salvare l'elenco degli operatori");
+	
+	signal(SIGINT, interrompi);
+	
 	//Creo i vari operatori
 	for (i=0; i < MAX_N_OP; i++)
 	{		
@@ -37,7 +44,6 @@ int main()
 
 			//avvia(i);
 			log("Avvio");
-
 			avvia(i);
 			log("Dopo avvio");
 			//TODO: SALVARE IN MEM CONDIVISA L'ID(PID) DELL'OPERATORE
@@ -45,24 +51,23 @@ int main()
 		}
 		else
 		{
-			printf("\nIstanziato %d ° operatore, pid: %d\n", i, padre);
+			log("Server : Istanziato %d ° operatore, pid: %d\n", i, padre);
+			//printf("Istanziato %d ° operatore, pid: %d\n", i, padre);
 			fflush(stdout);
+			operatori->lista[i] = padre;//Inserisco l'id del figlio alla lista
 		}
 	}
 	
 	
-	//Creo la coda dell'HelpDesk
-	
-	
+	//Creo la coda dell'HelpDesk <-- Delle richieste, dove si collegano i vari client
 	printf("\nL'id della coda è: %d\n", coda); fflush(stdout);
 	s_coda_ini();
-	printf("\nL'id della coda è: %d\n", coda); fflush(stdout);
-	s_coda_elimina();
-	printf("\nL'id della coda è: %d\n", coda); fflush(stdout);
+		
 	
-	signal(SIGINT, interrompi);
-	
-	while(continua){;}
+	while(aperto)
+	{
+		
+	}
 	
 	for(i=0; i<MAX_N_OP; i++)
 		wait(0);
@@ -74,8 +79,10 @@ void interrompi(int s){
 	int i;
 	log("Ricevuto sigint");
 	for(i=0; i < MAX_N_OP; i++){
+		if(operatori->lista[i]==-1)//Se viene interrotto mentre sta generando ancora i client
+			continue;//Serve per saltare tutte le istruzioni sotto e tornare in cima al for
 		kill(operatori->lista[i], SIGINT);
 		log("invio kill a " + i);
 	}
-	continua = 0;
+	eseguiProgramma = 0;
 }
