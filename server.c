@@ -7,7 +7,7 @@
 
 int coda;	//Indica l'id della coda dell'helpdesk
 
-servi(int num)
+test(int num)
 {
 	printf("Operatore : %d, pid : %d \n",num,getpid());
 	sleep (10);
@@ -27,6 +27,7 @@ main()
 		
 		if (!padre) {
 			//	codice proc. figlio
+			//test(i);
 			avvia(i);
 			//TODO: SALVARE IN MEM CONDIVISA L'ID(PID) DELL'OPERATORE
 		}

@@ -7,6 +7,8 @@
 ##  Descrizione:   Costanti utilizzate all'interno del progetto                ##
 ##                                                                             ##
 ###############################################################################*/
+#define LOG 1	//1:Scrive i log, 0:No Log
+#define char[x]	testoLog
 
 
 #define MAX_N_OP  10 // Numero massimo di operatori che vengono creati dall'helpdesk
