@@ -7,13 +7,6 @@
 ##  Descrizione:   Costanti utilizzate all'interno del progetto                ##
 ##                                                                             ##
 ###############################################################################*/
-#define LOG 1	//1:Scrive i log, 0:No Log
-#define lunghezzaLog 255	//Lunghezza massima del testo del log
-#define char[lunghezzaLog]	testoLog	//Contiene il testo del log
-
-#define 1 true
-#define 0 false
-
 
 #define MAX_N_OP  10 // Numero massimo di operatori che vengono creati dall'helpdesk
 #define DIM_CODA_OP 10 // Dimensione della coda di ogni operatore
