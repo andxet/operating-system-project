@@ -8,7 +8,11 @@
 ##                                                                             ##
 ###############################################################################*/
 #define LOG 1	//1:Scrive i log, 0:No Log
-#define char[x]	testoLog
+#define lunghezzaLog 255	//Lunghezza massima del testo del log
+#define char[lunghezzaLog]	testoLog	//Contiene il testo del log
+
+#define 1 true
+#define 0 false
 
 
 #define MAX_N_OP  10 // Numero massimo di operatori che vengono creati dall'helpdesk
