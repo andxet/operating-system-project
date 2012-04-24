@@ -10,6 +10,7 @@
 
 #include <unistd.h>
 
+#include "costanti.h"
 #include "miacoda_serv.h"
 #include "coda.h"
 #include "costanti.h"

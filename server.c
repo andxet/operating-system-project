@@ -34,8 +34,10 @@ int main()
 		
 		if (!padre) {
 			//	codice proc. figlio
+
 			//avvia(i);
 			log("Avvio");
+
 			avvia(i);
 			log("Dopo avvio");
 			//TODO: SALVARE IN MEM CONDIVISA L'ID(PID) DELL'OPERATORE
