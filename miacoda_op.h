@@ -12,7 +12,7 @@
 #include "coda.h"
 
 extern int coda;
-//extern int client;
+extern int op;
 
 
 int op_coda_ini();//Funzione per collegarsi alla coda

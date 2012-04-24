@@ -20,21 +20,22 @@
 
 int tempistiche[4] = {0.100, 0.050, 0.500, 0.150}; //Secondi di attesa
 
-
+int opPrecedente();
 
 coda_messaggio next_client();
 void risolvi_problema(int problema);
 int pausa();
 
 int avvia(int idOp){  //avvia l'operatore
+	op = idOp;
 	srand((unsigned) time(NULL));
 	int err = op_coda_ini(); //Crea la coda
 	if(err < 0)
 		log("Errore nella creazione della coda, err: %d");
 	log("Tutto ok");
-	lista_operatori_aggancia();  //Salva in memoria condivisa l'id dell'operatore, TODO:Controllo su quello che ritorna
+	stato_aggancia();  //Salva in memoria condivisa l'id dell'operatore, TODO:Controllo su quello che ritorna
 	//TODO: collega al semaforo della memoria condivisa
-	op = idOp;
+	
 	servi = 1;
 	collega_gia_servito = 0;
 	while(servi){
@@ -53,8 +54,8 @@ int avvia(int idOp){  //avvia l'operatore
 coda_messaggio next_client(){
 	int codat;
 	//TODO: ottenere accesso lettura alla lista
-	if(operatori->inPausa != -1 && operatori->inPausa == operatori->lista[(op-1+MAX_N_OP)%MAX_N_OP] && !collega_gia_servito){//Se l'operatore precedente è in pausa e non ho già servito un suo cliente, estraggo un cliente dalla sua lista
-		codat = coda_aggancia(operatori->lista[(op-1+MAX_N_OP)%MAX_N_OP]);
+	if(stato_hd->inPausa != -1 && stato_hd->inPausa == opPrecedente() && !collega_gia_servito){//Se l'operatore precedente è in pausa e non ho già servito un suo cliente, estraggo un cliente dalla sua lista
+		codat = coda_aggancia(opPrecedente());
 		collega_gia_servito = 1;
 	}
 	else{
@@ -76,14 +77,18 @@ void risolvi_problema(int problema){
 	sleep(tempistiche[problema]);
 }
 
+int opPrecedente(){
+	return KEY_START + ((op - 1 + MAX_N_OP)%MAX_N_OP);
+}
+
 int pausa(){
 	//TODO: implementare utilizzo dei semafori
-	if(lista_operatori_inPausa() != -1)
+	if(stato_inPausa() != -1)
 		return 0;//Qualcuno è già in pausa
-	operatori->inPausa = getpid();
+	stato_hd->inPausa = getpid();
 	//Rilascio semaforo
 	sleep(OP_SEC_PAUSA);
 	//Ottengo accesso alla lista
-	operatori->inPausa = -1;
+	stato_hd->inPausa = -1;
 	return 1;//Riprendo a lavorare
 }

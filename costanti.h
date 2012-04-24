@@ -50,3 +50,7 @@
 //Risposta da parte del dispatcher in caso l'helpdesk sia chiuso
 #define HD_CLOSED 31
 #define HD_OCCUPATO 32
+
+//Vettore delle chiavi delle code degli operatori
+//int code[DIM_CODA_OP] = {1000, 1001, 1002, 1003
+#define KEY_START 1000

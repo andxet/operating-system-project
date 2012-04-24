@@ -15,48 +15,36 @@
 #include <sys/shm.h>
 #include "costanti.h"
 
-int lista_operatori_ini(){
+int stato_ini(){
 	lista_sem = crea_semaforo(2);
 	set_semaforo(S_READ, 1);
 	set_semaforo(S_WRITE, 1);
-	int memid = shmget(KEY_LISTA, sizeof(struct lista_op), IPC_CREAT | 0600);
+	int memid = shmget(KEY_LISTA, sizeof(struct stato_hd), IPC_CREAT | 0600);
 	if(memid == -1)
 		return -1; //Errore nella creazione della coda
-	operatori = (lista_operatori) shmat(memid, NULL, 0);
-	operatori->inPausa = -1;
+	stato_hd = (stato_helpdesk) shmat(memid, NULL, 0);
+	stato_hd->inPausa = -1;
+	stato_hd->aperto = 1;
 	int i;
-	for(i = 0; i < MAX_N_OP; i++)
-		operatori->lista[i] = -1;
+	
 	successivo = 0;
 	return 0;
 }
 
-int lista_operatori_aggancia(){
-	int memid = shmget(KEY_LISTA, sizeof(struct lista_op), 0);
+int stato_aggancia(){
+	int memid = shmget(KEY_LISTA, sizeof(struct stato_hd), 0);
 	if(memid == -1)
 		return -1; //Coda inesistente od errore nel collegamento
-	operatori = (lista_operatori) shmat(memid, NULL, 0);
+	stato_hd = (stato_helpdesk) shmat(memid, NULL, 0);
 	return 0;
 }
 
-int lista_operatori_rimuovi(){
-	return shmdt(operatori);
+int stato_rimuovi(){
+	return shmdt(stato_hd);
 }
 
-int lista_operatori_inPausa(){
-	if((int)operatori <= -1)
+int stato_inPausa(){
+	if((int)stato_hd <= -1)
 		return -1;
-	return operatori->inPausa;
-}
-
-int lista_operatori_precedente(){
-	extern int op;
-	if(!op)
-		return -1;
-	return operatori->lista[(op+MAX_N_OP-1)%MAX_N_OP];
-}
-
-int lista_operatori_next(int * next){
-	return operatori->lista[((successivo++)+MAX_N_OP)%MAX_N_OP];
-	
+	return stato_hd->inPausa;
 }

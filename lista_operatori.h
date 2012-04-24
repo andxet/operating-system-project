@@ -15,23 +15,21 @@
 
 int successivo, key, semid;
 
-typedef struct lista_op * lista_operatori;
-struct lista_op {
-	int lista[MAX_N_OP]; //lista dei PID degli operatori
+typedef struct stato_hd * stato_helpdesk;
+struct stato_hd {
+	//int lista[MAX_N_OP]; //lista dei PID degli operatori
 	int inPausa; //-1 nessun operatore in pausa, oppure PID operatore in pausa
+	int aperto;//0 chiuso, 1 fallimento (esci dal programma), 2 aperto
 };
 
-extern lista_operatori operatori;
+extern stato_helpdesk stato_hd;
 extern semaforo lista_sem;
 
-int lista_operatori_ini();//Da utilizzare nel server, inizializza la memoria condivisa
-int lista_operatori_aggancia();//Da utilizzare negli operatori, si aggancia alla coda del server
-int lista_operatori_rimuovi();//Distrugge una memoria condivisa
+int stato_ini();//Da utilizzare nel server, inizializza la memoria condivisa
+int stato_aggancia();//Da utilizzare negli operatori, si aggancia alla coda del server
+int stato_rimuovi();//Distrugge una memoria condivisa
 
-int lista_operatori_inPausa();//Ottengo il PID dell'operatore in pausa
-int lista_operatori_precedente();//Ottengo il PID dell'operatore precedente
-
-int lista_operatori_next(int * next);//Ottengo il pid del prossimo operatore a cui assegnare una richiesta
+int stato_inPausa();//Ottengo il PID dell'operatore in pausa
 
 int sgancia(); //Per scollegarsi da una memoria
 

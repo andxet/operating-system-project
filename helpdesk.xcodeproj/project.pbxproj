@@ -10,7 +10,6 @@
 		5243857C153EBA5A00B240B4 /* semafori.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B51521E26B008E2C6C /* semafori.c */; };
 		5243857D153EBA5A00B240B4 /* coda.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F09F1521E26B008E2C6C /* coda.c */; };
 		5243857E153EBA5A00B240B4 /* miacoda_op.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0A71521E26B008E2C6C /* miacoda_op.c */; };
-		5243857F153EBA5A00B240B4 /* miacoda_serv.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0A91521E26B008E2C6C /* miacoda_serv.c */; };
 		52438580153EBA5A00B240B4 /* operatore.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B91521E26B008E2C6C /* operatore.c */; };
 		52438581153EBA5A00B240B4 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EE91537307F002040D2 /* util.c */; };
 		52438582153EBA5A00B240B4 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EED15373822002040D2 /* server.c */; };
@@ -34,8 +33,6 @@
 		5214F0A01521E26B008E2C6C /* coda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = coda.h; sourceTree = "<group>"; };
 		5214F0A71521E26B008E2C6C /* miacoda_op.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miacoda_op.c; sourceTree = "<group>"; };
 		5214F0A81521E26B008E2C6C /* miacoda_op.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_op.h; sourceTree = "<group>"; };
-		5214F0A91521E26B008E2C6C /* miacoda_serv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miacoda_serv.c; sourceTree = "<group>"; };
-		5214F0AA1521E26B008E2C6C /* miacoda_serv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_serv.h; sourceTree = "<group>"; };
 		5214F0B51521E26B008E2C6C /* semafori.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = semafori.c; sourceTree = "<group>"; };
 		5214F0B61521E26B008E2C6C /* semafori.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = semafori.h; sourceTree = "<group>"; };
 		5214F0B91521E26B008E2C6C /* operatore.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = operatore.c; sourceTree = "<group>"; };
@@ -116,8 +113,6 @@
 				5214F0A81521E26B008E2C6C /* miacoda_op.h */,
 				52A3604D15304F1100050748 /* miacoda_cli.c */,
 				52A3604F15304F2100050748 /* miacoda_cli.h */,
-				5214F0A91521E26B008E2C6C /* miacoda_serv.c */,
-				5214F0AA1521E26B008E2C6C /* miacoda_serv.h */,
 			);
 			name = Coda;
 			sourceTree = "<group>";
@@ -201,7 +196,6 @@
 				5243857C153EBA5A00B240B4 /* semafori.c in Sources */,
 				5243857D153EBA5A00B240B4 /* coda.c in Sources */,
 				5243857E153EBA5A00B240B4 /* miacoda_op.c in Sources */,
-				5243857F153EBA5A00B240B4 /* miacoda_serv.c in Sources */,
 				52438580153EBA5A00B240B4 /* operatore.c in Sources */,
 				52438581153EBA5A00B240B4 /* util.c in Sources */,
 				52438582153EBA5A00B240B4 /* server.c in Sources */,

@@ -21,8 +21,7 @@ int op_coda_ini(){
 		log("La coda esiste gia'");
 		return -2; //La coda esiste già!
 	}*/
-		
-	coda = coda_crea(getpid());
+	coda = coda_crea(KEY_START+op);
 	if(coda == -1){
 		log("Errore nel collegarsi alla coda");
 		return -1; //Errore nel collegarsi alla coda
@@ -38,7 +37,7 @@ int op_coda_ini(){
  }*/ //Non necessaria perchè ci pensa lo scheduler
 
 int op_coda_invia_soluzione(int client){
-	coda_messaggio mess = coda_messaggio_componi(client, getpid(), OP_SOLUZIONE);
+	coda_messaggio mess = coda_messaggio_componi(client, M_SERVER, OP_SOLUZIONE);
 	return coda_spedisci(coda, mess);
 }
 
@@ -47,6 +46,6 @@ int op_coda_ricevi(coda_messaggio * ricevuto){
 }
 
 int op_coda_ricevi_collega(coda_messaggio * ricevuto, int coda_c){
-	int err = coda_ricevi(coda_c, getpid(), ricevuto);
+	int err = coda_ricevi(coda_c, M_SERVER, ricevuto);
 	return err;
 }
