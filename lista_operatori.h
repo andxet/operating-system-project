@@ -17,17 +17,15 @@
 #define FALLIMENTO 1
 #define APERTO 2
 
-int successivo, key, semid;
+//int successivo, key, semid;
 
 typedef struct stato_hd * stato_helpdesk;
 struct stato_hd {
-	//int lista[MAX_N_OP]; //lista dei PID degli operatori
 	int inPausa; //-1 nessun operatore in pausa, oppure PID operatore in pausa
 	int aperto;//0 chiuso, 1 fallimento (esci dal programma), 2 aperto
 };
 
 extern stato_helpdesk stato_hd;
-extern semaforo lista_sem;
 
 int stato_ini();//Da utilizzare nel server, inizializza la memoria condivisa
 int stato_aggancia();//Da utilizzare negli operatori, si aggancia alla coda del server

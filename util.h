@@ -3,7 +3,7 @@
 ## --------------------------------------------------------------------------- ##
 ##  File:	       miorandom.h                                                 ##
 ##  Created by:	   Fiori, Peretti, Polto                                       ##
-## --------------------------------------------------------------------------- ##  DA ELIMINARE PER ME (VITTO)
+## --------------------------------------------------------------------------- ##
 ##  Descrizione:    Descrizione del file                                       ##
 ##                                                                             ##
 ###############################################################################*/
@@ -13,10 +13,9 @@
 #ifndef helpdesk_util_h
 #define helpdesk_util_h
 
-#define random(x) rand() % x
-#define randomize srand((unsigned)time(NULL))
+#define miorandom(x) rand() % x
 
 int gen_rand(int n);
-void log(char * messaggio);
+void stampaLog(char * messaggio);
 
 #endif

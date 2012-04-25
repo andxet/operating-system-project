@@ -19,41 +19,75 @@
 #include "lista_operatori.h"
 
 int tempistiche[4] = {0.100, 0.050, 0.500, 0.150}; //Secondi di attesa
+int op; //Numero dell'operatore, che identifica l'ordine in cui è stato creato questo operatore (indice del ciclo che crea gli operatori
+int key;
+int servi; //Settato a true, indica quando l'op deve continuare a servire
+int collega_gia_servito; //Booleano che indica se il collega in pausa è già stato servito
+int coda; //Coda dell'operatore
+stato_helpdesk stato_hd;
+semaforo sem_coda;
+semaforo sem_stato;
 
 int opPrecedente();
 void risolvi_problema(int problema);
 int pausa();
-
-coda_messaggio next_client();
+int next_client();
+void licenzia(int s);
 
 
 int avvia(int idOp){  //avvia l'operatore
+	signal(SIGINT, licenzia);
 	op = idOp;
+	key = KEY_START + op;
 	srand((unsigned) time(NULL));//Inizializzo il motore per la creazione di numeri casuali
 	int err = op_coda_ini(); //Crea la coda
 	if(err < 0){
-		log("Errore nella creazione della coda, err: %d");
+		stampaLog("Errore nella creazione della coda");
 		exit(-1);
 	}
-	log(sprintf("Operatore %d con chiave %d avviato", op, KEY_START+op));
-	stato_aggancia();  //Salva in memoria condivisa l'id dell'operatore, TODO:Controllo su quello che ritorna
-	//TODO: collega al semaforo della memoria condivisa
+	//log(sprintf("Operatore %d con chiave %d avviato", op, KEY_START+op));
+	//Salva in memoria condivisa l'id dell'operatore, TODO:Controllo su quello che ritorna
+	sem_stato = collega_semaforo(SEM_HD);
+	sem_coda = crea_semaforo(key);
+	
+	if(stato_aggancia() == -1){
+		stampaLog("Errore nel collegarsi alla coda");
+		exit(-1);
+	}
+	if((int) stato_hd == -1){
+		stampaLog("Stato helpdesk è a -1!");
+		exit(-1);
+	}
+	if(sem_stato == -1){
+		stampaLog("Il semaforo di stato helpdesk è a -1!");
+		exit(-1);
+	}
+	if(sem_coda == -1){
+		stampaLog("Il semaforo ddella coda è a -1!");
+		exit(-1);
+	}
+	
+	printf("\nLO STATO E' %d\n", stato_hd->aperto); fflush(stdout);
+	
+	set_semaforo(sem_coda, DIM_CODA_OP);
 	
 	collega_gia_servito = 0;
 	while(stato_hd->aperto != FALLIMENTO){
-		coda_messaggio ricevuto = next_client();   //Serve per prelevare il messaggio del cliente
+		coda_messaggio ricevuto;
+		if(next_client(&ricevuto) == -1)   //Serve per prelevare il messaggio del cliente
+			continue;
 		int client = ricevuto.sender;
 		int problema = ricevuto.dato - RICH_1;
 		risolvi_problema(problema);				//Risolve il problema e dorme
-		op_coda_invia_soluzione(client);		//Risponde ho risolto il problema
-		if(gen_rand(OP_PROB_PAUSA) == 1)		//Vede se mett in pausa
+		op_coda_invia_soluzione(client);		//Risponde ho risolto il problemaKEYnd(OP_PROB_PAUSA) == 1)		//Vede se mett in pausa
 		{}//pausa(); TODO: DA SCOMMENTARE UNA VOLTA IMPLEMENTATI I SEMAFORI
+		s_signal(sem_coda);
 	}
 	coda_rimuovi(coda);
 	exit(0);
 }
 
-coda_messaggio next_client(){
+int next_client(coda_messaggio * messCliente){
 	int codat;
 	//TODO: ottenere accesso lettura alla lista
 	if(stato_hd->inPausa != -1 && stato_hd->inPausa == opPrecedente() && !collega_gia_servito){//Se l'operatore precedente è in pausa e non ho già servito un suo cliente, estraggo un cliente dalla sua lista
@@ -64,14 +98,8 @@ coda_messaggio next_client(){
 		 codat = coda;
 		 collega_gia_servito = 0;
 	}
-		 
-	coda_messaggio messCliente;
-	int err = op_coda_ricevi_collega(&messCliente, codat);  //Serve per prendere il mess da codat e lo salva in &cliente
-	if (err < 0){
-		fprintf(stderr, "Errore nel prelevare dalla coda (Operatore %d PID %d", op, getpid());
-		exit(-1);
-	}
-	return messCliente;		
+	
+	return op_coda_ricevi_collega(messCliente, codat);  //Serve per prendere il mess da codat e lo salva in &cliente		
 }
 
 void risolvi_problema(int problema){
@@ -81,6 +109,10 @@ void risolvi_problema(int problema){
 
 int opPrecedente(){
 	return KEY_START + ((op - 1 + MAX_N_OP)%MAX_N_OP);
+}
+
+void licenzia(int s){
+	stampaLog("OH NO! Finiro' sotto un ponte :'(");
 }
 
 int pausa(){

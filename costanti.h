@@ -11,20 +11,20 @@
 
 #define MAX_N_OP  10 // Numero massimo di operatori che vengono creati dall'helpdesk
 #define DIM_CODA_OP 10 // Dimensione della coda di ogni operatore
-#define STATO_HELPDESK 0 //Indica se l'helpdesk è aperto (true) o chiuso (false)
-#define DURATA_GIORNO 120 //Tempo (secondi) in cui l'helpdesk è attivo
-#define DURATA_NOTTE 60 // Tempo (secondi) in cui l'helpdesk è disattivato
+					   //#define STATO_HELPDESK 0 //Indica se l'helpdesk è aperto (true) o chiuso (false)
+#define DURATA_GIORNO 12 //Tempo (secondi) in cui l'helpdesk è attivo
+#define DURATA_NOTTE 6 // Tempo (secondi) in cui l'helpdesk è disattivato
 
 //Costranti per gli operatori
 #define OP_PROB_PAUSA 4 //1/x = probabilità che l'operatore decida di andare in pausa dopo aver servito un cliente
 #define OP_SEC_PAUSA 5 //Secondi di pausa
 
-#define KEY_LISTA 998 //Chiave della memoria condivisa lista_operatori
+#define KEY_STATO_OP 998 //Chiave della memoria condivisa lista_operatori
 
 /////////////////////// provenienti da coda.h ////////////////////////
 //Viene definita la chiave della coda:
 //999 per il server di spmistamento
-#define ID_CODA 999 //key della coda helpdesk
+#define SEM_HD 888
 #define MAX_ATTESA 10 //Dimensione della coda di attesa
 
 //Definizione dei destinatari (tipo del messaggio, da assegnare al campo long del messaggio)
