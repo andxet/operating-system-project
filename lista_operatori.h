@@ -13,6 +13,10 @@
 #include "costanti.h"
 #include "semafori.h"
 
+#define CHIUSO 0
+#define FALLIMENTO 1
+#define APERTO 2
+
 int successivo, key, semid;
 
 typedef struct stato_hd * stato_helpdesk;

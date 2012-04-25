@@ -21,24 +21,26 @@
 int tempistiche[4] = {0.100, 0.050, 0.500, 0.150}; //Secondi di attesa
 
 int opPrecedente();
-
-coda_messaggio next_client();
 void risolvi_problema(int problema);
 int pausa();
 
+coda_messaggio next_client();
+
+
 int avvia(int idOp){  //avvia l'operatore
 	op = idOp;
-	srand((unsigned) time(NULL));
+	srand((unsigned) time(NULL));//Inizializzo il motore per la creazione di numeri casuali
 	int err = op_coda_ini(); //Crea la coda
-	if(err < 0)
+	if(err < 0){
 		log("Errore nella creazione della coda, err: %d");
-	log("Tutto ok");
+		exit(-1);
+	}
+	log(sprintf("Operatore %d con chiave %d avviato", op, KEY_START+op));
 	stato_aggancia();  //Salva in memoria condivisa l'id dell'operatore, TODO:Controllo su quello che ritorna
 	//TODO: collega al semaforo della memoria condivisa
 	
-	servi = 1;
 	collega_gia_servito = 0;
-	while(servi){
+	while(stato_hd->aperto != FALLIMENTO){
 		coda_messaggio ricevuto = next_client();   //Serve per prelevare il messaggio del cliente
 		int client = ricevuto.sender;
 		int problema = ricevuto.dato - RICH_1;
@@ -85,7 +87,7 @@ int pausa(){
 	//TODO: implementare utilizzo dei semafori
 	if(stato_inPausa() != -1)
 		return 0;//Qualcuno è già in pausa
-	stato_hd->inPausa = getpid();
+	stato_hd->inPausa = KEY_START + op;
 	//Rilascio semaforo
 	sleep(OP_SEC_PAUSA);
 	//Ottengo accesso alla lista

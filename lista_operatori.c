@@ -24,7 +24,7 @@ int stato_ini(){
 		return -1; //Errore nella creazione della coda
 	stato_hd = (stato_helpdesk) shmat(memid, NULL, 0);
 	stato_hd->inPausa = -1;
-	stato_hd->aperto = 1;
+	stato_hd->aperto = APERTO;
 	int i;
 	
 	successivo = 0;

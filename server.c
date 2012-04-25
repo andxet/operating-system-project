@@ -34,20 +34,18 @@ int main()
 		if (!padre) {//	codice proc. figlio
 			log("Avvio");
 			avvia(i);
-			log("Dopo avvio");
+			log(sprintf("Errore nel %d ° operatore, pid: %d\n, chiave risorse ipc %d", i, getpid(), KEY_START+i));
 			exit(0);
 		}
 		
 		else {
-			printf("Server : Istanziato %d ° operatore, pid: %d\n", i, padre);
-			//printf("Istanziato %d ° operatore, pid: %d\n", i, padre);
+			printf("Server : Istanziato %d ° operatore, pid: %d, chiave risorse ipc prevista: %d", i, padre, KEY_START+i);
 			fflush(stdout);
-			operatori->lista[i] = padre;//Inserisco l'id del figlio alla lista
 		}
 	}
 	
 	
-	while(eseguiProgramma)	{
+	while(stato_hd->aperto != FALLIMENTO){
 		;//Aspetta che succeda qualcosa.
 		}
 	log("Ricevuto il segnale di terminazione, aspetto che gli operatori finiscano.");
@@ -62,17 +60,18 @@ int main()
 }
 
 void interrompi(int s){
-	int i;
 	log("Ricevuto sigint");
-	for(i=0; i < MAX_N_OP; i++){
-		if(operatori->lista[i]==-1)//Se viene interrotto mentre sta generando ancora i client
-			continue;//Serve per saltare tutte le istruzioni sotto e tornare in cima al for
-		kill(operatori->lista[i], SIGINT);
-		log("invio kill a " + i);
-	}
-	eseguiProgramma = 0;
+	stato_hd->aperto = FALLIMENTO;
 }
 
 void chiudi(int s){
-	stato_hd->aperto = 1-stato_hd->aperto;
+	if(stato_hd->aperto == APERTO){
+		stato_hd->aperto = CHIUSO;
+		alarm(DURATA_NOTTE);
+	}
+	else{
+		stato_hd->aperto = APERTO;
+		alarm(DURATA_GIORNO);
+	}
+	
 }
