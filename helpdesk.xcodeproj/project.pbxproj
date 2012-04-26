@@ -23,6 +23,7 @@
 		525BC4771549823E00E3B068 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EE91537307F002040D2 /* util.c */; };
 		525BC4781549823E00E3B068 /* semafori.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B51521E26B008E2C6C /* semafori.c */; };
 		525BC47D1549A05B00E3B068 /* operazioni_client.c in Sources */ = {isa = PBXBuildFile; fileRef = 525BC47C1549A05B00E3B068 /* operazioni_client.c */; };
+		525BC47E1549B52300E3B068 /* operazioni_client.c in Sources */ = {isa = PBXBuildFile; fileRef = 525BC47C1549A05B00E3B068 /* operazioni_client.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -295,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				525BC47E1549B52300E3B068 /* operazioni_client.c in Sources */,
 				525BC467154981FB00E3B068 /* util.c in Sources */,
 				525BC468154981FB00E3B068 /* coda.c in Sources */,
 				525BC469154981FB00E3B068 /* miacoda_cli.c in Sources */,
