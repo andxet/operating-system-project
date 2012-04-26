@@ -1,8 +1,8 @@
 /*###############################################################################
-##						-= Progetto di Sistemi Operativi =-			           ##
+##						-= Progetto di Sistemi Operativi =-			           			 ##
 ## --------------------------------------------------------------------------- ##
 ##  File:	       semafori.c                                                  ##
-##  Created by:	   Fiori, Peretti, Polto                                       ##
+##  Created by:	   Fiori, Peretti, Polto                                     ##
 ## --------------------------------------------------------------------------- ##
 ##  Descrizione:    Descrizione del file                                       ##
 ##                                                                             ##
@@ -35,8 +35,8 @@ int main ()
 		if ( !padre ) //Codice del figlio (quindi i vari client)
 		{
 			printf("Creato un nuovo client\n");
-			//avviaFiglio();
-			//exit(0);
+			avviaFiglio();
+			exit(0);
 			
 		}
 		else
