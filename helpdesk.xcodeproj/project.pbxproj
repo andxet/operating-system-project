@@ -13,12 +13,38 @@
 		52438580153EBA5A00B240B4 /* operatore.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B91521E26B008E2C6C /* operatore.c */; };
 		52438581153EBA5A00B240B4 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EE91537307F002040D2 /* util.c */; };
 		52438582153EBA5A00B240B4 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EED15373822002040D2 /* server.c */; };
-		525BC4511549598500E3B068 /* client.c in Sources */ = {isa = PBXBuildFile; fileRef = 525BC44E1549598500E3B068 /* client.c */; };
 		525BC45615495A0F00E3B068 /* stato_helpdesk.c in Sources */ = {isa = PBXBuildFile; fileRef = 525BC45415495A0F00E3B068 /* stato_helpdesk.c */; };
+		525BC467154981FB00E3B068 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EE91537307F002040D2 /* util.c */; };
+		525BC468154981FB00E3B068 /* coda.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F09F1521E26B008E2C6C /* coda.c */; };
+		525BC469154981FB00E3B068 /* miacoda_cli.c in Sources */ = {isa = PBXBuildFile; fileRef = 52A3604D15304F1100050748 /* miacoda_cli.c */; };
+		525BC46A154981FB00E3B068 /* stato_helpdesk.c in Sources */ = {isa = PBXBuildFile; fileRef = 525BC45415495A0F00E3B068 /* stato_helpdesk.c */; };
+		525BC46B154981FB00E3B068 /* semafori.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B51521E26B008E2C6C /* semafori.c */; };
+		525BC46C154981FB00E3B068 /* client.c in Sources */ = {isa = PBXBuildFile; fileRef = 525BC44E1549598500E3B068 /* client.c */; };
+		525BC4771549823E00E3B068 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EE91537307F002040D2 /* util.c */; };
+		525BC4781549823E00E3B068 /* semafori.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B51521E26B008E2C6C /* semafori.c */; };
+		525BC4791549823E00E3B068 /* provasem.c in Sources */ = {isa = PBXBuildFile; fileRef = 525BC4571549803E00E3B068 /* provasem.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		52438585153EBA5A00B240B4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		525BC45B154981E300E3B068 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		525BC46F1549822B00E3B068 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -43,6 +69,9 @@
 		525BC453154959B300E3B068 /* operazioni_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = operazioni_client.h; sourceTree = SOURCE_ROOT; };
 		525BC45415495A0F00E3B068 /* stato_helpdesk.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stato_helpdesk.c; sourceTree = "<group>"; };
 		525BC45515495A0F00E3B068 /* stato_helpdesk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stato_helpdesk.h; sourceTree = "<group>"; };
+		525BC4571549803E00E3B068 /* provasem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = provasem.c; sourceTree = SOURCE_ROOT; };
+		525BC45D154981E300E3B068 /* client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = client; sourceTree = BUILT_PRODUCTS_DIR; };
+		525BC4711549822B00E3B068 /* provasem.c */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = provasem.c; sourceTree = BUILT_PRODUCTS_DIR; };
 		52A3604D15304F1100050748 /* miacoda_cli.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miacoda_cli.c; sourceTree = "<group>"; };
 		52A3604F15304F2100050748 /* miacoda_cli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_cli.h; sourceTree = "<group>"; };
 		52C592361546B375004958D8 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
@@ -55,6 +84,20 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		52438584153EBA5A00B240B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		525BC45A154981E300E3B068 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		525BC46E1549822B00E3B068 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -82,6 +125,13 @@
 			name = Semafori;
 			sourceTree = "<group>";
 		};
+		525BC4731549822B00E3B068 /* provasem.c */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = provasem.c;
+			sourceTree = "<group>";
+		};
 		52802A281521E1C70077DD15 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +145,7 @@
 				522D6D9D15306ADC00C77699 /* Semafori */,
 				5214F0BA1521E26B008E2C6C /* README.md */,
 				52CF2EF515373932002040D2 /* client */,
+				525BC4731549822B00E3B068 /* provasem.c */,
 				52802A341521E1C70077DD15 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -103,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				52438589153EBA5A00B240B4 /* helpdesk copy */,
+				525BC45D154981E300E3B068 /* client */,
+				525BC4711549822B00E3B068 /* provasem.c */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,6 +196,7 @@
 			children = (
 				525BC453154959B300E3B068 /* operazioni_client.h */,
 				525BC44E1549598500E3B068 /* client.c */,
+				525BC4571549803E00E3B068 /* provasem.c */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -167,6 +221,40 @@
 			productReference = 52438589153EBA5A00B240B4 /* helpdesk copy */;
 			productType = "com.apple.product-type.tool";
 		};
+		525BC45C154981E300E3B068 /* client */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 525BC464154981E400E3B068 /* Build configuration list for PBXNativeTarget "client" */;
+			buildPhases = (
+				525BC459154981E300E3B068 /* Sources */,
+				525BC45A154981E300E3B068 /* Frameworks */,
+				525BC45B154981E300E3B068 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = client;
+			productName = client;
+			productReference = 525BC45D154981E300E3B068 /* client */;
+			productType = "com.apple.product-type.tool";
+		};
+		525BC4701549822B00E3B068 /* provasem */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 525BC4741549822B00E3B068 /* Build configuration list for PBXNativeTarget "provasem" */;
+			buildPhases = (
+				525BC46D1549822B00E3B068 /* Sources */,
+				525BC46E1549822B00E3B068 /* Frameworks */,
+				525BC46F1549822B00E3B068 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = provasem;
+			productName = provasem.c;
+			productReference = 525BC4711549822B00E3B068 /* provasem.c */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -189,6 +277,8 @@
 			projectRoot = "";
 			targets = (
 				5243857A153EBA5A00B240B4 /* helpdesk */,
+				525BC45C154981E300E3B068 /* client */,
+				525BC4701549822B00E3B068 /* provasem */,
 			);
 		};
 /* End PBXProject section */
@@ -204,8 +294,30 @@
 				52438580153EBA5A00B240B4 /* operatore.c in Sources */,
 				52438581153EBA5A00B240B4 /* util.c in Sources */,
 				52438582153EBA5A00B240B4 /* server.c in Sources */,
-				525BC4511549598500E3B068 /* client.c in Sources */,
 				525BC45615495A0F00E3B068 /* stato_helpdesk.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		525BC459154981E300E3B068 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				525BC467154981FB00E3B068 /* util.c in Sources */,
+				525BC468154981FB00E3B068 /* coda.c in Sources */,
+				525BC469154981FB00E3B068 /* miacoda_cli.c in Sources */,
+				525BC46A154981FB00E3B068 /* stato_helpdesk.c in Sources */,
+				525BC46B154981FB00E3B068 /* semafori.c in Sources */,
+				525BC46C154981FB00E3B068 /* client.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		525BC46D1549822B00E3B068 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				525BC4771549823E00E3B068 /* util.c in Sources */,
+				525BC4781549823E00E3B068 /* semafori.c in Sources */,
+				525BC4791549823E00E3B068 /* provasem.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +338,34 @@
 			};
 			name = Release;
 		};
+		525BC465154981E400E3B068 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		525BC466154981E400E3B068 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		525BC4751549822B00E3B068 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		525BC4761549822B00E3B068 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		52802A3B1521E1C80077DD15 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -242,7 +382,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -263,7 +403,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -284,6 +424,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		525BC464154981E400E3B068 /* Build configuration list for PBXNativeTarget "client" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				525BC465154981E400E3B068 /* Debug */,
+				525BC466154981E400E3B068 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		525BC4741549822B00E3B068 /* Build configuration list for PBXNativeTarget "provasem" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				525BC4751549822B00E3B068 /* Debug */,
+				525BC4761549822B00E3B068 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		52802A2D1521E1C70077DD15 /* Build configuration list for PBXProject "helpdesk" */ = {
 			isa = XCConfigurationList;

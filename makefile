@@ -19,10 +19,10 @@ operatore.o: operatore.c operatore.h
 coda.o: coda.c coda.h
 	gcc -c coda.c -g
 
-miacoda_op.o: miacoda_op.c miacoda_op.h
+miacoda_op.o: miacoda_op.c miacoda_op.h coda.o
 	gcc -c miacoda_op.c -g
 	
-#miacoda_cli.o: miacoda_cli.c miacoda_cli.h
+#miacoda_cli.o: miacoda_cli.c miacoda_cli.h coda.o
 #	gcc -c miacoda_cli.c -g
 	
 stato_helpdesk.o: stato_helpdesk.c stato_helpdesk.h

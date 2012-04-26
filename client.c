@@ -19,6 +19,7 @@
 
 
 stato_helpdesk stato_hd;
+int coda, key = 0;
 
 int main ()
 {

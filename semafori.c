@@ -9,6 +9,12 @@
 ###############################################################################*/
 
 #include "semafori.h"
+#include <sys/sem.h>
+#include <sys/types.h>
+#include <sys/ipc.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 int s_wait(int semid){
 	struct sembuf cmd;

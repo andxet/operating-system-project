@@ -23,7 +23,7 @@ int op_coda_ini(){
 	}*/
 	coda = coda_crea(KEY_START+op);
 	if(coda == -1){
-		stampaLog("Errore nel collegarsi alla coda");
+		//stampaLog("Errore nel collegarsi alla coda");
 		return -1; //Errore nel collegarsi alla coda
 	}
 	return 0;

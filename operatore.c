@@ -21,13 +21,17 @@
 #include "stato_helpdesk.h"
 
 int tempistiche[4] = {0.100, 0.050, 0.500, 0.150}; //Secondi di attesa
+
 int op; //Numero dell'operatore, che identifica l'ordine in cui è stato creato questo operatore (indice del ciclo che crea gli operatori
 int key;
-int servi; //Settato a true, indica quando l'op deve continuare a servire
+
 int collega_gia_servito; //Booleano che indica se il collega in pausa è già stato servito
+
 int coda; //Coda dell'operatore
-stato_helpdesk stato_hd;
 semaforo sem_coda;
+
+stato_helpdesk stato_hd;
+
 semaforo sem_stato;
 
 int opPrecedente();
@@ -42,25 +46,17 @@ int avvia(int idOp){  //avvia l'operatore
 	op = idOp;
 	key = KEY_START + op;
 	srand((unsigned) time(NULL));//Inizializzo il motore per la creazione di numeri casuali
-	int err = op_coda_ini(); //Crea la coda
-	if(err < 0){
-		stampaLog("Errore nella creazione della coda");
-		exit(-1);
-	}
-	//log(sprintf("Operatore %d con chiave %d avviato", op, KEY_START+op));
-	//Salva in memoria condivisa l'id dell'operatore, TODO:Controllo su quello che ritorna
-	printf("In esecuzione operatore %d con chiave %d\n", op, KEY_START+op);
-	sem_stato = collega_semaforo(SEM_HD);
-	sem_coda = crea_semaforo(key);
 	
-	if(stato_aggancia() == -1){
+	//Aggangio alle risorse IPC dell'helpdesk
+	if(stato_aggancia() == -1){//Controllo per collegarsi alla memoria condivisa dell'helpdesk
 		stampaLog("Errore nel collegarsi alla coda");
 		exit(-1);
 	}
-	if((long)stato_hd == -1){
+	if((long)stato_hd == -1){//Controllo 
 		stampaLog("Stato helpdesk è a -1!");
 		exit(-1);
 	}
+	sem_stato = collega_semaforo(SEM_HD);
 	if(sem_stato == -1){
 		stampaLog("Il semaforo di stato helpdesk è a -1!");
 		exit(-1);
@@ -70,9 +66,16 @@ int avvia(int idOp){  //avvia l'operatore
 		exit(-1);
 	}
 	
-	printf("Lo stato dell HD e': %d\n", stato_hd->aperto); fflush(stdout);
 	
+	//Creazione risorse IPC dell'operatore
+	sem_coda = crea_semaforo(key);
+	if(op_coda_ini() < 0 || sem_coda < 0){
+		stampaLog("Errore nell'allocazione delle risorse IPC");
+		exit(-1);
+	}
 	set_semaforo(sem_coda, DIM_CODA_OP);
+	
+	stampaLog("Pronto a servire");
 	
 	collega_gia_servito = 0;
 	while(stato_hd->aperto != FALLIMENTO){
@@ -81,19 +84,20 @@ int avvia(int idOp){  //avvia l'operatore
 			continue;
 		int client = ricevuto.sender;
 		int problema = ricevuto.dato - RICH_1;
+		stampaLog("Ricevuto");
 		risolvi_problema(problema);				//Risolve il problema e dorme
 		op_coda_invia_soluzione(client);		//Risponde ho risolto il problemaKEYnd(OP_PROB_PAUSA) == 1)		//Vede se mett in pausa
-		{}//pausa(); TODO: DA SCOMMENTARE UNA VOLTA IMPLEMENTATI I SEMAFORI
 		s_signal(sem_coda);
+		pausa();
 	}
 
-	printf("%d: Ok ultimo respiro e poi muoio *_*\n",getpid());	
+	stampaLog("Helpdesk in chiusura, uscita.");
 	exit(0);
 }
 
 int next_client(coda_messaggio * messCliente){
 	int codat;
-	//TODO: ottenere accesso lettura alla lista
+	s_wait(sem_stato);
 	if(stato_hd->inPausa != -1 && stato_hd->inPausa == opPrecedente() && !collega_gia_servito){//Se l'operatore precedente è in pausa e non ho già servito un suo cliente, estraggo un cliente dalla sua lista
 		codat = coda_aggancia(opPrecedente());
 		collega_gia_servito = 1;
@@ -102,12 +106,13 @@ int next_client(coda_messaggio * messCliente){
 		 codat = coda;
 		 collega_gia_servito = 0;
 	}
-	
+	s_signal(sem_stato);
 	return op_coda_ricevi_collega(messCliente, codat);  //Serve per prendere il mess da codat e lo salva in &cliente		
 }
 
 void risolvi_problema(int problema){
-	//TODO: Controllare che problema sia compreso nel range di tempistiche
+	if(problema < 0 || problema > 3)
+		return;
 	sleep(tempistiche[problema]);
 }
 
@@ -116,21 +121,27 @@ int opPrecedente(){
 }
 
 void licenzia(int s){
-	printf("%d: Elimino la coda : %d\n",getpid(),coda);
+	//printf("%d: Elimino la coda : %d\n",getpid(),coda);
 	coda_rimuovi(coda);
-	printf("%d: Elimino il semaforo : %d\n",getpid(),sem_coda);
+	//printf("%d: Elimino il semaforo : %d\n",getpid(),sem_coda);
 	rimuovi_sem(sem_coda);
-	printf("%d: Ho eliminato tutto posso morire in pace +_+\n",getpid());	
+	//printf("%d: Ho eliminato tutto posso morire in pace +_+\n",getpid());	
 }
 
 int pausa(){
-	//TODO: implementare utilizzo dei semafori
-	if(stato_inPausa() != -1)
+	s_wait(sem_stato);
+	int inPausa = stato_inPausa();
+	if(inPausa != -1){
+		s_signal(sem_stato);
 		return 0;//Qualcuno è già in pausa
+	}
 	stato_hd->inPausa = KEY_START + op;
-	//Rilascio semaforo
+	s_signal(sem_stato);
+	
 	sleep(OP_SEC_PAUSA);
-	//Ottengo accesso alla lista
+	
+	s_wait(sem_stato);
 	stato_hd->inPausa = -1;
+	s_signal(sem_stato);
 	return 1;//Riprendo a lavorare
 }
