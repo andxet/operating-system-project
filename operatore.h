@@ -11,7 +11,7 @@
 #ifndef helpdesk_operatore_h
 #define helpdesk_operatore_h
 
-#include "lista_operatori.h"
+#include "stato_helpdesk.h"
 
 int avvia(int idOp);
 

@@ -13,7 +13,8 @@
 		52438580153EBA5A00B240B4 /* operatore.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B91521E26B008E2C6C /* operatore.c */; };
 		52438581153EBA5A00B240B4 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EE91537307F002040D2 /* util.c */; };
 		52438582153EBA5A00B240B4 /* server.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EED15373822002040D2 /* server.c */; };
-		52438583153EBA5A00B240B4 /* lista_operatori.c in Sources */ = {isa = PBXBuildFile; fileRef = 52534F521538647000BCE69F /* lista_operatori.c */; };
+		525BC4511549598500E3B068 /* client.c in Sources */ = {isa = PBXBuildFile; fileRef = 525BC44E1549598500E3B068 /* client.c */; };
+		525BC45615495A0F00E3B068 /* stato_helpdesk.c in Sources */ = {isa = PBXBuildFile; fileRef = 525BC45415495A0F00E3B068 /* stato_helpdesk.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,8 +39,10 @@
 		5214F0B91521E26B008E2C6C /* operatore.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = operatore.c; sourceTree = "<group>"; };
 		5214F0BA1521E26B008E2C6C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		52438589153EBA5A00B240B4 /* helpdesk copy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "helpdesk copy"; sourceTree = BUILT_PRODUCTS_DIR; };
-		52534F521538647000BCE69F /* lista_operatori.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = lista_operatori.c; sourceTree = "<group>"; };
-		52534F551538648A00BCE69F /* lista_operatori.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lista_operatori.h; sourceTree = "<group>"; };
+		525BC44E1549598500E3B068 /* client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = client.c; sourceTree = SOURCE_ROOT; };
+		525BC453154959B300E3B068 /* operazioni_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = operazioni_client.h; sourceTree = SOURCE_ROOT; };
+		525BC45415495A0F00E3B068 /* stato_helpdesk.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stato_helpdesk.c; sourceTree = "<group>"; };
+		525BC45515495A0F00E3B068 /* stato_helpdesk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stato_helpdesk.h; sourceTree = "<group>"; };
 		52A3604D15304F1100050748 /* miacoda_cli.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miacoda_cli.c; sourceTree = "<group>"; };
 		52A3604F15304F2100050748 /* miacoda_cli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_cli.h; sourceTree = "<group>"; };
 		52C592361546B375004958D8 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
@@ -64,8 +67,8 @@
 		522D6D9C15306AD000C77699 /* Lista */ = {
 			isa = PBXGroup;
 			children = (
-				52534F521538647000BCE69F /* lista_operatori.c */,
-				52534F551538648A00BCE69F /* lista_operatori.h */,
+				525BC45415495A0F00E3B068 /* stato_helpdesk.c */,
+				525BC45515495A0F00E3B068 /* stato_helpdesk.h */,
 			);
 			name = Lista;
 			sourceTree = "<group>";
@@ -138,6 +141,8 @@
 		52CF2EF515373932002040D2 /* client */ = {
 			isa = PBXGroup;
 			children = (
+				525BC453154959B300E3B068 /* operazioni_client.h */,
+				525BC44E1549598500E3B068 /* client.c */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -199,7 +204,8 @@
 				52438580153EBA5A00B240B4 /* operatore.c in Sources */,
 				52438581153EBA5A00B240B4 /* util.c in Sources */,
 				52438582153EBA5A00B240B4 /* server.c in Sources */,
-				52438583153EBA5A00B240B4 /* lista_operatori.c in Sources */,
+				525BC4511549598500E3B068 /* client.c in Sources */,
+				525BC45615495A0F00E3B068 /* stato_helpdesk.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

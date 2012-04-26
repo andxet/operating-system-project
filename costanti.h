@@ -19,7 +19,7 @@
 #define OP_PROB_PAUSA 4 //1/x = probabilità che l'operatore decida di andare in pausa dopo aver servito un cliente
 #define OP_SEC_PAUSA 5 //Secondi di pausa
 
-#define KEY_STATO_OP 998 //Chiave della memoria condivisa lista_operatori
+#define KEY_STATO_OP 998 //Chiave della memoria condivisa stato_helpdesk
 
 /////////////////////// provenienti da coda.h ////////////////////////
 //Viene definita la chiave della coda:
@@ -31,12 +31,6 @@
 #define M_SERVER 100 //Server
 					 //Per i processi client si userà il loro pid.
 
-//Tipi di richieste
-//Richiesta di aiuto all'helpdesk
-#define RICH_OP 1
-
-//Risposta dell'helpdesk all'aiuto
-#define HD_RISPONDI 21
 
 //Tipo di aiuto richiesto all'helpdesk
 #define RICH_1	11 //Devono essere tutte consecuti, oppure rischio di segmentation fault
@@ -46,10 +40,6 @@
 
 //Risposta alla richiesta da parte dell'helpdesk
 #define OP_SOLUZIONE 22
-
-//Risposta da parte del dispatcher in caso l'helpdesk sia chiuso
-#define HD_CLOSED 31
-#define HD_OCCUPATO 32
 
 //Vettore delle chiavi delle code degli operatori
 //int code[DIM_CODA_OP] = {1000, 1001, 1002, 1003

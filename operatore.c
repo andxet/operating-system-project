@@ -18,7 +18,7 @@
 #include "miacoda_op.h"
 #include "costanti.h"
 #include "util.h"
-#include "lista_operatori.h"
+#include "stato_helpdesk.h"
 
 int tempistiche[4] = {0.100, 0.050, 0.500, 0.150}; //Secondi di attesa
 int op; //Numero dell'operatore, che identifica l'ordine in cui è stato creato questo operatore (indice del ciclo che crea gli operatori

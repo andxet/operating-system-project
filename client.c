@@ -13,7 +13,9 @@
 #include <unistd.h>
 #include <signal.h>
 
-#include "client.h"
+#include "costanti.h"
+#include "stato_helpdesk.h"
+#include "operazioni_client.h"
 
 stato_helpdesk stato_hd;
 

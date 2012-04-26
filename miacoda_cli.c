@@ -15,15 +15,6 @@
 #include <stdio.h>
 
 //Funzioni ottimizzate per il client
-int c_coda_ini(){
-	if(coda_esiste(M_SERVER) == -1)
-		return -2; //La coda non esiste!
-	coda = coda_aggancia(M_SERVER);
-	if(coda == -1)
-		return -1; //Errore nel collegarsi alla coda
-	return 0;
-}
-
 int c_coda_aggancia(int id_coda){
 	if(coda_esiste(id_coda) == -1)
 		return -2; //La coda non esiste!
