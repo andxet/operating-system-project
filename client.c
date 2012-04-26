@@ -20,24 +20,34 @@ stato_helpdesk stato_hd;
 int main ()
 {
 	int i;
-	pid_t padre;	
+	pid_t padre;
+	int result = stato_aggancia();
+	if ( result == -1)
+		printf("qualche errore qui");
 
 	//while (1)
 	//{
-		//padre = fork();
+		padre = fork();
 
-		//if ( !padre ) //Codice del figlio (quindi i vari client)
-		//{
+		if ( !padre ) //Codice del figlio (quindi i vari client)
+		{
 			printf("Creato un nuovo client");
+			//avviaFiglio();
 			
-			//semaforo lista_sem;
-		
+		}
+		else
+		{
 			
-			int result = stato_aggancia();
-			if ( result == -1)
-			 	printf("qualche errore qui");
+		}
 			
-			printf("stato helpdest %d \n", stato_hd->aperto);
+			
+			
+			int k=0;
+			for(k=0; k<500;k++)
+			{
+				printf("%d)stato helpdest %d \n",k, stato_hd->aperto);
+				sleep(1);
+			}
 			
 		//}
 

@@ -15,3 +15,4 @@
 
 #include "costanti.h"
 #include "lista_operatori.h"
+#include "operazioni_client.h"

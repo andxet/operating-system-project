@@ -31,20 +31,22 @@ int main()
 	signal(SIGINT, interrompi);
 	signal(SIGALRM, chiudi);
 	
+	printf("%d -> Istanziato HelpDesk\n",getpid());
+	
 	//Creo i vari operatori
 	for (i=0; i < MAX_N_OP; i++)
 	{		
 		padre = fork();
 		
 		if (!padre) {//	codice proc. figlio
-			stampaLog("Avvio");
+			printf("Istanziato %d ° operatore, PID: %d, chiave risorse IPC %d\n", i, getpid(), KEY_START+i);
 			avvia(i);
-			printf("Errore nel %d ° operatore, pid: %d\n, chiave risorse ipc %d", i, getpid(), KEY_START+i);
+			printf("Errore nel %d ° operatore, pid: %d, chiave risorse ipc %d\n", i, getpid(), KEY_START+i);
 			exit(0);
 		}
 		
 		else {
-			printf("\nServer : Istanziato %d ° operatore, pid: %d, chiave risorse ipc prevista: %d", i, padre, KEY_START+i);
+			printf("Server : Istanziato %d ° operatore, pid: %d, chiave risorse ipc prevista: %d\n", i, padre, KEY_START+i);
 			fflush(stdout);
 			operatori[i] = padre;
 		}
@@ -55,14 +57,16 @@ int main()
 	while(stato_hd->aperto != FALLIMENTO){
 		sleep(100);//Aspetta che succeda qualcosa.
 		}
-	stampaLog("Ricevuto il segnale di terminazione, aspetto che gli operatori finiscano.");
+	stampaLog("****Ricevuto il segnale di terminazione, aspetto che gli operatori finiscano.****\n");
 	
 	for(i=0; i<MAX_N_OP; i++)
 		wait(0);
+
+	int esito = stato_rimuovi();
 	
-	stato_rimuovi();
+	printf("Esito eliminazione coda : %d\n",esito);
 	
-	stampaLog("Helpdesk chiuso\n");
+	stampaLog("Helpdesk chiuso");
 	
 	//getchar();
 	return 0;

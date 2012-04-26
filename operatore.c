@@ -11,6 +11,8 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <signal.h>
+
 
 #include "operatore.h"
 #include "miacoda_op.h"
@@ -47,6 +49,7 @@ int avvia(int idOp){  //avvia l'operatore
 	}
 	//log(sprintf("Operatore %d con chiave %d avviato", op, KEY_START+op));
 	//Salva in memoria condivisa l'id dell'operatore, TODO:Controllo su quello che ritorna
+	printf("In esecuzione operatore %d con chiave %d\n", op, KEY_START+op);
 	sem_stato = collega_semaforo(SEM_HD);
 	sem_coda = crea_semaforo(key);
 	
@@ -54,7 +57,7 @@ int avvia(int idOp){  //avvia l'operatore
 		stampaLog("Errore nel collegarsi alla coda");
 		exit(-1);
 	}
-	if((int) stato_hd == -1){
+	if((stato_hd) == -1){
 		stampaLog("Stato helpdesk è a -1!");
 		exit(-1);
 	}
@@ -63,11 +66,11 @@ int avvia(int idOp){  //avvia l'operatore
 		exit(-1);
 	}
 	if(sem_coda == -1){
-		stampaLog("Il semaforo ddella coda è a -1!");
+		stampaLog("Il semaforo della coda è a -1!");
 		exit(-1);
 	}
 	
-	printf("\nLO STATO E' %d\n", stato_hd->aperto); fflush(stdout);
+	printf("Lo stato dell HD e': %d\n", stato_hd->aperto); fflush(stdout);
 	
 	set_semaforo(sem_coda, DIM_CODA_OP);
 	
@@ -83,7 +86,8 @@ int avvia(int idOp){  //avvia l'operatore
 		{}//pausa(); TODO: DA SCOMMENTARE UNA VOLTA IMPLEMENTATI I SEMAFORI
 		s_signal(sem_coda);
 	}
-	coda_rimuovi(coda);
+
+	printf("%d: Ok ultimo respiro e poi muoio *_*\n",getpid());	
 	exit(0);
 }
 
@@ -112,7 +116,11 @@ int opPrecedente(){
 }
 
 void licenzia(int s){
-	stampaLog("OH NO! Finiro' sotto un ponte :'(");
+	printf("%d: Elimino la coda : %d\n",getpid(),coda);
+	coda_rimuovi(coda);
+	printf("%d: Elimino il semaforo : %d\n",getpid(),sem_coda);
+	rimuovi_sem(sem_coda);
+	printf("%d: Ho eliminato tutto posso morire in pace +_+\n",getpid());	
 }
 
 int pausa(){
