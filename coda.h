@@ -14,6 +14,7 @@
 #include <sys/msg.h>
 #include <string.h>
 #include <stdlib.h>
+#include "costanti.h"
 
 
 #ifndef CODA_MESSAGGIO

@@ -34,7 +34,7 @@ int avviaClient()
 	}
 	else
 	{//HelpDesk chiuso
-		log("HelpDesk chiuso..");
+		stampaLog("HelpDesk chiuso..");
 		exit(0);
 	}
 	

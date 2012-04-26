@@ -16,6 +16,8 @@
 #define DURATA_GIORNO 12 //Tempo (secondi) in cui l'helpdesk è attivo
 #define DURATA_NOTTE 6 // Tempo (secondi) in cui l'helpdesk è disattivato
 
+#define MAX_FALLIMENTI_HELPDESK 10
+
 //Costranti per gli operatori
 #define OP_PROB_PAUSA 4 //1/x = probabilità che l'operatore decida di andare in pausa dopo aver servito un cliente
 #define OP_SEC_PAUSA 5 //Secondi di pausa

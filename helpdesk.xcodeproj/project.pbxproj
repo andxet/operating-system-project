@@ -22,7 +22,7 @@
 		525BC46C154981FB00E3B068 /* client.c in Sources */ = {isa = PBXBuildFile; fileRef = 525BC44E1549598500E3B068 /* client.c */; };
 		525BC4771549823E00E3B068 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 52CF2EE91537307F002040D2 /* util.c */; };
 		525BC4781549823E00E3B068 /* semafori.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B51521E26B008E2C6C /* semafori.c */; };
-		525BC4791549823E00E3B068 /* provasem.c in Sources */ = {isa = PBXBuildFile; fileRef = 525BC4571549803E00E3B068 /* provasem.c */; };
+		525BC47D1549A05B00E3B068 /* operazioni_client.c in Sources */ = {isa = PBXBuildFile; fileRef = 525BC47C1549A05B00E3B068 /* operazioni_client.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,9 +69,9 @@
 		525BC453154959B300E3B068 /* operazioni_client.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = operazioni_client.h; sourceTree = SOURCE_ROOT; };
 		525BC45415495A0F00E3B068 /* stato_helpdesk.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stato_helpdesk.c; sourceTree = "<group>"; };
 		525BC45515495A0F00E3B068 /* stato_helpdesk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stato_helpdesk.h; sourceTree = "<group>"; };
-		525BC4571549803E00E3B068 /* provasem.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = provasem.c; sourceTree = SOURCE_ROOT; };
 		525BC45D154981E300E3B068 /* client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = client; sourceTree = BUILT_PRODUCTS_DIR; };
 		525BC4711549822B00E3B068 /* provasem.c */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = provasem.c; sourceTree = BUILT_PRODUCTS_DIR; };
+		525BC47C1549A05B00E3B068 /* operazioni_client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = operazioni_client.c; sourceTree = SOURCE_ROOT; };
 		52A3604D15304F1100050748 /* miacoda_cli.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miacoda_cli.c; sourceTree = "<group>"; };
 		52A3604F15304F2100050748 /* miacoda_cli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_cli.h; sourceTree = "<group>"; };
 		52C592361546B375004958D8 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
@@ -125,13 +125,6 @@
 			name = Semafori;
 			sourceTree = "<group>";
 		};
-		525BC4731549822B00E3B068 /* provasem.c */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = provasem.c;
-			sourceTree = "<group>";
-		};
 		52802A281521E1C70077DD15 = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +138,6 @@
 				522D6D9D15306ADC00C77699 /* Semafori */,
 				5214F0BA1521E26B008E2C6C /* README.md */,
 				52CF2EF515373932002040D2 /* client */,
-				525BC4731549822B00E3B068 /* provasem.c */,
 				52802A341521E1C70077DD15 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -194,9 +186,9 @@
 		52CF2EF515373932002040D2 /* client */ = {
 			isa = PBXGroup;
 			children = (
-				525BC453154959B300E3B068 /* operazioni_client.h */,
 				525BC44E1549598500E3B068 /* client.c */,
-				525BC4571549803E00E3B068 /* provasem.c */,
+				525BC453154959B300E3B068 /* operazioni_client.h */,
+				525BC47C1549A05B00E3B068 /* operazioni_client.c */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -295,6 +287,7 @@
 				52438581153EBA5A00B240B4 /* util.c in Sources */,
 				52438582153EBA5A00B240B4 /* server.c in Sources */,
 				525BC45615495A0F00E3B068 /* stato_helpdesk.c in Sources */,
+				525BC47D1549A05B00E3B068 /* operazioni_client.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +310,6 @@
 			files = (
 				525BC4771549823E00E3B068 /* util.c in Sources */,
 				525BC4781549823E00E3B068 /* semafori.c in Sources */,
-				525BC4791549823E00E3B068 /* provasem.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

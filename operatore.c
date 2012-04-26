@@ -20,10 +20,9 @@
 #include "util.h"
 #include "stato_helpdesk.h"
 
-int tempistiche[4] = {0.100, 0.050, 0.500, 0.150}; //Secondi di attesa
-
 int op; //Numero dell'operatore, che identifica l'ordine in cui è stato creato questo operatore (indice del ciclo che crea gli operatori
 int key;
+float tempistiche[N_MAX_RICH] = {0.100, 0.050, 0.500, 0.150}; //Secondi di attesa
 
 int collega_gia_servito; //Booleano che indica se il collega in pausa è già stato servito
 
@@ -83,7 +82,7 @@ int avvia(int idOp){  //avvia l'operatore
 		if(next_client(&ricevuto) == -1)   //Serve per prelevare il messaggio del cliente
 			continue;
 		int client = ricevuto.sender;
-		int problema = ricevuto.dato - RICH_1;
+		int problema = ricevuto.dato;
 		stampaLog("Ricevuto");
 		risolvi_problema(problema);				//Risolve il problema e dorme
 		op_coda_invia_soluzione(client);		//Risponde ho risolto il problemaKEYnd(OP_PROB_PAUSA) == 1)		//Vede se mett in pausa
