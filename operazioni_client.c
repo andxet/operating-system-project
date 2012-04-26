@@ -35,7 +35,10 @@ int avviaClient()
 		int coda;
 		int esitoAggancio = c_coda_aggancia();
 		if (esitoAggancio < 0)
+		{
+			s_signal(key);
 			exit(-1);
+		}
 		
 		
 		int richiesta = gen_rand(N_MAX_RICH);
@@ -46,7 +49,7 @@ int avviaClient()
 		else
 			log("Ho ricevuto la risposta che desideravo.");
 		//Lascio posto per altri
-		s_signal(key);
+		//s_signal(key); -> Lo fa già l'operatore
 		
 		log("Termino la chiamata!");
 		
@@ -64,9 +67,12 @@ int avviaClient()
 int verificaHD()//Verifica se HD è aperto o no
 {
 	//Mi collego alla memoria condivisa e controllo il valore, se è aperto o no HD
+	semaforo semHelpdesk = collega_semaforo(SEM_HD);
+	s_wait(SEM_HD);
 	if(stato_hd->aperto <= 1)
 		return 0;//CHIUSO
 	else
 		return 1;//APERTO
+	s_signal(SEM_HD);
 	
 }
