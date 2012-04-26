@@ -22,13 +22,14 @@ int stato_ini(){
 	if(memid == -1)
 		return -1; //Errore nella creazione della coda
 	stato_hd = (stato_helpdesk) shmat(memid, NULL, 0);
-	if(stato_hd == -1)
+	if((long)stato_hd == -1)
 		return -1;
 	stato_hd->inPausa = -1;
 	stato_hd->aperto = APERTO;
-	//printf("stato_helpdesk.c -> Allocata la mem condivisa %d \n",stato_hd);
-	printf("stato_helpdesk.c -> memid %d \n",memid);
-	
+
+	printf("lista_operatori.c -> Allocata la mem condivisa %d \n",stato_hd);
+	printf("lista_operatori.c -> memid %d \n",memid);
+
 	return 0;
 }
 
@@ -46,7 +47,7 @@ int stato_rimuovi(){
 }
 
 int stato_inPausa(){
-	if((int)stato_hd <= -1)
+	if((long)stato_hd <= -1)
 		return -1;
 	return stato_hd->inPausa;
 }

@@ -22,8 +22,8 @@ coda.o: coda.c coda.h
 miacoda_op.o: miacoda_op.c miacoda_op.h
 	gcc -c miacoda_op.c -g
 	
-miacoda_cli.o: miacoda_cli.c miacoda_cli.h
-	gcc -c miacoda_cli.c -g
+#miacoda_cli.o: miacoda_cli.c miacoda_cli.h
+#	gcc -c miacoda_cli.c -g
 	
 stato_helpdesk.o: stato_helpdesk.c stato_helpdesk.h
 	gcc -c stato_helpdesk.c -g
@@ -36,6 +36,7 @@ semafori.o: semafori.c semafori.h
 
 ##### Client
 ##TODO: fare il make per il client
+
 client: client.o  coda.o miacoda_cli.o stato_helpdesk.o semafori.o util.o
 	gcc -o client client.o coda.o miacoda_cli.o stato_helpdesk.o semafori.o util.o
 

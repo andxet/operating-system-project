@@ -57,7 +57,7 @@ int avvia(int idOp){  //avvia l'operatore
 		stampaLog("Errore nel collegarsi alla coda");
 		exit(-1);
 	}
-	if((stato_hd) == -1){
+	if((long)stato_hd == -1){
 		stampaLog("Stato helpdesk è a -1!");
 		exit(-1);
 	}
