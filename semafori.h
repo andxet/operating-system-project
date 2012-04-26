@@ -8,12 +8,6 @@
 ##                                                                             ##
 ###############################################################################*/
 
-#include <sys/sem.h>
-#include <sys/types.h>
-#include <sys/ipc.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 //TODO: Decidere se mantenere extern o lasciarlo all'interno di questo programma
 typedef int semaforo;

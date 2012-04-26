@@ -19,10 +19,25 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>provasem.c.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>5243857A153EBA5A00B240B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>525BC45C154981E300E3B068</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>525BC4701549822B00E3B068</key>
 		<dict>
 			<key>primary</key>
 			<true/>

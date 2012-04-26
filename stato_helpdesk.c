@@ -27,8 +27,8 @@ int stato_ini(){
 	stato_hd->inPausa = -1;
 	stato_hd->aperto = APERTO;
 
-	printf("lista_operatori.c -> Allocata la mem condivisa %d \n",stato_hd);
-	printf("lista_operatori.c -> memid %d \n",memid);
+	//printf("lista_operatori.c -> Allocata la mem condivisa %d \n",stato_hd);
+	//printf("lista_operatori.c -> memid %d \n",memid);
 
 	return 0;
 }
@@ -42,7 +42,7 @@ int stato_aggancia(){
 }
 
 int stato_rimuovi(){
-	printf("stato_helpdesk.c -> Devo eliminare la mem condivisa %d \n",memid);
+	//printf("stato_helpdesk.c -> Devo eliminare la mem condivisa %d \n",memid);
 	return shmctl(memid, IPC_RMID, 0);//c'era uno zero prima
 }
 

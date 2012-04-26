@@ -19,6 +19,7 @@
 
 
 stato_helpdesk stato_hd;
+int coda, key = 0;
 
 int main ()
 {
@@ -36,7 +37,7 @@ int main ()
 		{
 			printf("Creato un nuovo client\n");
 			//avviaFiglio();
-			//exit(0);
+			exit(0);
 			
 		}
 		else
