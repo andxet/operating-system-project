@@ -15,16 +15,9 @@
 #include <stdio.h>
 
 //Funzioni ottimizzate per il client
-int c_coda_ini(){
-	if(coda_esiste(M_SERVER) == -1)
-		return -2; //La coda non esiste!
-	coda = coda_aggancia(M_SERVER);
-	if(coda == -1)
-		return -1; //Errore nel collegarsi alla coda
-	return 0;
-}
 
-int c_coda_aggancia(int id_coda){
+
+int c_coda_aggancia(int id_coda){/* Id coda è la coda a cui vuole collegarsi il cliente OFFSET + numeroOP ( numeroOP --> Random (0, MAX_NUM_OP))*/
 	if(coda_esiste(id_coda) == -1)
 		return -2; //La coda non esiste!
 	coda = coda_aggancia(id_coda);
