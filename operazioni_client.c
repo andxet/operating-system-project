@@ -23,14 +23,26 @@ int avviaClient()
 	*/
 	if(verificaHD())
 	{//HelpDesk aperto
-		int keyOpScelto = KEY_START + gen_rand(MAX_N_OP);	//Decido in modo random a che operatore collegarmi
+		int key = KEY_START + gen_rand(MAX_N_OP);	//Decido in modo random a che operatore collegarmi
 		//Vado al suo semaforo
+		semaforo semOpScelto = collega_semaforo(key);
+		s_wait(key);
+		//Ho ottenuto l'accesso, mi collego alla coda e deposito il messaggio
+		int coda;
+		c_coda_aggancia();
 		
-		
-		//Deposito il messaggio nella coda
-		
+		int richiesta = gen_rand(N_MAX_RICH);
+		c_coda_invia_rich(richiesta);
+		int risposta = c_coda_attendi_op(); //Attendo che l'operatore svolga la mia richiesta
+		if(risposta != 0)
+			log("L'OPERATORE MI HA DATO UNA RISPOSTA NON VALIDA...");
 		
 		//Lascio posto per altri
+		s_signal(key);
+		
+		log("Ho ricevuto la risposta, termino la chiamata!");
+		
+		exit(0);
 	}
 	else
 	{//HelpDesk chiuso
@@ -39,6 +51,8 @@ int avviaClient()
 	}
 	
 }
+
+
 int verificaHD()//Verifica se HD è aperto o no
 {
 	//Mi collego alla memoria condivisa e controllo il valore, se è aperto o no HD
@@ -48,4 +62,3 @@ int verificaHD()//Verifica se HD è aperto o no
 		return 1;//APERTO
 	
 }
-int inviaRichiesta(int numOp);//Inserisce la richiesta d' aiuto nella coda dell'operatore numOp
