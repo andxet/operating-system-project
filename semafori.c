@@ -36,16 +36,6 @@ int s_signal(int semid){
 	return semop(semid, &cmd, 1);
 }
 
-int s_wait0(int semid){
-	struct sembuf cmd;
-	
-	cmd.sem_num = 1;
-	cmd.sem_op = 0;
-	cmd.sem_flg = 0;
-	
-	return semop(semid, &cmd, 1);
-}
-
 int rimuovi_sem(int semid){
 	return semctl(semid, IPC_RMID, 0);
 }
