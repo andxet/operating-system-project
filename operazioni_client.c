@@ -15,7 +15,11 @@
 #include "util.h"
 
 extern stato_helpdesk stato_hd;
-
+/*
+	Valori di ritorno :
+		-Se la coda è chiusa : -1
+		-Se HelpDesk chiuso  : -2
+*/
 int avviaClient()
 {
 	/* Il client deve verificare lo stato dell' HD per sapere se inviare o no la richiesta
@@ -29,25 +33,29 @@ int avviaClient()
 		s_wait(key);
 		//Ho ottenuto l'accesso, mi collego alla coda e deposito il messaggio
 		int coda;
-		c_coda_aggancia();
+		int esitoAggancio = c_coda_aggancia();
+		if (esitoAggancio < 0)
+			exit(-1);
+		
 		
 		int richiesta = gen_rand(N_MAX_RICH);
 		c_coda_invia_rich(richiesta);
 		int risposta = c_coda_attendi_op(); //Attendo che l'operatore svolga la mia richiesta
 		if(risposta != 0)
 			log("L'OPERATORE MI HA DATO UNA RISPOSTA NON VALIDA...");
-		
+		else
+			log("Ho ricevuto la risposta che desideravo.");
 		//Lascio posto per altri
 		s_signal(key);
 		
-		log("Ho ricevuto la risposta, termino la chiamata!");
+		log("Termino la chiamata!");
 		
 		exit(0);
 	}
 	else
 	{//HelpDesk chiuso
 		log("HelpDesk chiuso..");
-		exit(0);
+		exit(-2);
 	}
 	
 }
