@@ -22,8 +22,8 @@ coda.o: coda.c coda.h
 miacoda_op.o: miacoda_op.c miacoda_op.h coda.o
 	gcc -c miacoda_op.c -g
 	
-#miacoda_cli.o: miacoda_cli.c miacoda_cli.h coda.o
-#	gcc -c miacoda_cli.c -g
+miacoda_cli.o: miacoda_cli.c miacoda_cli.h coda.o
+	gcc -c miacoda_cli.c -g
 	
 stato_helpdesk.o: stato_helpdesk.c stato_helpdesk.h
 	gcc -c stato_helpdesk.c -g

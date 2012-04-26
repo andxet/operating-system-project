@@ -17,7 +17,6 @@
 
 //Funzioni ottimizzate per il client
 
-
 int c_coda_aggancia(){/* Id coda è la coda a cui vuole collegarsi il cliente OFFSET + numeroOP ( numeroOP --> Random (0, MAX_NUM_OP))*/
 
 	if(coda_esiste(key) == -1)

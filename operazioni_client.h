@@ -10,8 +10,6 @@
 
 #include "costanti.h"
 
-extern stato_helpdesk stato_hd;
-
 int avviaClient();
 int verificaHD();//Verifica se HD è aperto o no
 int inviaRichiesta(int numOp);//Inserisce la richiesta d' aiuto nella coda dell'operatore numOp

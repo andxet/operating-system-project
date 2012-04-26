@@ -16,7 +16,6 @@
 
 #include "costanti.h"
 #include "util.h"
-#include "stato_helpdesk.h"
 #include "operazioni_client.h"
 
 int genera = 1, falliti = 0, numero_figli = 0;
