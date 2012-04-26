@@ -8,6 +8,7 @@
 ##                                                                             ##
 ###############################################################################*/
 
+#ifndef costanti
 
 #define MAX_N_OP  10 // Numero massimo di operatori che vengono creati dall'helpdesk
 #define DIM_CODA_OP 10 // Dimensione della coda di ogni operatore
@@ -33,10 +34,7 @@
 
 
 //Tipo di aiuto richiesto all'helpdesk
-#define RICH_1	11 //Devono essere tutte consecuti, oppure rischio di segmentation fault
-#define RICH_2	12
-#define RICH_3	13
-#define RICH_4	14
+#define N_MAX_RICH 4
 
 //Risposta alla richiesta da parte dell'helpdesk
 #define OP_SOLUZIONE 22
@@ -44,3 +42,6 @@
 //Vettore delle chiavi delle code degli operatori
 //int code[DIM_CODA_OP] = {1000, 1001, 1002, 1003
 #define KEY_START 1000
+
+#define costanti
+#endif
