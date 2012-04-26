@@ -14,7 +14,7 @@
 #include "semafori.h"
 #include "util.h"
 
-extern stato_helpdesk stato_hd;
+stato_helpdesk stato_hd;
 /*
 	Valori di ritorno :
 		-Se la coda è chiusa : -1

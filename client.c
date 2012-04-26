@@ -33,10 +33,10 @@ int main ()
 		/*Per ora provo con un solo figlio */
 		padre = fork();
 
-		if ( !padre ) //Codice del figlio (quindi i vari client)
+		if (!padre) //Codice del figlio (quindi i vari client)
 		{
 			printf("Creato un nuovo client\n");
-			avviaFiglio();
+			avviaClient();
 			exit(0);
 			
 		}
