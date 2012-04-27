@@ -22,7 +22,8 @@
 
 int op; //Numero dell'operatore, che identifica l'ordine in cui è stato creato questo operatore (indice del ciclo che crea gli operatori
 int key;
-float tempistiche[N_MAX_RICH] = {0.100, 0.050, 0.500, 0.150}; //Secondi di attesa
+//float tempistiche[N_MAX_RICH] = {0.100, 0.050, 0.500, 0.150}; //Secondi di attesa
+float tempistiche[N_MAX_RICH] = {1, 5, 4, 8}; //Secondi di attesa
 
 int collega_gia_servito; //Booleano che indica se il collega in pausa è già stato servito
 
@@ -83,7 +84,7 @@ int avvia(int idOp){  //avvia l'operatore
 			continue;
 		int client = ricevuto.sender;
 		int problema = ricevuto.dato;
-		stampaLog("Ricevuto");
+		printf("Ho servito %d !!!! :)", client);
 		risolvi_problema(problema);				//Risolve il problema e dorme
 		op_coda_invia_soluzione(client);		//Risponde ho risolto il problemaKEYnd(OP_PROB_PAUSA) == 1)		//Vede se mett in pausa
 		s_signal(sem_coda);
@@ -99,11 +100,13 @@ int next_client(coda_messaggio * messCliente){
 	s_wait(sem_stato);
 	if(stato_hd->inPausa != -1 && stato_hd->inPausa == opPrecedente() && !collega_gia_servito){//Se l'operatore precedente è in pausa e non ho già servito un suo cliente, estraggo un cliente dalla sua lista
 		codat = coda_aggancia(opPrecedente());
+		stampaLog("Servo un cliente del mio collega in pausa.");
 		collega_gia_servito = 1;
 	}
 	else{
 		 codat = coda;
 		 collega_gia_servito = 0;
+		stampaLog("Servo un mio cliente.");
 	}
 	s_signal(sem_stato);
 	return op_coda_ricevi_collega(messCliente, codat);  //Serve per prendere il mess da codat e lo salva in &cliente		
@@ -131,9 +134,11 @@ int pausa(){
 	s_wait(sem_stato);
 	int inPausa = stato_inPausa();
 	if(inPausa != -1){
+		stampaLog("Qualcuno è in pausa, pazienza...");
 		s_signal(sem_stato);
 		return 0;//Qualcuno è già in pausa
 	}
+	stampaLog("Vado in pausa!");
 	stato_hd->inPausa = KEY_START + op;
 	s_signal(sem_stato);
 	
@@ -141,6 +146,7 @@ int pausa(){
 	
 	s_wait(sem_stato);
 	stato_hd->inPausa = -1;
+	stampaLog("esco dalla pausa...");
 	s_signal(sem_stato);
 	return 1;//Riprendo a lavorare
 }

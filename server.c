@@ -28,6 +28,8 @@ int main()
 		exit(-1);
 	}
 	
+	set_semaforo(lista_sem, 1);
+	
 	signal(SIGINT, interrompi);
 	signal(SIGALRM, chiudi);
 	
