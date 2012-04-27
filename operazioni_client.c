@@ -13,8 +13,12 @@
 #include "stato_helpdesk.h"
 #include "semafori.h"
 #include "util.h"
+#include "miacoda_cli.h"
 
 stato_helpdesk stato_hd;
+
+int key, coda;
+
 /*
 	Valori di ritorno :
 		-Se la coda è chiusa : -1
@@ -27,12 +31,11 @@ int avviaClient()
 	*/
 	if(verificaHD())
 	{//HelpDesk aperto
-		int key = KEY_START + gen_rand(MAX_N_OP);	//Decido in modo random a che operatore collegarmi
+		key = KEY_START + gen_rand(MAX_N_OP);	//Decido in modo random a che operatore collegarmi
 		//Vado al suo semaforo
 		semaforo semOpScelto = collega_semaforo(key);
 		s_wait(key);
 		//Ho ottenuto l'accesso, mi collego alla coda e deposito il messaggio
-		int coda;
 		int esitoAggancio = c_coda_aggancia();
 		if (esitoAggancio < 0)
 		{
@@ -45,20 +48,20 @@ int avviaClient()
 		c_coda_invia_rich(richiesta);
 		int risposta = c_coda_attendi_op(); //Attendo che l'operatore svolga la mia richiesta
 		if(risposta != 0)
-			log("L'OPERATORE MI HA DATO UNA RISPOSTA NON VALIDA...");
+			stampalog("L'OPERATORE MI HA DATO UNA RISPOSTA NON VALIDA...");
 		else
-			log("Ho ricevuto la risposta che desideravo.");
+			stampalog("Ho ricevuto la risposta che desideravo.");
 		//Lascio posto per altri
 		//s_signal(key); -> Lo fa già l'operatore
 		
-		log("Termino la chiamata!");
+		stampalog("Termino la chiamata!");
 		
 		exit(0);
 	}
 	else
 	{//HelpDesk chiuso
-		log("HelpDesk chiuso..");
-		exit(-2);
+		stampaLog("HelpDesk chiuso..");
+		exit(0);
 	}
 	
 }

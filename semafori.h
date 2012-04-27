@@ -10,6 +10,9 @@
 
 
 //TODO: Decidere se mantenere extern o lasciarlo all'interno di questo programma
+
+#ifndef semafori
+
 typedef int semaforo;
 
 #define S_READ	0
@@ -25,3 +28,6 @@ int s_signal(int semid);
 int s_wait0(int semid);
 int rimuovi_sem(int semid);
 int set_semaforo(int semid, int val);
+
+#define semafori
+#endif
