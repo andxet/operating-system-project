@@ -51,3 +51,8 @@ int collega_semaforo(int key){
 int set_semaforo(int semid, int val){
 	return semctl(semid, 0, SETVAL, val);
 }
+
+/* Funzione per il debug */
+int get_val_sem(int semid){
+	return semctl(semid,0,GETVAL,0);
+}

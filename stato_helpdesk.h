@@ -13,9 +13,7 @@
 #include "costanti.h"
 #include "semafori.h"
 
-#define CHIUSO 0
-#define FALLIMENTO 1
-#define APERTO 2
+
 
 //int successivo, key, semid;
 

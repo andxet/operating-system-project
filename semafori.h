@@ -29,5 +29,7 @@ int s_wait0(int semid);
 int rimuovi_sem(int semid);
 int set_semaforo(int semid, int val);
 
+int get_val_sem(int semid);
+
 #define semafori
 #endif

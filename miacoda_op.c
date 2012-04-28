@@ -42,3 +42,9 @@ int op_coda_ricevi_collega(coda_messaggio * ricevuto, int coda_c){
 	int err = coda_ricevi(coda_c, M_SERVER, ricevuto);
 	return err;
 }
+
+/* Aggiunta kikko */
+int op_coda_invia_soluzione_CHIUSO(int client){
+	coda_messaggio mess = coda_messaggio_componi(client, M_SERVER, OP_SOLUZIONE_CHIUSO);
+	return coda_spedisci(coda, mess);
+}

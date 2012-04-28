@@ -40,7 +40,9 @@ int c_coda_attendi_op(){
 	int err = coda_ricevi(coda, getpid(), &mess);
 	if(err == -1)
 		return err;
-	else if(mess.dato == OP_SOLUZIONE)
+	else if(mess.dato == OP_SOLUZIONE_CHIUSO)
+		return 10;//L'helpdesk ha risposto che è chiuso
+	if(mess.dato == OP_SOLUZIONE)
 		return 0;//L'helpdesk ha risposto
 	else
 		return -1;

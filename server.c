@@ -28,7 +28,7 @@ int main()
 		exit(-1);
 	}
 	
-	set_semaforo(lista_sem, 1);
+	set_semaforo(lista_sem, 1);//Imposto che solo 1 processo alla volta può entrare
 	
 	signal(SIGINT, interrompi);
 	signal(SIGALRM, chiudi);
@@ -77,22 +77,38 @@ void interrompi(int s){
 		kill(SIGINT, operatori[i]);
 }
 
+
+void notificaOperatori()
+{
+printf("\nNotifico gli operatori del cambio di stato APERTO/CHIUSO \n");
+int i;
+	for (i=0; i < MAX_N_OP; i++)
+	{
+		printf("Notificato op :%d\n",operatori[i]);
+		kill(operatori[i],SIGUSR1);
+	}
+	
+	printf("\n");
+}
+
+
 void chiudi(int s){
 /* Inserite wait e Signal per accedere alla memoria */
 s_wait(lista_sem);
 	if(stato_hd->aperto == APERTO){
 		stato_hd->aperto = CHIUSO;
+notificaOperatori();
 		signal(SIGALRM, chiudi);
 		alarm(DURATA_NOTTE);
 		stampaLog("\n************************\nCHIUSURA E' NOTTE\n************************\n");
 	}
 	else{
 		stato_hd->aperto = APERTO;
+notificaOperatori();
 		signal(SIGALRM, chiudi);
 		alarm(DURATA_GIORNO);
 		stampaLog("\n************************\nAPERTURA E' MATTINO!\n************************\n");
 	}
 s_signal(lista_sem);	
 
-	
 }

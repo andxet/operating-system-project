@@ -33,7 +33,6 @@ int coda_spedisci(int coda, coda_messaggio mess){
 }
 
 int coda_ricevi(int coda, int tipo, coda_messaggio *ricevuto){
-	//alarm(MAX_ATTESA);
 	return (int) msgrcv(coda, ricevuto,  sizeof(coda_messaggio) - sizeof(long), tipo, 0);
 }
 
