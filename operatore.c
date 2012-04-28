@@ -135,6 +135,11 @@ int avvia(int idOp){  //avvia l'operatore
 				printf("%d : Operatore: Ho in coda :%d clienti\n",getpid(),nClientInCoda);fflush(stdout);
 				//Non faccio la signal, così gli altri processi restano fuori
 				nMessInCoda--;
+				if(nMessInCoda == 0)
+				{//Reimposto la dimensione della coda
+					esitoSet = set_semaforo(sem_coda, DIM_CODA_OP);
+					printf("%d : Semaforo reimpostato! esito : %d, valore :%d\n",getpid(),esitoSet,DIM_CODA_OP);
+				}
 			}
 			else
 			{//3° Caso
@@ -155,11 +160,7 @@ int avvia(int idOp){  //avvia l'operatore
 				s_signal(sem_coda);	//Lascio spazio ad un'altro processo
 			}
 			
-			if(nMessInCoda == 0)
-			{//Reimposto la dimensione della coda
-				esitoSet = set_semaforo(sem_coda, DIM_CODA_OP);
-				printf("%d : Semaforo reimpostato! esito : %d, valore :%d\n",getpid(),esitoSet,DIM_CODA_OP);
-			}
+			
 		}
 		
 		stampaLog("************************************************\n");
