@@ -17,5 +17,8 @@ int gen_rand(int n){
 }
 
 void stampaLog(char * messaggio){
-	printf("\n%d -> %s", getpid(), messaggio); fflush(stdout);
+	if(DEBUG)
+	{
+		printf("%d : %s\n", getpid(), messaggio); fflush(stdout);
+	}
 }

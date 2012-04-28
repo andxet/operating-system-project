@@ -33,7 +33,7 @@ int main()
 	signal(SIGINT, interrompi);
 	signal(SIGALRM, chiudi);
 	
-	stampaLog("Istanziato HelpDesk");
+	stampaLog("************************ Istanziato HelpDesk ************************");
 	
 	//Creo i vari operatori
 	for (i=0; i < MAX_N_OP; i++)
@@ -42,12 +42,12 @@ int main()
 		
 		if (!padre) {//	codice proc. figlio
 			avvia(i);
-			printf("Errore nel %d ° operatore, pid: %d, chiave risorse ipc %d\n", i, getpid(), KEY_START+i); fflush(stdout);
+			printf("%d : Errore nel %d ° operatore, pid: %d, chiave risorse ipc %d\n",getpid(), i, padre, KEY_START+i); fflush(stdout);
 			exit(0);
 		}
 		
 		else {
-			//printf("Server : Istanziato %d ° operatore, pid: %d, chiave risorse ipc prevista: %d\n", i, padre, KEY_START+i);
+			printf("%d : Istanziato %d° operatore, pid: %d, chiave risorse ipc prevista: %d\n",getpid(), i, padre, KEY_START+i);fflush(stdout);
 			//fflush(stdout);
 			operatori[i] = padre;
 		}
@@ -65,12 +65,12 @@ int main()
 		wait(0);
 
 	stato_rimuovi();
-	stampaLog("Helpdesk chiuso\n");
+	stampaLog("************************ Helpdesk chiuso ************************\n");
 	return 0;
 }
 
 void interrompi(int s){
-	stampaLog("*** Ricevuto sigint, inizio procedura di chiusura. ***\n\n");
+	stampaLog("*** Ricevuto sigint, inizio procedura di chiusura. ***\n");
 	stato_hd->aperto = FALLIMENTO;
 	int i = 0;
 	for(; i < MAX_N_OP; i++)
@@ -78,18 +78,21 @@ void interrompi(int s){
 }
 
 void chiudi(int s){
+/* Inserite wait e Signal per accedere alla memoria */
+s_wait(lista_sem);
 	if(stato_hd->aperto == APERTO){
 		stato_hd->aperto = CHIUSO;
 		signal(SIGALRM, chiudi);
 		alarm(DURATA_NOTTE);
-		stampaLog("CHIUSURA! E' notte");
+		stampaLog("\n************************\nCHIUSURA E' NOTTE\n************************\n");
 	}
 	else{
 		stato_hd->aperto = APERTO;
 		signal(SIGALRM, chiudi);
 		alarm(DURATA_GIORNO);
-		stampaLog("APERTURA! E' mattino!");
-
+		stampaLog("\n************************\nAPERTURA E' MATTINO!\n************************\n");
 	}
+s_signal(lista_sem);	
+
 	
 }

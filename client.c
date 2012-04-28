@@ -18,6 +18,9 @@
 #include "util.h"
 #include "operazioni_client.h"
 
+int MAX_CLIENTI_GENERATI = 8;	//Questa variabile serve solo per il debugg
+
+
 int genera = 1, falliti = 0, numero_figli = 0;
 
 void interrompi(int s);
@@ -27,23 +30,33 @@ int main ()
 {
 	pid_t padre;
 	
-	srand((unsigned) time(NULL));
-	
 	signal(SIGINT, interrompi);
 	signal(SIGCHLD, seppellisci);
 	
-	while(genera == 1){
-		if(numero_figli < 100)
+	while(genera){
+		if(numero_figli <= MAX_CLIENTI_GENERATI)
+		{
+			//stampaLog("-_-^->Forkatooooo");
+			numero_figli++;
 			padre = fork();
-		//stampaLog("generato processo\n");
+			
+		}
+		else
+			sleep(0.750);
+			//printf("GESTORE CLIENT -> Non posso piu' generare figli  %d su %d generati\n",numero_figli,MAX_CLIENTI_GENERATI);fflush(stdout);
+
 		if (!padre){ //Codice del figlio (quindi i vari client)
+			//stampaLog("Sono nel figlio");
+			genera=0;
 			exit(avviaClient());
 		}
 		else{
 			/* Codice Padre */
-			numero_figli++;
-			sleep(3);
+			//stampaLog("Sono nel padre");
+			//printf("GESTORE CLIENT -> Ho generato %d su %d client disponibili\n",numero_figli,MAX_CLIENTI_GENERATI);fflush(stdout);
+			sleep(0.500);
 		}
+		//stampaLog("-------------------------------");
 	}
 	
 	//while(numero_figli > 0){
@@ -52,27 +65,28 @@ int main ()
 }
 
 void interrompi(int s){
-	stampaLog("Ricevuto SIGINT, si consiglia di uscire da questo programma terminando il processo helpdesk.");
+	//stampaLog("Ricevuto SIGINT, si consiglia di uscire da questo programma terminando il processo helpdesk.");
 	genera = 0;
+	MAX_CLIENTI_GENERATI=0;
 }
 
 void seppellisci(int s){
 	int stato_figlio;
-	stampaLog("Seppellisco figlio.\n");
+	//printf("**Seppellisco figlio : %d.\n",s);fflush(stdout);fflush(stdout); //Come mai da solo 17???
 	wait(&stato_figlio);
 	
 	numero_figli--;
-	printf("Numero figli: %d", numero_figli);
+	//printf("**Numero figli: %d\n", numero_figli);fflush(stdout);
 	//printf("wexitstatus: %d\n", WEXITSTATUS(stato_figlio));
 	
 	if(WEXITSTATUS(stato_figlio) == 10 || WEXITSTATUS(stato_figlio) == 30)
 		falliti ++;
 	else
 		falliti = 0;
-	printf("Falliti: %d\n", falliti);
+	//printf("**Hanno fallito : %d\n", falliti);fflush(stdout);
 	
 	if (falliti > MAX_FALLIMENTI_HELPDESK){
-		stampaLog("Falliti troppi tentativi di contattare l'helpdesk, esco.");
+		stampaLog(">>>>Falliti troppi tentativi di contattare l'helpdesk, esco.");
 		genera = 0;
 	}
 }

@@ -1,13 +1,14 @@
 /*###############################################################################
-##						-= Progetto di Sistemi Operativi =-			           ##
+##						-= Progetto di Sistemi Operativi =-			           			 ##
 ## --------------------------------------------------------------------------- ##
 ##  File:	       miorandom.h                                                 ##
-##  Created by:	   Fiori, Peretti, Polto                                       ##
+##  Created by:	   Fiori, Peretti, Polto                                     ##
 ## --------------------------------------------------------------------------- ##
 ##  Descrizione:    Descrizione del file                                       ##
 ##                                                                             ##
 ###############################################################################*/
 
+#include "costanti.h"
 
 #ifndef helpdesk_util_h
 

@@ -23,7 +23,7 @@
 int op; //Numero dell'operatore, che identifica l'ordine in cui è stato creato questo operatore (indice del ciclo che crea gli operatori
 int key;
 //float tempistiche[N_MAX_RICH] = {0.100, 0.050, 0.500, 0.150}; //Secondi di attesa
-float tempistiche[N_MAX_RICH] = {1, 5, 4, 8}; //Secondi di attesa
+float tempistiche[N_MAX_RICH] = {1, 2, 3, 4}; //Secondi di attesa
 
 int collega_gia_servito; //Booleano che indica se il collega in pausa è già stato servito
 
@@ -45,6 +45,7 @@ int avvia(int idOp){  //avvia l'operatore
 	signal(SIGINT, licenzia);
 	op = idOp;
 	key = KEY_START + op;
+	printf("%d : Operatore: avviato key :%d\n",getpid(),key);fflush(stdout);
 	srand((unsigned) time(NULL));//Inizializzo il motore per la creazione di numeri casuali
 	
 	//Aggangio alle risorse IPC dell'helpdesk
@@ -75,20 +76,31 @@ int avvia(int idOp){  //avvia l'operatore
 	}
 	set_semaforo(sem_coda, DIM_CODA_OP);
 	
-	stampaLog("Pronto a servire");
+	//stampaLog("Pronto a servire");
+	printf("%d : Operatore: pronto a servire\n",getpid());fflush(stdout);
 	
 	collega_gia_servito = 0;
 	while(stato_hd->aperto != FALLIMENTO){
 		coda_messaggio ricevuto;
 		if(next_client(&ricevuto) == -1)   //Serve per prelevare il messaggio del cliente
+		{
+			printf("%d : Operatore: CONTINUEEEEEEEEEEEEEEEE\n",getpid());fflush(stdout);
 			continue;
+		}
+		stampaLog("************************************************");
+		printf("%d : Operatore: Inizio sequenza operazioni\n",getpid());fflush(stdout);
 		int client = ricevuto.sender;
 		int problema = ricevuto.dato;
-		printf("Ho servito %d !!!! :)", client);
+		printf("%d : Operatore: Servo client: %d, richiesta :%d\n",getpid(),client,problema);fflush(stdout);
 		risolvi_problema(problema);				//Risolve il problema e dorme
+		printf("%d : Operatore: Invio la soluzione al client: %d\n",getpid(),client);fflush(stdout);
 		op_coda_invia_soluzione(client);		//Risponde ho risolto il problemaKEYnd(OP_PROB_PAUSA) == 1)		//Vede se mett in pausa
+		printf("%d : Operatore: Client liquidato incremento il semaforo\n",getpid());fflush(stdout);
 		s_signal(sem_coda);
-		pausa();
+/* Per ora nessun operatore va in pausa */
+		//pausa();
+		//printf("\n");fflush(stdout);
+		stampaLog("************************************************");
 	}
 
 	stampaLog("Helpdesk in chiusura, uscita.");
@@ -97,7 +109,7 @@ int avvia(int idOp){  //avvia l'operatore
 
 int next_client(coda_messaggio * messCliente){
 	int codat;
-	s_wait(sem_stato);
+	s_wait(sem_stato);//Serve per accedere alla memoria dell HD e controllare che OP è in pausa
 	if(stato_hd->inPausa != -1 && stato_hd->inPausa == opPrecedente() && !collega_gia_servito){//Se l'operatore precedente è in pausa e non ho già servito un suo cliente, estraggo un cliente dalla sua lista
 		codat = coda_aggancia(opPrecedente());
 		stampaLog("Servo un cliente del mio collega in pausa.");
@@ -113,8 +125,9 @@ int next_client(coda_messaggio * messCliente){
 }
 
 void risolvi_problema(int problema){
-	if(problema < 0 || problema > 3)
+	if(problema < 0 || problema > N_MAX_RICH)
 		return;
+	printf("%d : Operatore: Eseguo la richiesta, dormo :%f\n",getpid(),tempistiche[problema]);fflush(stdout);
 	sleep(tempistiche[problema]);
 }
 
@@ -146,7 +159,7 @@ int pausa(){
 	
 	s_wait(sem_stato);
 	stato_hd->inPausa = -1;
-	stampaLog("esco dalla pausa...");
+	stampaLog("Esco dalla pausa...");
 	s_signal(sem_stato);
 	return 1;//Riprendo a lavorare
 }

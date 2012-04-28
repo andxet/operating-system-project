@@ -1,20 +1,21 @@
 /*###############################################################################
-##						-= Progetto di Sistemi Operativi =-			           ##
+##						-= Progetto di Sistemi Operativi =-									 ##
 ## --------------------------------------------------------------------------- ##
-##  File:	       costanti.h	                                               ##
-##  Created by:	   Fiori, Peretti, Polto                                       ##
+##  File:	       costanti.h	                                                 ##
+##  Created by:	   Fiori, Peretti, Polto                                     ##
 ## --------------------------------------------------------------------------- ##
 ##  Descrizione:   Costanti utilizzate all'interno del progetto                ##
 ##                                                                             ##
 ###############################################################################*/
 
 #ifndef costanti
+#define DEBUG 1	//1: attivo, 0 no
 
 #define MAX_N_OP  2 // Numero massimo di operatori che vengono creati dall'helpdesk
-#define DIM_CODA_OP 10 // Dimensione della coda di ogni operatore
+#define DIM_CODA_OP 2 // Dimensione della coda di ogni operatore
 					   //#define STATO_HELPDESK 0 //Indica se l'helpdesk è aperto (true) o chiuso (false)
-#define DURATA_GIORNO 12 //Tempo (secondi) in cui l'helpdesk è attivo
-#define DURATA_NOTTE 6 // Tempo (secondi) in cui l'helpdesk è disattivato
+#define DURATA_GIORNO 30 //Tempo (secondi) in cui l'helpdesk è attivo
+#define DURATA_NOTTE 10 // Tempo (secondi) in cui l'helpdesk è disattivato
 
 #define MAX_FALLIMENTI_HELPDESK 1
 

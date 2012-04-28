@@ -29,13 +29,6 @@ int op_coda_ini(){
 	return 0;
 }
 
-/*int op_coda_presentati(){
-	if(client == 0)
-		return -1;
-	coda_messaggio mess = coda_messaggio_componi(client, getpid(), OP_CIAO);
-	return coda_spedisci(coda, mess);
- }*/ //Non necessaria perchè ci pensa lo scheduler
-
 int op_coda_invia_soluzione(int client){
 	coda_messaggio mess = coda_messaggio_componi(client, M_SERVER, OP_SOLUZIONE);
 	return coda_spedisci(coda, mess);
