@@ -15,7 +15,7 @@
 #define STATO_INIZIALE_HD 1	//Se parte in negativo potrebbe dare problemi in operatore
 
 #define MAX_N_OP  2 // Numero massimo di operatori che vengono creati dall'helpdesk
-#define DIM_CODA_OP 1 // Dimensione della coda di ogni operatore
+#define DIM_CODA_OP 2 // Dimensione della coda di ogni operatore
 					   //#define STATO_HELPDESK 0 //Indica se l'helpdesk è aperto (true) o chiuso (false)
 #define DURATA_GIORNO 30 //Tempo (secondi) in cui l'helpdesk è attivo
 #define DURATA_NOTTE 60 // Tempo (secondi) in cui l'helpdesk è disattivato

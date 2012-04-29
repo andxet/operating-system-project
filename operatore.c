@@ -23,7 +23,7 @@
 int op; //Numero dell'operatore, che identifica l'ordine in cui è stato creato questo operatore (indice del ciclo che crea gli operatori
 int key;
 //float tempistiche[N_MAX_RICH] = {0.100, 0.050, 0.500, 0.150}; //Secondi di attesa
-float tempistiche[N_MAX_RICH] = {1, 2, 3, 4}; //Secondi di attesa
+float tempistiche[N_MAX_RICH] = {3, 3, 4, 5}; //Secondi di attesa
 
 int collega_gia_servito; //Booleano che indica se il collega in pausa è già stato servito
 
@@ -98,19 +98,22 @@ int avvia(int idOp){  //avvia l'operatore
 		{//1°Caso
 			if(next_client(&ricevuto) == -1)   //Serve per prelevare il messaggio del cliente
 			{
-				printf("%d : Operatore: CONTINUEEEEEEEEEEEEEEEE\n",getpid());fflush(stdout);
+				printf("%d : Operatore1°c: CONTINUEEEEEEEEEEEEEEEE\n",getpid());fflush(stdout);
 				continue;
 			}
-			printf("%d : Operatore: Inizio sequenza operazioni\n",getpid());fflush(stdout);
+			
+			//printf("%d : Operatore1°c: Inizio sequenza operazioni\n",getpid());fflush(stdout);
 			int client = ricevuto.sender;
 			int problema = ricevuto.dato;
-			printf("%d : Operatore: Servo client: %d, richiesta :%d\n",getpid(),client,problema);fflush(stdout);
+			nClientInCoda = DIM_CODA_OP-get_val_sem(sem_coda);	//Controllo quanti client ha in coda l'op
+			printf("%d : Operatore1°c: INIZIO ho in coda :%d clienti<--\n",getpid(),nClientInCoda);fflush(stdout);
+			printf("%d : Operatore1°c: Servo client: %d, richiesta :%d\n",getpid(),client,problema);fflush(stdout);
 			risolvi_problema(problema);		//Risolve il problema e dorme
-			printf("%d : Operatore: Invio la soluzione al client: %d\n",getpid(),client);fflush(stdout);
+			printf("%d : Operatore1°c: Invio la soluzione al client: %d\n",getpid(),client);fflush(stdout);
 			op_coda_invia_soluzione(client);		//Risponde ho risolto il problemaKEY
-			printf("%d : Operatore: Client liquidato incremento il semaforo\n",getpid());fflush(stdout);
-			nClientInCoda = get_val_sem(sem_coda);	//Controllo quanti client ha in coda l'op
-			printf("%d : Operatore: Ho in coda :%d clienti\n",getpid(),nClientInCoda);fflush(stdout);
+			printf("%d : Operatore1°c: Client liquidato incremento il semaforo\n",getpid());fflush(stdout);
+			nClientInCoda = DIM_CODA_OP-get_val_sem(sem_coda);	//Controllo quanti client ha in coda l'op
+			printf("%d : Operatore1°c: Ho in coda :%d clienti\n",getpid(),nClientInCoda);fflush(stdout);
 			s_signal(sem_coda);	//Lascio spazio ad un'altro processo
 			//pausa();//Per ora nessun operatore va in pausa	
 		}
@@ -120,52 +123,48 @@ int avvia(int idOp){  //avvia l'operatore
 			{//2° Caso
 				if(next_client(&ricevuto) == -1)   //Serve per prelevare il messaggio del cliente
 				{
-					printf("%d : Operatore: CONTINUEEEEEEEEEEEEEEEE\n",getpid());fflush(stdout);
+					printf("%d : Operatore2°c: CONTINUEEEEEEEEEEEEEEEE\n",getpid());fflush(stdout);
 					continue;
 				}
-				printf("%d : Operatore: Inizio sequenza operazioni\n",getpid());fflush(stdout);
+				printf("%d : Operatore2°c: Inizio sequenza operazioni\n",getpid());fflush(stdout);
 				int client = ricevuto.sender;
 				int problema = ricevuto.dato;
-				printf("%d : Operatore: Servo client: %d, richiesta :%d\n",getpid(),client,problema);fflush(stdout);
+				printf("%d : Operatore2°c: Servo client: %d, richiesta :%d\n",getpid(),client,problema);fflush(stdout);
 				risolvi_problema(problema);		//Risolve il problema e dorme
-				printf("%d : Operatore: Invio la soluzione al client: %d\n",getpid(),client);fflush(stdout);
+				printf("%d : Operatore2°c: Invio la soluzione al client: %d\n",getpid(),client);fflush(stdout);
 				op_coda_invia_soluzione(client);		//Risponde ho risolto il problema
-				printf("%d : Operatore: Client liquidato incremento il semaforo\n",getpid());fflush(stdout);
-				nClientInCoda = get_val_sem(sem_coda);	//Controllo quanti client ha in coda l'op
-				printf("%d : Operatore: Ho in coda :%d clienti\n",getpid(),nClientInCoda);fflush(stdout);
-				//Non faccio la signal, così gli altri processi restano fuori
+				printf("%d : Operatore2°c: Client liquidato decremento nMessInCoda il semaforo\n",getpid());fflush(stdout);
 				nMessInCoda--;
+				printf("%d : Operatore2°c: Ho in coda :%d clienti \n",getpid(),nMessInCoda);fflush(stdout);
+				//Non faccio la signal, così gli altri processi restano fuori
+				
 				if(nMessInCoda == 0)
 				{//Reimposto la dimensione della coda
 					esitoSet = set_semaforo(sem_coda, DIM_CODA_OP);
-					printf("%d : Semaforo reimpostato! esito : %d, valore :%d\n",getpid(),esitoSet,DIM_CODA_OP);
+					printf("%d : Operatore2°c Semaforo reimpostato! esito : %d, valore :%d\n",getpid(),esitoSet,DIM_CODA_OP);
 				}
 			}
 			else
 			{//3° Caso
 				if(next_client(&ricevuto) == -1)//Serve per prelevare il messaggio del cliente
 				{
-					printf("%d : Operatore: CONTINUEEEEEEEEEEEEEEEE\n",getpid());fflush(stdout);
+					printf("%d : Operatore3°c: CONTINUEEEEEEEEEEEEEEEE\n",getpid());fflush(stdout);
 					continue;
 				}
-				printf("%d : Operatore: Inizio sequenza operazioni\n",getpid());fflush(stdout);
+				printf("%d : Operatore3°c: Inizio sequenza operazioni\n",getpid());fflush(stdout);
 				int client = ricevuto.sender;
 				int problema = ricevuto.dato;
-				printf("%d : Operatore: Servo client: %d, richiesta :%d\n",getpid(),client,problema);fflush(stdout);
+				printf("%d : Operatore3°c: Servo client: %d, richiesta :%d\n",getpid(),client,problema);fflush(stdout);
 				//Non risolvo nemmeno il problema, invio la segnalazione che sono chiuso
 				op_coda_invia_soluzione_CHIUSO(client);
-				printf("%d : Operatore: Client liquidato incremento il semaforo\n",getpid());fflush(stdout);
-				nClientInCoda = get_val_sem(sem_coda);	//Controllo quanti client ha in coda l'op
-				printf("%d : Operatore: Ho in coda :%d clienti\n",getpid(),nClientInCoda);fflush(stdout);
+				printf("%d : Operatore3°c: Client liquidato incremento il semaforo\n",getpid());fflush(stdout);
+				nClientInCoda = DIM_CODA_OP-get_val_sem(sem_coda);	//Controllo quanti client ha in coda l'op
+				printf("%d : Operatore3°c: Ho in coda :%d clienti\n",getpid(),nClientInCoda);fflush(stdout);
 				s_signal(sem_coda);	//Lascio spazio ad un'altro processo
 			}
-			
-			
 		}
-		
 		stampaLog("************************************************\n");
 	}
-
 	stampaLog("Helpdesk in chiusura, uscita.");
 	exit(0);
 }
