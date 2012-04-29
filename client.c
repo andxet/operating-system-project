@@ -18,7 +18,7 @@
 #include "util.h"
 #include "operazioni_client.h"
 
-int MAX_CLIENTI_GENERATI = 3;	//Questa variabile serve solo per il debugg
+int MAX_CLIENTI_GENERATI = 4;	//Questa variabile serve solo per il debugg
 
 
 int genera = 1, falliti = 0, numero_figli = 0;

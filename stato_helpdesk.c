@@ -24,7 +24,7 @@ int stato_ini(){
 	stato_hd = (stato_helpdesk) shmat(memid, NULL, 0);
 	if((long)stato_hd == -1)
 		return -1;
-	stato_hd->inPausa = -1;
+	stato_hd->inPausa = 0;
 	stato_hd->aperto = APERTO;
 
 	//printf("lista_operatori.c -> Allocata la mem condivisa %d \n",stato_hd);
@@ -46,8 +46,8 @@ int stato_rimuovi(){
 	return shmctl(memid, IPC_RMID, 0);//c'era uno zero prima
 }
 
-int stato_inPausa(){
-	if((long)stato_hd <= -1)
-		return -1;
+int stato_inPausa(){//Restituisce -1 se ci sono errori, altrimenti restituisce il valore contenuto in stato_hd->inPausa
+	if((long)stato_hd->inPausa == 0)
+		return 0;
 	return stato_hd->inPausa;
 }
