@@ -23,7 +23,7 @@
 int op; //Numero dell'operatore, che identifica l'ordine in cui è stato creato questo operatore (indice del ciclo che crea gli operatori
 int key;
 //float tempistiche[N_MAX_RICH] = {0.100, 0.050, 0.500, 0.150}; //Secondi di attesa
-float tempistiche[N_MAX_RICH] = {3, 3, 3, 3}; //Secondi di attesa
+float tempistiche[N_MAX_RICH] = {1, 1, 1, 1}; //Secondi di attesa
 
 int collega_gia_servito; //Booleano che indica se il collega in pausa è già stato servito
 
@@ -236,7 +236,7 @@ void licenzia(int s){
 
 int pausaKikko(){
 	//Faccio un random per vedere se devo andare in pausa
-	srand((unsigned) time(NULL));//Inizializzo il motore random
+	avvia_motore_rand();//Inizializzo il motore random
 	int probabilita = gen_rand(OP_PROB_PAUSA);	//Decido in modo random se andare in pausa
 	
 	if(probabilita == 0)
