@@ -14,7 +14,7 @@ COSE DA CHIEDERE A PROF:
 	
 
 Poblemi:
-
+- quando un op va in pausa e l'operatore successivo svolge una sua op e quella del suo vicino, succede che se la coda del suo vicino è vuota lui aspetta che arrivi un messaggio, dovrei controllare anche se il vicino ha un messaggio o no.
 Controllare:
 
 Note :
