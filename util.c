@@ -13,7 +13,11 @@
 #include "util.h"
 
 int gen_rand(int n){
-	return miorandom(n);
+	return (rand() % n);
+}
+
+void avvia_motore_rand(){
+	srand((unsigned) time(NULL) + getpid());//Inizializzo il motore per la creazione di numeri casuali
 }
 
 void stampaLog(char * messaggio){

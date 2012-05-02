@@ -267,28 +267,6 @@ int pausaKikko(){
 	}
 }
 
-
-int pausa(){
-	s_wait(sem_stato);
-	int inPausa = stato_inPausa();
-	if(inPausa != -1){
-		stampaLog("Qualcuno è in pausa, pazienza...");
-		s_signal(sem_stato);
-		return 0;//Qualcuno è già in pausa
-	}
-	stampaLog("Vado in pausa!");
-	stato_hd->inPausa = KEY_START + op;
-	s_signal(sem_stato);
-	
-	sleep(OP_SEC_PAUSA);
-	
-	s_wait(sem_stato);
-	stato_hd->inPausa = -1;
-	stampaLog("Esco dalla pausa...");
-	s_signal(sem_stato);
-	return 1;//Riprendo a lavorare
-}
-
 void cambiatoStatoHD(int signum)
 {
 	printf("%d : Ho ricevuto il segnale che è cambiato lo stato HD\n",getpid());

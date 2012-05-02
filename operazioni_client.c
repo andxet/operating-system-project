@@ -49,7 +49,9 @@ int avviaClient(){
 		
 		
 	stampaLog("************************************************");
-	srand((unsigned) time(NULL));//Inizializzo il motore per la creazione di numeri casuali
+
+	avvia_motore_rand();	
+	//srand((unsigned) time(NULL) + getpid());//Inizializzo il motore per la creazione di numeri casuali
 	key = KEY_START + gen_rand(MAX_N_OP);	//Decido in modo random a che operatore collegarmi
 	printf("%d : Cliente mi collego all'opKey %d\n",getpid(),key); fflush(stdout);
 	//Vado al suo semaforo

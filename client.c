@@ -20,7 +20,6 @@
 
 int MAX_CLIENTI_GENERATI = 10;	//Questa variabile serve solo per il debugg
 
-
 int genera = 1, falliti = 0, numero_figli = 0;
 
 void interrompi(int s);
