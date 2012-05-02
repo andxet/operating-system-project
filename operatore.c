@@ -44,6 +44,7 @@ void licenzia(int s);
 int statoHD = STATO_INIZIALE_HD;
 int nMessInCoda = 0;
 void cambiatoStatoHD(int signum);
+int nClientInCoda = 0;
 /************/
 
 int avvia(int idOp){  //avvia l'operatore
@@ -81,7 +82,7 @@ int avvia(int idOp){  //avvia l'operatore
 	}
 	int esitoSet = set_semaforo(sem_coda, DIM_CODA_OP);
 //printf("%d : Semaforo settato esito : %d, valore :%d\n",getpid(),esitoSet,DIM_CODA_OP);
-	int nClientInCoda = get_val_sem(sem_coda);
+	nClientInCoda = get_val_sem(sem_coda);
 //	printf("%d : Operatore: Ho settato il mio semaforo a :%d \n",getpid(),nClientInCoda);fflush(stdout);
 	
 //	printf("%d : Operatore: pronto a servire\n",getpid());fflush(stdout);
@@ -176,7 +177,7 @@ int avvia(int idOp){  //avvia l'operatore
 				s_signal(sem_coda);	//Lascio spazio ad un'altro processo
 			}
 		}
-		stampaLog("************************************************\n");
+		//stampaLog("************************************************\n");
 	}
 	stampaLog("Helpdesk in chiusura, uscita.");
 	exit(0);
@@ -185,7 +186,8 @@ int avvia(int idOp){  //avvia l'operatore
 int next_client(coda_messaggio * messCliente){
 	int codat;
 	s_wait(sem_stato);//Serve per accedere alla memoria dell HD e controllare che OP è in pausa
-	if(stato_hd->inPausa != 0 && stato_hd->inPausa == opPrecedente() && !collega_gia_servito){//Se l'operatore precedente è in pausa e non ho già servito un suo cliente, estraggo un cliente dalla sua lista
+	if(stato_hd->inPausa != 0 && stato_hd->inPausa == opPrecedente() && !collega_gia_servito)
+	{//Se l'operatore precedente è in pausa e non ho già servito un suo cliente, estraggo un cliente dalla sua lista
 	
 		//Devo servire un cliente del mio collega, collego che effettivamente abbia messaggi sulla coda, altrimenti mi metto ad aspettare per niente
 		//Controllo il suo semaforo così vedo subito se ha dei messaggi o no :D
@@ -205,7 +207,8 @@ int next_client(coda_messaggio * messCliente){
 			collega_gia_servito = 1;
 		}
 	}
-	else{
+	else
+	{
 		 codat = coda;
 		 collega_gia_servito = 0;
 		 printf("%d : Servo un mio cliente.\n",getpid());fflush(stdout);

@@ -3,8 +3,7 @@
 
 	Se servo un processo del mio collega devo incrementare il semaforo suo! --> OK fatto
 	
-Bug trovato quando gli operatori vanno in pausa:	
-	Se ho 2 op e l'op 1 va in pausa le richieste devono essere svolte dall'op 2, ma se l'op2 non ha ancora ricevuto richieste o la sua coda è vuota lui è bloccato ad aspettare un messaggio sulla sua coda perciò non può servire i miei client
+
 	
 COSE DA CHIEDERE A PROF:
 	- Chiedere se HelpDesk deve simulare più giorni di lavoro o solo 1, chiara mi ha detto che loro e anche altri l'hanno fatto durare solo 1gg
@@ -32,3 +31,7 @@ Ho notato che gli operatori continuavano a svolgere richieste che gli erano arri
 	2: La + fika; Quando il server cambia stato, invia anche a tutti gli operatori un SEGNALE, gli op quando ricevono il segnale attivano la procedura secondaria che è come quella di sopra.
 	
 	Ormai i processi che sono addormentati su quel semaforo sono obbligato a farli entrare e a dargli una risposta non valida
+	
+	
+Bug trovato quando gli operatori vanno in pausa:	<---SISTEMATO
+	Se ho 2 op e l'op 1 va in pausa le richieste devono essere svolte dall'op 2, ma se l'op2 non ha ancora ricevuto richieste o la sua coda è vuota lui è bloccato ad aspettare un messaggio sulla sua coda perciò non può servire i miei client
