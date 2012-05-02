@@ -14,9 +14,8 @@
 
 #include <time.h>
 
-#define miorandom(x) rand() % x
-
 int gen_rand(int n);
+void avvia_motore_rand();
 void stampaLog(char * messaggio);
 
 #define helpdesk_util_h

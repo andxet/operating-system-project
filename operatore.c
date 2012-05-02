@@ -23,7 +23,7 @@
 int op; //Numero dell'operatore, che identifica l'ordine in cui è stato creato questo operatore (indice del ciclo che crea gli operatori
 int key;
 //float tempistiche[N_MAX_RICH] = {0.100, 0.050, 0.500, 0.150}; //Secondi di attesa
-float tempistiche[N_MAX_RICH] = {3, 3, 4, 5}; //Secondi di attesa
+float tempistiche[N_MAX_RICH] = {1, 1, 1, 1}; //Secondi di attesa
 
 int collega_gia_servito; //Booleano che indica se il collega in pausa è già stato servito
 
@@ -52,7 +52,7 @@ int avvia(int idOp){  //avvia l'operatore
 	op = idOp;
 	key = KEY_START + op;
 	printf("%d : Operatore: avviato key :%d\n",getpid(),key);fflush(stdout);
-	srand((unsigned) time(NULL));//Inizializzo il motore per la creazione di numeri casuali
+	
 	
 	//Aggangio alle risorse IPC dell'helpdesk
 	if(stato_aggancia() == -1){//Controllo per collegarsi alla memoria condivisa dell'helpdesk
