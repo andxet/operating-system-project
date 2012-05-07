@@ -190,12 +190,12 @@ int next_client(coda_messaggio * messCliente){
 			//Ho copiato il codice sotto
 			codat = coda;
 		 	collega_gia_servito = 0;
-		 	sprintf(messaggio, "Operatore %d: Servo un mio cliente.\n", id);
+		 	sprintf(messaggio, "Operatore %d: Servo un mio cliente.\n", op);
 		}
 		else
 		{
 			codat = coda_aggancia(opPrecedente());
-			sprintf(messaggio, "Operatore %d: Servo un cliente del collega in pausa.\n", id);
+			sprintf(messaggio, "Operatore %d: Servo un cliente del collega in pausa.\n", op);
 			collega_gia_servito = 1;
 		}
 	}
@@ -203,7 +203,7 @@ int next_client(coda_messaggio * messCliente){
 	{
 		 codat = coda;
 		 collega_gia_servito = 0;
-		 sprintf(messaggio, "Operatore %d: Servo un mio cliente.\n", id);
+		 sprintf(messaggio, "Operatore %d: Servo un mio cliente.\n", op);
 	}
 	s_signal(sem_stato);
 	return op_coda_ricevi_collega(messCliente, codat);  //Serve per prendere il mess dalla coda scelta		
@@ -237,7 +237,7 @@ int pausa(){
 		int inPausa = stato_inPausa();//return -1 se errore, altrimenti id dell'operatore in pausa
 		if (inPausa == 0)
 		{//Non ci sono Operatori in pausa, ci vado io :D
-			sprintf(messaggio, "Operatore %d: Vado in pausa.\n", id);
+			sprintf(messaggio, "Operatore %d: Vado in pausa.\n", op);
 			stato_hd->inPausa = KEY_START + op;	//Metto l'id della mia coda nel campo pausa
 			s_signal(sem_stato);
 			stampaLog(messaggio);
@@ -246,7 +246,7 @@ int pausa(){
 	
 			s_wait(sem_stato);
 			stato_hd->inPausa = 0;
-			sprintf(messaggio, "Operatore %d: Torno dalla pausa.\n", id);
+			sprintf(messaggio, "Operatore %d: Torno dalla pausa.\n", op);
 			s_signal(sem_stato);
 			stampaLog(messaggio);
 			return 1;//Riprendo a lavorare

@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "util.h"
+#include "semafori.h"
 
 int gen_rand(int n){
 	return (rand() % n);
