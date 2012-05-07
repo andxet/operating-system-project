@@ -1,8 +1,8 @@
 /*###############################################################################
-##						-= Progetto di Sistemi Operativi =-			           ##
+##						-= Progetto di Sistemi Operativi =-			           			 ##
 ## --------------------------------------------------------------------------- ##
-##  File:	       miorandom.c	                                               ##
-##  Created by:	   Fiori, Peretti, Polto                                       ##
+##  File:	       miorandom.c	                                              ##
+##  Created by:	   Fiori, Peretti, Polto                                     ##
 ## --------------------------------------------------------------------------- ##
 ##  Descrizione:    Descrizione del file                                       ##
 ##                                                                             ##
@@ -23,6 +23,9 @@ void avvia_motore_rand(){
 void stampaLog(char * messaggio){
 	if(DEBUG)
 	{
+		semaforo sem_print = collega_semaforo(SEM_PRINT);		//Creato semaforo per l'output
+		s_wait(sem_print);
 		printf("%d : %s\n", getpid(), messaggio); fflush(stdout);
+		s_signal(sem_print);
 	}
 }

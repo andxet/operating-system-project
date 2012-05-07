@@ -20,32 +20,31 @@
 #include "util.h"
 #include "stato_helpdesk.h"
 
-int op; //Numero dell'operatore, che identifica l'ordine in cui è stato creato questo operatore (indice del ciclo che crea gli operatori
-int key;
+int opPrecedente();
+int pausa();
+int next_client();
+
+void cambiatoStatoHD(int signum);
+void risolvi_problema(int problema);
+void licenzia(int s);
+
+stato_helpdesk stato_hd;
+
+semaforo sem_coda;
+semaforo sem_stato;
+semaforo sem_op_prec;
+
+int op; //Numero dell'operatore
+int key;	//Chiave delle sue IPC
 //float tempistiche[N_MAX_RICH] = {0.100, 0.050, 0.500, 0.150}; //Secondi di attesa
 float tempistiche[N_MAX_RICH] = {1, 1, 1, 1}; //Secondi di attesa
 
 int collega_gia_servito; //Booleano che indica se il collega in pausa è già stato servito
-
 int coda; //Coda dell'operatore
-semaforo sem_coda;
-
-stato_helpdesk stato_hd;
-semaforo sem_stato;
-
-semaforo sem_op_prec;
-
-int opPrecedente();
-void risolvi_problema(int problema);
-int pausa();
-int next_client();
-void licenzia(int s);
-/* Cose kikko */
 int statoHD = STATO_INIZIALE_HD;
 int nMessInCoda = 0;
-void cambiatoStatoHD(int signum);
 int nClientInCoda = 0;
-/************/
+
 
 int avvia(int idOp){  //avvia l'operatore
 	signal(SIGUSR1,cambiatoStatoHD);
@@ -56,36 +55,33 @@ int avvia(int idOp){  //avvia l'operatore
 	
 	//Aggangio alle risorse IPC dell'helpdesk
 	if(stato_aggancia() == -1){//Controllo per collegarsi alla memoria condivisa dell'helpdesk
-		stampaLog("Errore nel collegarsi alla coda");
+		printf("Errore nel collegarsi alla coda");
 		exit(-1);
 	}
 	if((long)stato_hd == -1){//Controllo 
-		stampaLog("Stato helpdesk è a -1!");
+		printf("Stato helpdesk è a -1!");
 		exit(-1);
 	}
 	sem_stato = collega_semaforo(SEM_HD);
 	if(sem_stato == -1){
-		stampaLog("Il semaforo di stato helpdesk è a -1!");
+		printf("Il semaforo di stato helpdesk è a -1!");
 		exit(-1);
 	}
 	if(sem_coda == -1){
-		stampaLog("Il semaforo della coda è a -1!");
+		printf("Il semaforo della coda è a -1!");
 		exit(-1);
 	}
 	
 	
-	//Creazione risorse IPC dell'operatore
-	sem_coda = crea_semaforo(key);
+	sem_coda = crea_semaforo(key);	//Semaforo della coda dell'operatore
 	if(op_coda_ini() < 0 || sem_coda < 0){
-		stampaLog("Errore nell'allocazione delle risorse IPC");
+		printf("Errore nell'allocazione delle risorse IPC");
 		exit(-1);
 	}
 	int esitoSet = set_semaforo(sem_coda, DIM_CODA_OP);
-//printf("%d : Semaforo settato esito : %d, valore :%d\n",getpid(),esitoSet,DIM_CODA_OP);
 	nClientInCoda = get_val_sem(sem_coda);
-//	printf("%d : Operatore: Ho settato il mio semaforo a :%d \n",getpid(),nClientInCoda);fflush(stdout);
-	
-//	printf("%d : Operatore: pronto a servire\n",getpid());fflush(stdout);
+
+	stampaLog("Operatore: pronto a servire");
 	
 	collega_gia_servito = 0;
 	while(stato_hd->aperto != FALLIMENTO){
@@ -95,15 +91,13 @@ int avvia(int idOp){  //avvia l'operatore
 				- 2° HD Chiuso, ma l'op ha ancora da servire alcuni clienti
 				- 3° HD Chiso, Op ha risposto a tutte i clienti, deve rispondere negativamente a quelli che entrano
 		*/
-//		stampaLog("************************************************");
 		if(stato_hd->aperto == APERTO)
 		{//1°Caso
 			if(next_client(&ricevuto) == -1)   //Serve per prelevare il messaggio del cliente
 			{
-				printf("%d : Operatore1°c: CONTINUEEEEEEEEEEEEEEEE\n",getpid());fflush(stdout);
+				//printf("%d : Operatore1°c: CONTINUEEEEEEEEEEEEEEEE\n",getpid());fflush(stdout);
 				continue;
 			}
-			
 			//printf("%d : Operatore1°c: Inizio sequenza operazioni\n",getpid());fflush(stdout);
 			int client = ricevuto.sender;
 			int problema = ricevuto.dato;
@@ -198,12 +192,12 @@ int next_client(coda_messaggio * messCliente){
 			//Ho copiato il codice sotto
 			codat = coda;
 		 	collega_gia_servito = 0;
-		 	printf("%d : Servo un mio cliente.\n",getpid());fflush(stdout);
+		 	stampaLog("Servo un mio cliente.");
 		}
 		else
 		{
 			codat = coda_aggancia(opPrecedente());
-			printf("%d : Servo un cliente del mio collega in pausa.\n",getpid());fflush(stdout);
+			stampaLog("Servo un cliente del collega in pausa.");
 			collega_gia_servito = 1;
 		}
 	}
@@ -211,7 +205,7 @@ int next_client(coda_messaggio * messCliente){
 	{
 		 codat = coda;
 		 collega_gia_servito = 0;
-		 printf("%d : Servo un mio cliente.\n",getpid());fflush(stdout);
+		 stampaLog("Servo un mio cliente.");
 	}
 	s_signal(sem_stato);
 	return op_coda_ricevi_collega(messCliente, codat);  //Serve per prendere il mess dalla coda scelta		
@@ -220,7 +214,11 @@ int next_client(coda_messaggio * messCliente){
 void risolvi_problema(int problema){
 	if(problema < 0 || problema > N_MAX_RICH)
 		return;
-	printf("%d : Operatore: Eseguo la richiesta, dormo :%f\n",getpid(),tempistiche[problema]);fflush(stdout);
+	
+	sprintf(messaggio, "%d : Operatore: Eseguo la richiesta, dormo :%f\n",getpid(),tempistiche[problema]);
+	stampaLog(messaggio);
+	
+	//printf("%d : Operatore: Eseguo la richiesta, dormo :%f\n",getpid(),tempistiche[problema]);fflush(stdout);
 	sleep(tempistiche[problema]);
 }
 

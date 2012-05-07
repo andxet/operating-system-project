@@ -59,9 +59,6 @@ int main ()
 		//stampaLog("-------------------------------");
 	}
 	
-	//while(numero_figli > 0){
-	//	sleep(1000);
-	//}
 }
 
 void interrompi(int s){

@@ -12,7 +12,7 @@
 #define DEBUG 1	//Serve per le stampe di debug :1: attivo, 0 no
 #define LIMITA_PROCESSI 1 // Serve per limitare i processi client attivi
 #define MAX_CLIENTI_GENERATI 10	//Se è attivato il limitatore di processi indica quanti client al max avere
-
+#define SEM_PRINT 777	//Semaforo per la gestione dell'oputput
 
 #define STATO_INIZIALE_HD 1	//Se parte in negativo potrebbe dare problemi in operatore
 

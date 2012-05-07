@@ -12,7 +12,7 @@ int key, semid; //Variabili pr la coda
 int sucessivo;
 int operatori[MAX_N_OP];
 stato_helpdesk stato_hd;
-semaforo lista_sem;
+semaforo lista_sem, sem_print;
 
 void interrompi(int s);
 void chiudi(int s);
@@ -23,8 +23,10 @@ int main()
 	pid_t padre;
 	//Creo la lista degli operatori
 	lista_sem = crea_semaforo(SEM_HD);
+	sem_print = crea_semaforo(SEM_PRINT);		//Creato semaforo per l'output
+	set_semaforo(sem_print, 1);
 	if(stato_ini() < 0 || lista_sem == -1){
-		stampaLog("Impossibile creare la memoria per salvare l'elenco degli operatori");
+		printf("Impossibile creare la memoria per salvare l'elenco degli operatori");
 		exit(-1);
 	}
 	
@@ -33,7 +35,10 @@ int main()
 	signal(SIGINT, interrompi);
 	signal(SIGALRM, chiudi);
 	
-	stampaLog("************************ Istanziato HelpDesk ************************");
+	printf("************************ Istanziato HelpDesk ************************\n");
+	printf("Pid HD : %d\n",getpid());
+	printf("N° Operatori : %d\n",MAX_N_OP);
+	printf("Dimensione coda operatori : %d\n",DIM_CODA_OP);
 	
 	//Creo i vari operatori
 	for (i=0; i < MAX_N_OP; i++)
@@ -47,8 +52,7 @@ int main()
 		}
 		
 		else {
-			printf("%d : Istanziato %d° operatore, pid: %d, chiave risorse ipc prevista: %d\n",getpid(), i, padre, KEY_START+i);fflush(stdout);
-			//fflush(stdout);
+			printf("%d : Istanziato %d° operatore, Pid: %d, Key IPC: %d\n",getpid(), i+1, padre, KEY_START+i);fflush(stdout);
 			operatori[i] = padre;
 		}
 	}
@@ -59,13 +63,11 @@ int main()
 		sleep(100);//Aspetta che succeda qualcosa.
 	}
 	
-	//stampaLog("****Ricevuto il segnale di terminazione, aspetto che gli operatori finiscano.****\n");
-	
 	for(i=0; i<MAX_N_OP; i++)
 		wait(0);
 
 	stato_rimuovi();
-	stampaLog("************************ Helpdesk chiuso ************************\n");
+	printf("************************ Helpdesk chiuso ************************\n");
 	return 0;
 }
 
@@ -80,15 +82,13 @@ void interrompi(int s){
 
 void notificaOperatori()
 {
-printf("\nNotifico gli operatori del cambio di stato APERTO/CHIUSO \n");
+stampaLog("\nNotifico gli operatori del cambio di stato APERTO/CHIUSO \n");
 int i;
 	for (i=0; i < MAX_N_OP; i++)
 	{
-		printf("Notificato op :%d\n",operatori[i]);
+		//stampaLog("Notificato op :%d\n",operatori[i]);
 		kill(operatori[i],SIGUSR1);
 	}
-	
-	printf("\n");
 }
 
 
