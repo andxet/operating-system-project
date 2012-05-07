@@ -18,8 +18,6 @@
 #include "util.h"
 #include "operazioni_client.h"
 
-int MAX_CLIENTI_GENERATI = 10;	//Questa variabile serve solo per il debugg
-
 int genera = 1, falliti = 0, numero_figli = 0;
 
 void interrompi(int s);
@@ -33,25 +31,28 @@ int main ()
 	signal(SIGCHLD, seppellisci);
 	
 	while(genera){
-		if(numero_figli <= MAX_CLIENTI_GENERATI)
-		{
-			//stampaLog("-_-^->Forkatooooo");
-			numero_figli++;
-			padre = fork();
-			
+		if(LIMITA_PROCESSI)
+		{//Devo attivare il limitatore dei processi figli
+			if(numero_figli <= MAX_CLIENTI_GENERATI)
+			{
+				numero_figli++;
+				padre = fork();
+			}
+			else
+				sleep(1);//Non posso più genearare client
 		}
 		else
-			sleep(1);
-			//printf("GESTORE CLIENT -> Non posso piu' generare figli  %d su %d generati\n",numero_figli,MAX_CLIENTI_GENERATI);fflush(stdout);
+		{//Non ci sono limiti sui figli
+			padre = fork();
+		}
+		
 
 		if (!padre){ //Codice del figlio (quindi i vari client)
-			//stampaLog("Sono nel figlio");
 			genera=0;
 			exit(avviaClient());
 		}
 		else{
 			/* Codice Padre */
-			//stampaLog("Sono nel padre");
 			//printf("GESTORE CLIENT -> Ho generato %d su %d client disponibili\n",numero_figli,MAX_CLIENTI_GENERATI);fflush(stdout);
 			sleep(0.500);
 		}
