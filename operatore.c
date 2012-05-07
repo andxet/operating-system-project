@@ -45,8 +45,11 @@ int statoHD = STATO_INIZIALE_HD;
 int nMessInCoda = 0;
 int nClientInCoda = 0;
 
+char * messaggio;
+
 
 int avvia(int idOp){  //avvia l'operatore
+	avvia_motore_rand();//Inizializzo il motore random
 	signal(SIGUSR1,cambiatoStatoHD);
 	signal(SIGINT, licenzia);
 	op = idOp;
@@ -95,35 +98,30 @@ int avvia(int idOp){  //avvia l'operatore
 		{//1°Caso
 			if(next_client(&ricevuto) == -1)   //Serve per prelevare il messaggio del cliente
 			{
-				//printf("%d : Operatore1°c: CONTINUEEEEEEEEEEEEEEEE\n",getpid());fflush(stdout);
 				continue;
 			}
-			//printf("%d : Operatore1°c: Inizio sequenza operazioni\n",getpid());fflush(stdout);
 			int client = ricevuto.sender;
 			int problema = ricevuto.dato;
-			nClientInCoda = DIM_CODA_OP-get_val_sem(sem_coda);	//Controllo quanti client ha in coda l'op
-//			printf("%d : Operatore1°c: INIZIO ho in coda :%d clienti<--\n",getpid(),nClientInCoda);fflush(stdout);
-			printf("%d : Operatore1°c: Servo client: %d, richiesta :%d\n",getpid(),client,problema);fflush(stdout);
+			sprintf(messaggio, "%s%d : Operatore1°c: Servo client: %d, richiesta :%d\n",messaggio,getpid(),client,problema);
 			risolvi_problema(problema);		//Risolve il problema e dorme
-			printf("%d : Operatore1°c: Invio la soluzione al client: %d\n",getpid(),client);fflush(stdout);
+			sprintf(messaggio, "%s%d : Operatore1°c: Invio la soluzione al client: %d\n",messaggio,getpid(),client);
 			op_coda_invia_soluzione(client);		//Risponde ho risolto il problemaKEY
-//			printf("%d : Operatore1°c: Client liquidato incremento il semaforo\n",getpid());fflush(stdout);
-			//Controllo se sto servendo un mio cliente o quello del collega
-			if(collega_gia_servito == 0)
+			
+			if(collega_gia_servito == 0)//Controllo se sto servendo un mio cliente o quello del collega
 			{//Sto servendo un mio cliente
-				nClientInCoda = DIM_CODA_OP-get_val_sem(sem_coda);	//Controllo quanti client ha in coda l'op
-				printf("%d : Operatore1°c: Ho in coda :%d clienti\n",getpid(),nClientInCoda);fflush(stdout);
+				//nClientInCoda = DIM_CODA_OP-get_val_sem(sem_coda);	//Controllo quanti client ha in coda l'op
+				//sprintf(messaggio, "%s\n%d : Operatore1°c: Ho in coda :%d clienti\n",messaggio,getpid(),nClientInCoda);
 				s_signal(sem_coda);	//Lascio spazio ad un'altro processo
 			}
 			else
 			{//Sto servendo un cliente del mio collega
-				nClientInCoda = DIM_CODA_OP-get_val_sem(sem_coda);	//Controllo quanti client ha in coda l'op
-				printf("%d : Operatore1°c: Ho servito il cliente del mio collega faccio la signal sulla sua coda\n",getpid());fflush(stdout);
+				//nClientInCoda = DIM_CODA_OP-get_val_sem(sem_coda);	//Controllo quanti client ha in coda l'op
+				//sprintf(messaggio, "%s%d : Operatore1°c: Ho servito il cliente del mio collega faccio la signal sulla sua coda\n",messaggio,getpid());
 				s_signal(sem_op_prec);	//Faccio la signal sulla coda del mio collega
 			}
 			//End controlli
-			
-			pausaKikko();//Vuole andare in pausa
+			stampaLog(messaggio);
+			pausa();//Vuole andare in pausa
 		}
 		else
 		{
@@ -131,44 +129,44 @@ int avvia(int idOp){  //avvia l'operatore
 			{//2° Caso
 				if(next_client(&ricevuto) == -1)   //Serve per prelevare il messaggio del cliente
 				{
-					printf("%d : Operatore2°c: CONTINUEEEEEEEEEEEEEEEE\n",getpid());fflush(stdout);
 					continue;
 				}
 //				printf("%d : Operatore2°c: Inizio sequenza operazioni\n",getpid());fflush(stdout);
 				int client = ricevuto.sender;
 				int problema = ricevuto.dato;
-				printf("%d : Operatore2°c: Servo client: %d, richiesta :%d\n",getpid(),client,problema);fflush(stdout);
+				sprintf(messaggio, "%s%d : Operatore2°c: Servo client: %d, richiesta :%d\n",messaggio,getpid(),client,problema);
 				risolvi_problema(problema);		//Risolve il problema e dorme
-//				printf("%d : Operatore2°c: Invio la soluzione al client: %d\n",getpid(),client);fflush(stdout);
+				sprintf(messaggio, "%s%d : Operatore2°c: Invio la soluzione al client: %d\n",messaggio,getpid(),client);
 				op_coda_invia_soluzione(client);		//Risponde ho risolto il problema
-				printf("%d : Operatore2°c: Client liquidato decremento nMessInCoda il semaforo\n",getpid());fflush(stdout);
+				//printf("%d : Operatore2°c: Client liquidato decremento nMessInCoda il semaforo\n",getpid());fflush(stdout);
 				nMessInCoda--;
-				printf("%d : Operatore2°c: Ho in coda :%d clienti \n",getpid(),nMessInCoda);fflush(stdout);
+				//printf("%d : Operatore2°c: Ho in coda :%d clienti \n",getpid(),nMessInCoda);fflush(stdout);
 				//Non faccio la signal, così gli altri processi restano fuori
 				
 				if(nMessInCoda == 0)
 				{//Reimposto la dimensione della coda
 					esitoSet = set_semaforo(sem_coda, DIM_CODA_OP);
-					printf("%d : Operatore2°c Semaforo reimpostato! esito : %d, valore :%d\n",getpid(),esitoSet,DIM_CODA_OP);
+					//printf("%d : Operatore2°c Semaforo reimpostato! esito : %d, valore :%d\n",getpid(),esitoSet,DIM_CODA_OP);
 				}
+				stampaLog(messaggio);
 			}
 			else
 			{//3° Caso
 				if(next_client(&ricevuto) == -1)
 				{
-					printf("%d : Operatore3°c: CONTINUEEEEEEEEEEEEEEEE\n",getpid());fflush(stdout);
 					continue;
 				}
 //				printf("%d : Operatore3°c: Inizio sequenza operazioni\n",getpid());fflush(stdout);
 				int client = ricevuto.sender;
 				int problema = ricevuto.dato;
-				printf("%d : Operatore3°c: Servo client: %d, richiesta :%d\n",getpid(),client,problema);fflush(stdout);
+				sprintf(messaggio, "%s%d : Operatore3°c: Servo client: %d, richiesta :%d\n",messaggio,getpid(),client,problema);
 				//Non risolvo nemmeno il problema, invio la segnalazione che sono chiuso
 				op_coda_invia_soluzione_CHIUSO(client);
-				printf("%d : Operatore3°c: Client liquidato incremento il semaforo\n",getpid());fflush(stdout);
-				nClientInCoda = DIM_CODA_OP-get_val_sem(sem_coda);	//Controllo quanti client ha in coda l'op
-				printf("%d : Operatore3°c: Ho in coda :%d clienti\n",getpid(),nClientInCoda);fflush(stdout);
+				sprintf(messaggio, "%s%d : Operatore3°c: Client liquidato, sono chiuso %d\n",messaggio,getpid());
+				//nClientInCoda = DIM_CODA_OP-get_val_sem(sem_coda);	//Controllo quanti client ha in coda l'op
+				//printf("%d : Operatore3°c: Ho in coda :%d clienti\n",getpid(),nClientInCoda);fflush(stdout);
 				s_signal(sem_coda);	//Lascio spazio ad un'altro processo
+				stampaLog(messaggio);
 			}
 		}
 		//stampaLog("************************************************\n");
@@ -192,12 +190,12 @@ int next_client(coda_messaggio * messCliente){
 			//Ho copiato il codice sotto
 			codat = coda;
 		 	collega_gia_servito = 0;
-		 	stampaLog("Servo un mio cliente.");
+		 	sprintf(messaggio, "Operatore %d: Servo un mio cliente.\n", id);
 		}
 		else
 		{
 			codat = coda_aggancia(opPrecedente());
-			stampaLog("Servo un cliente del collega in pausa.");
+			sprintf(messaggio, "Operatore %d: Servo un cliente del collega in pausa.\n", id);
 			collega_gia_servito = 1;
 		}
 	}
@@ -205,7 +203,7 @@ int next_client(coda_messaggio * messCliente){
 	{
 		 codat = coda;
 		 collega_gia_servito = 0;
-		 stampaLog("Servo un mio cliente.");
+		 sprintf(messaggio, "Operatore %d: Servo un mio cliente.\n", id);
 	}
 	s_signal(sem_stato);
 	return op_coda_ricevi_collega(messCliente, codat);  //Serve per prendere il mess dalla coda scelta		
@@ -215,10 +213,7 @@ void risolvi_problema(int problema){
 	if(problema < 0 || problema > N_MAX_RICH)
 		return;
 	
-	sprintf(messaggio, "%d : Operatore: Eseguo la richiesta, dormo :%f\n",getpid(),tempistiche[problema]);
-	stampaLog(messaggio);
-	
-	//printf("%d : Operatore: Eseguo la richiesta, dormo :%f\n",getpid(),tempistiche[problema]);fflush(stdout);
+	//sprintf(messaggio, "%s\n%d : Operatore: Eseguo la richiesta, dormo :%f\n",messaggio,getpid(),tempistiche[problema]);
 	sleep(tempistiche[problema]);
 }
 
@@ -232,9 +227,8 @@ void licenzia(int s){
 	//printf("%d: Ho eliminato tutto posso morire in pace +_+\n",getpid());	
 }
 
-int pausaKikko(){
+int pausa(){
 	//Faccio un random per vedere se devo andare in pausa
-	avvia_motore_rand();//Inizializzo il motore random
 	int probabilita = gen_rand(OP_PROB_PAUSA);	//Decido in modo random se andare in pausa
 	
 	if(probabilita == 0)
@@ -243,17 +237,18 @@ int pausaKikko(){
 		int inPausa = stato_inPausa();//return -1 se errore, altrimenti id dell'operatore in pausa
 		if (inPausa == 0)
 		{//Non ci sono Operatori in pausa, ci vado io :D
-			stampaLog("");
-			printf("\n\n%d : ME NE VADO IN PAUSA \n\n",getpid());fflush(stdout);
+			sprintf(messaggio, "Operatore %d: Vado in pausa.\n", id);
 			stato_hd->inPausa = KEY_START + op;	//Metto l'id della mia coda nel campo pausa
 			s_signal(sem_stato);
+			stampaLog(messaggio);
 	
 				sleep(OP_SEC_PAUSA);	//Eseguo la pausa
 	
 			s_wait(sem_stato);
 			stato_hd->inPausa = 0;
-			printf("\n\n%d : TORNO DALLA PAUSA\n\n",getpid());fflush(stdout);
+			sprintf(messaggio, "Operatore %d: Torno dalla pausa.\n", id);
 			s_signal(sem_stato);
+			stampaLog(messaggio);
 			return 1;//Riprendo a lavorare
 		}
 		else
