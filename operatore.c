@@ -37,7 +37,7 @@ semaforo sem_op_prec;
 int op; //Numero dell'operatore
 int key;	//Chiave delle sue IPC
 //float tempistiche[N_MAX_RICH] = {0.100, 0.050, 0.500, 0.150}; //Secondi di attesa
-float tempistiche[N_MAX_RICH] = {1, 1, 1, 1}; //Secondi di attesa
+float tempistiche[N_MAX_RICH] = {1, 1.5, 0.8, 2}; //Secondi di attesa
 
 int collega_gia_servito; //Booleano che indica se il collega in pausa è già stato servito
 int coda; //Coda dell'operatore
@@ -45,7 +45,7 @@ int statoHD = STATO_INIZIALE_HD;
 int nMessInCoda = 0;
 int nClientInCoda = 0;
 
-char * messaggio;
+char messaggio[5000];
 
 
 int avvia(int idOp){  //avvia l'operatore
@@ -162,7 +162,7 @@ int avvia(int idOp){  //avvia l'operatore
 				sprintf(messaggio, "%s%d : Operatore3°c: Servo client: %d, richiesta :%d\n",messaggio,getpid(),client,problema);
 				//Non risolvo nemmeno il problema, invio la segnalazione che sono chiuso
 				op_coda_invia_soluzione_CHIUSO(client);
-				sprintf(messaggio, "%s%d : Operatore3°c: Client liquidato, sono chiuso %d\n",messaggio,getpid());
+				sprintf(messaggio, "%s%d : Operatore3°c: Client liquidato, sono chiuso\n",messaggio,getpid());
 				//nClientInCoda = DIM_CODA_OP-get_val_sem(sem_coda);	//Controllo quanti client ha in coda l'op
 				//printf("%d : Operatore3°c: Ho in coda :%d clienti\n",getpid(),nClientInCoda);fflush(stdout);
 				s_signal(sem_coda);	//Lascio spazio ad un'altro processo
@@ -265,7 +265,7 @@ int pausa(){
 
 void cambiatoStatoHD(int signum)
 {
-	printf("%d : Ho ricevuto il segnale che è cambiato lo stato HD\n",getpid());
+	stampaLog("Ho ricevuto il segnale che è cambiato lo stato HD");
 	//Conto quanti client ho in coda che devono essere serviti
 	nMessInCoda = DIM_CODA_OP-get_val_sem(sem_coda);
 	//Cambio di stato il valore, 0->1 , 1->0

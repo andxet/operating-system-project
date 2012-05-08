@@ -2,6 +2,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <signal.h>
+#include <stdlib.h>
 #include "costanti.h"
 #include "operatore.h"
 #include "util.h"
@@ -82,7 +83,7 @@ void interrompi(int s){
 
 void notificaOperatori()
 {
-stampaLog("\nNotifico gli operatori del cambio di stato APERTO/CHIUSO \n");
+	//stampaLog("Notifico gli operatori del cambio di stato APERTO/CHIUSO");
 int i;
 	for (i=0; i < MAX_N_OP; i++)
 	{

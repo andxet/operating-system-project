@@ -22,6 +22,9 @@ stato_helpdesk stato_hd;
 semaforo semHelpdesk;
 
 int key, coda;
+char messaggio[5000];
+
+int verificaHD();
 
 /*
 	Valori di ritorno :
@@ -31,6 +34,7 @@ int key, coda;
 		-Tutto ok : 0
 */
 int avviaClient(){
+	printf("figlio avviato\n");
 
 	/* Il client deve verificare lo stato dell' HD per sapere se inviare o no la richiesta
 	 * Se aperto fare un random e inviare la richiesta
@@ -39,7 +43,6 @@ int avviaClient(){
 	signal(SIGCHLD, SIG_DFL);
 	
 	//printf("%d : Avviato Cliente\n",getpid()); fflush(stdout);
-	
 	int stato = verificaHD();
 //printf("%d : Cliente stato: %d\n",getpid(),stato); fflush(stdout);
 	if(stato == -1)
@@ -48,7 +51,6 @@ int avviaClient(){
 		exit(20);//L'helpdesk è chiuso.
 		
 		
-	stampaLog("************************************************");
 
 	avvia_motore_rand();	
 	//srand((unsigned) time(NULL) + getpid());//Inizializzo il motore per la creazione di numeri casuali
@@ -56,7 +58,8 @@ int avviaClient(){
 	printf("%d : Cliente mi collego all'opKey %d\n",getpid(),key); fflush(stdout);
 	//Vado al suo semaforo
 	semaforo semOpScelto = collega_semaforo(key);
-s_wait(semOpScelto);
+	
+	s_wait(semOpScelto);
 	//Ho ottenuto l'accesso, mi collego alla coda e deposito il messaggio
 	int esitoAggancio = c_coda_aggancia();
 	if (esitoAggancio < 0){
@@ -90,13 +93,16 @@ int verificaHD()//Verifica se HD è aperto o no
 {
 	//Mi collego alla memoria condivisa e controllo il valore, se è aperto o no HD
 	semHelpdesk = collega_semaforo(SEM_HD);
+	if (semHelpdesk == -1) {
+		return -1;
+	}
 
-s_wait(semHelpdesk);
+	s_wait(semHelpdesk);
 	
 	if(stato_aggancia() == -1 || stato_hd < 0 || semHelpdesk < 0)
 	{
 		stampaLog("Errore -1");
-s_signal(semHelpdesk);	
+		s_signal(semHelpdesk);	
 		return -1;//Errore nel collegarsi alle risorse
 	}
 	

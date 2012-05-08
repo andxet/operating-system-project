@@ -11,16 +11,16 @@
 #ifndef costanti
 #define DEBUG 1	//Serve per le stampe di debug :1: attivo, 0 no
 #define LIMITA_PROCESSI 1 // Serve per limitare i processi client attivi
-#define MAX_CLIENTI_GENERATI 10	//Se è attivato il limitatore di processi indica quanti client al max avere
+#define MAX_CLIENTI_GENERATI 15	//Se è attivato il limitatore di processi indica quanti client al max avere
 #define SEM_PRINT 777	//Semaforo per la gestione dell'oputput
 
 #define STATO_INIZIALE_HD 1	//Se parte in negativo potrebbe dare problemi in operatore
 
-#define MAX_N_OP  10 // Numero massimo di operatori che vengono creati dall'helpdesk
-#define DIM_CODA_OP 5 // Dimensione della coda di ogni operatore
+#define MAX_N_OP  3 // Numero massimo di operatori che vengono creati dall'helpdesk
+#define DIM_CODA_OP 3 // Dimensione della coda di ogni operatore
 					   //#define STATO_HELPDESK 0 //Indica se l'helpdesk è aperto (true) o chiuso (false)
-#define DURATA_GIORNO 60 //Tempo (secondi) in cui l'helpdesk è attivo
-#define DURATA_NOTTE 60 // Tempo (secondi) in cui l'helpdesk è disattivato
+#define DURATA_GIORNO 30 //Tempo (secondi) in cui l'helpdesk è attivo
+#define DURATA_NOTTE 30 // Tempo (secondi) in cui l'helpdesk è disattivato
 
 #define CHIUSO 0
 #define FALLIMENTO 1
@@ -29,7 +29,7 @@
 #define MAX_FALLIMENTI_HELPDESK 1
 
 //Costranti per gli operatori
-#define OP_PROB_PAUSA 2 //Ho una probabilita' su OP_PROB_PAUSA di andare in pausa, percio' 1=100%, 2=50% 
+#define OP_PROB_PAUSA 5 //Ho una probabilita' su OP_PROB_PAUSA di andare in pausa, percio' 1=100%, 2=50% 
 #define OP_SEC_PAUSA 10 //Secondi di pausa
 
 #define KEY_STATO_OP 998 //Chiave della memoria condivisa stato_helpdesk

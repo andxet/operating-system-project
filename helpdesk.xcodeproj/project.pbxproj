@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520AB93015581822001B32DE /* miacoda_cli.c in Sources */ = {isa = PBXBuildFile; fileRef = 52A3604D15304F1100050748 /* miacoda_cli.c */; };
 		5243857C153EBA5A00B240B4 /* semafori.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0B51521E26B008E2C6C /* semafori.c */; };
 		5243857D153EBA5A00B240B4 /* coda.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F09F1521E26B008E2C6C /* coda.c */; };
 		5243857E153EBA5A00B240B4 /* miacoda_op.c in Sources */ = {isa = PBXBuildFile; fileRef = 5214F0A71521E26B008E2C6C /* miacoda_op.c */; };
@@ -71,7 +72,7 @@
 		525BC45415495A0F00E3B068 /* stato_helpdesk.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stato_helpdesk.c; sourceTree = "<group>"; };
 		525BC45515495A0F00E3B068 /* stato_helpdesk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stato_helpdesk.h; sourceTree = "<group>"; };
 		525BC45D154981E300E3B068 /* client */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = client; sourceTree = BUILT_PRODUCTS_DIR; };
-		525BC4711549822B00E3B068 /* provasem.c */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = provasem.c; sourceTree = BUILT_PRODUCTS_DIR; };
+		525BC4711549822B00E3B068 /* provasem.c */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = provasem.c; path = provasem; sourceTree = BUILT_PRODUCTS_DIR; };
 		525BC47C1549A05B00E3B068 /* operazioni_client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = operazioni_client.c; sourceTree = SOURCE_ROOT; };
 		52A3604D15304F1100050748 /* miacoda_cli.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miacoda_cli.c; sourceTree = "<group>"; };
 		52A3604F15304F2100050748 /* miacoda_cli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_cli.h; sourceTree = "<group>"; };
@@ -281,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				520AB93015581822001B32DE /* miacoda_cli.c in Sources */,
 				5243857C153EBA5A00B240B4 /* semafori.c in Sources */,
 				5243857D153EBA5A00B240B4 /* coda.c in Sources */,
 				5243857E153EBA5A00B240B4 /* miacoda_op.c in Sources */,
@@ -426,6 +428,7 @@
 				525BC466154981E400E3B068 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		525BC4741549822B00E3B068 /* Build configuration list for PBXNativeTarget "provasem" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +437,7 @@
 				525BC4761549822B00E3B068 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52802A2D1521E1C70077DD15 /* Build configuration list for PBXProject "helpdesk" */ = {
 			isa = XCConfigurationList;
