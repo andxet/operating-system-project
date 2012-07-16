@@ -71,9 +71,9 @@ void interrompi(int s){
 	//MAX_CLIENTI_GENERATI=0;
 }
 
-void seppellisci(int s){
+void seppellisci(int s){//s è il valore del segnale in base al Sistema Operativo
 	int stato_figlio;
-	printf("**Seppellisco figlio : %d.\n",s);fflush(stdout); //Come mai da solo 17???
+	printf("**Seppellisco figlio.\n");fflush(stdout);
 	wait(&stato_figlio);
 	
 	numero_figli--;
