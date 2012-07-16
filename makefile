@@ -1,5 +1,5 @@
 # Progetto di Sistemi Operativi aa. 2011 2012
-# repository
+# makefile
 # Fiori Peretti Polto
 
 all: 

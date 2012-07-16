@@ -76,7 +76,7 @@
 		525BC47C1549A05B00E3B068 /* operazioni_client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = operazioni_client.c; sourceTree = SOURCE_ROOT; };
 		52A3604D15304F1100050748 /* miacoda_cli.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = miacoda_cli.c; sourceTree = "<group>"; };
 		52A3604F15304F2100050748 /* miacoda_cli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = miacoda_cli.h; sourceTree = "<group>"; };
-		52C592361546B375004958D8 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		52C592361546B375004958D8 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.csh; };
 		52CF2EE515371A13002040D2 /* costanti.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = costanti.h; sourceTree = "<group>"; };
 		52CF2EE715371BA4002040D2 /* operatore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = operatore.h; sourceTree = "<group>"; };
 		52CF2EE91537307F002040D2 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
