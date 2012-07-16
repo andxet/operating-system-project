@@ -226,6 +226,10 @@ void licenzia(int s){
 }
 
 int pausa(){
+	//Controllo se HD è aperto così vedo se posso andare in pausa
+	if(stato_hd->aperto != APERTO)
+		return 0; //Non posso andare in pausa
+		
 	//Faccio un random per vedere se devo andare in pausa
 	int probabilita = gen_rand(OP_PROB_PAUSA);	//Decido in modo random se andare in pausa
 	
