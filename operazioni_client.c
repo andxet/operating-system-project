@@ -75,7 +75,7 @@ int avviaClient(){
 	if(risposta != 0){
 		if(risposta == 10){
 			printf("%d : L'operatore: %d ha risposto che era chiuso\n",getpid(),richiesta); fflush(stdout);
-			exit(0);//Lo chiudo correttamente
+			exit(20);//Lo chiudo correttamente
 		}
 		printf("%d : L'operatore: %d ha risposto NON VALIDO\n",getpid(),richiesta); fflush(stdout);
 		exit(30);//L'operatore è ubriaco?
