@@ -1,9 +1,11 @@
-Progetto Sistemi Operativi 2011/2012
+# This is the project I made with @federico_fiori and @vittoriopolto for the Operating Systems course at the University of Turin.
+
+## Progetto Sistemi Operativi 2011/2012
 
 Scopo del progetto è realizzare un sistema di supporto a un centralino telefonico di HelpDesk, finalizzato allo smistamento e alla gestione delle telefonate pendenti, che realizzi la seguente specifica.
 La realizzazione dovrà fare uso degli strumenti studiati durante il corso,teoria e laboratorio, sia per creare e gestire processi sia per sincronizzare l'esecuzione di processi tramite semafori, code di messaggi, memoria condivisa e segnali.
 
-Processi
+### Processi
 Vi sono due tipi di processi: processi cliente e processi helpdesk.
 Ogni processo cliente ha una richiesta da porgere al sistema di HelpDesk, il quale però è attivo per una quantità di tempo giornaliera limitata e potrà quindi accettare e gestire un numero limitato di richieste.
 Un processo cliente che si rivolga al servizio di HelpDesk deve poter distinguere fra i momenti in cui tale servizio è attivo e i momenti in cui non lo è e, in quest'ultimo caso, terminare immediatamente.
