@@ -1,4 +1,5 @@
-# This is the project I made with @federico_fiori and @vittoriopolto for the Operating Systems course at the University of Turin.
+# Operating Systems Project
+This is the project I made with @federico_fiori and @vittoriopolto for the Operating Systems course at the University of Turin.
 
 ## Progetto Sistemi Operativi 2011/2012
 
